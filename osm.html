@@ -1,0 +1,202 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+    $("#footer").load("footer.html"); 
+    });
+      </script>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>OpenStreetMap</title>
+  <link rel="shortcut icon" href="image/planet-earth.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/python.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <div class="container-fluid" id="footer"></div>
+    <div class="block">
+    <div class="article">
+      <h1>Visualisation des données "landuse" d'OpenStreetMap avec osmnx</h1>
+      <div class="tags">
+      <h4> <span class="badge bg-secondary">Python</span></h4>
+      <h4> <span class="badge bg-secondary">Pandas</span></h4>
+      <h4> <span class="badge bg-secondary" style="float:none">OSM</span></h4>
+  </div>
+       <p >Ce diagramme utilise les données d'OpenStreetMap récupérés à partir de la librairie osmnx. La librairie envoie une requête aux serveurs d'OpenStreetMap qui nous renvoient les données de landue. Le graphique est ensuite généré par Plotly.
+
+    </p> 
+       <iframe src="file.html" allow="clipboard-read; clipboard-write" scrolling="no"frameBorder="0" height="50%" width="100%" title=""></iframe>
+       <iframe src="https://osmlanduse.org/#13.5/-0.36386/43.31562/0/"scrolling="no"frameBorder="0" height="50%" width="100%" title="Iframe Example" style="margin-bottom: 7%;"></iframe>
+
+       <pre><code class="python">import requests
+import geopandas as gpd
+from geopy.geocoders import Nominatim
+import plotly.graph_objects as go
+import json
+import osmnx as ox
+import plotly.express as px
+
+def diag(input1):
+    place_name = input1
+    tags = {'landuse': True}
+    land = ox.geometries_from_place(place_name, tags)
+    land = land.to_crs("epsg:2154")
+    limite = gpd.read_file(r"C:\Users\Florian\Desktop\département\COMMUNE.SHP")
+    limite = limite[limite["NOM_COM"] == place_name]
+    land = land.clip(limite)
+    land["surface"] = land.area
+    land = land.groupby("landuse").sum("surface").reset_index()
+    land = land.sort_values("surface", ascending=False)
+    other = land["surface"].iloc[4:].sum()
+    line = {"landuse": "Autre","surface": other}
+    land["landuse"] = land["landuse"].replace(
+        [
+            "farmland",
+            "military",
+            "forest",
+            "meadow",
+
+            "residential",
+            "farmyard",
+            "grass",
+            "industrial",
+            "retail",
+            "cemetery",
+            "vineyard",
+            "basin",
+            "commercial",
+            "village_green",
+            "university",
+            "construction",
+            "tourism",
+            "healthcare",
+            "quarry",
+            "railway",
+            "recreation_ground",
+            "garages",
+            "landfill",
+            "brownfield",
+            "port",
+        ],
+        [
+            "Terres agricoles",
+            "Militaire",
+            "Forêts",
+            "Pré/prairie",
+            "Zones résidentielles",
+            "Ferme",
+            "Herbe",
+            "Industriel",
+            "Marché",
+            "Cimetière",
+            "Vignoble",
+            "Bassin",
+            "Commercial",
+            "Village vert",
+            "Université",
+            "Construction",
+            "Tourisme",
+            "Hôpitaux",
+            "Carrière de surface",
+            "Chemin de fer",
+            "Terrains de loisirs",
+            "Garages",
+            "Décharge",
+            "Friches industrielles",
+            "Port",
+        ],
+    )
+    land = land.append(line, ignore_index=True)
+    land = land.iloc[[0, 1, 2, 3, -1]].reset_index()
+
+    couleur = []
+    color = {
+        "Terres agricoles": "#ffffa8",
+        "Militaire": "peru",
+        "Industriel": "red",
+        "Pré/prairie": "wheat",
+        "Forêts": "#8dc56c",
+        "Autre": "lightgrey",
+        "Zones résidentielles": "#ccb18b",
+        "Marché": "brown",
+        "Vignoble": "blueviolet",
+        "Construction": "orange",
+        "Commercial": "yellow",
+        "Herbe": "#ccf24d",
+        "Tourisme": "chocolate",
+        "Carrière de surface": "darkgrey",
+        "Chemin de fer": "grey",
+        "Terrains de loisirs": "pink",
+        "Garages": "saddlebrown",
+        "Décharge": "goldenrod",
+        "Friches industrielles": "sienna",
+        "port": "royalblue",
+    }
+    liste = land["landuse"].tolist()
+    set = []
+
+    liste = sorted(liste, reverse=False)
+    color = {key: value for key, value in sorted(color.items())}
+    for i, j in color.items():
+        for k in liste:
+            if i == k:
+                set.append(j)
+    color = dict(zip(liste, set))
+
+    land["surface"] = [i/1000000 for i in land["surface"]]
+    land["surface"] = land["surface"].round(decimals=1)
+
+    fig = px.pie(
+        land,
+        values="surface",
+        names="landuse",
+        color="landuse",
+        color_discrete_map=color,
+        hole=.4
+    )
+    family='-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif'
+    fig.update_traces(hovertemplate='Occupation : %{label}Surface : %{value:.0f}km²')
+    fig.layout.xaxis.fixedrange = True
+    fig.layout.yaxis.fixedrange = True
+    fig.update_layout(
+        {
+            "plot_bgcolor": "rgba(255,255,255,0)",
+            "paper_bgcolor": "rgba(255,255,255,0)",
+        },
+        legend_itemdoubleclick=False,
+        legend=dict(xanchor="center", orientation="h", x=0.5),
+        font=dict(
+            family="-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
+            size=13,
+        ),
+        hoverlabel=dict(font_size=14, font_family=family),
+        title_x=0.5,
+        title_y=0.95,
+    )
+    fig.update_layout(
+        title={
+            'text': f"Occupation du sol dans le ville de {place_name}Source : OpenStreetMap",
+            'y': 0.95,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'})
+
+    fig.update_traces(texttemplate="%{percent:.0%}")
+    fig.write_html(f"C:/Users/Florian/Desktop/AASITE/public_html/file.html",config={'displayModeBar': False})
+
+    return fig
+
+diag("Pau")
+
+</code></pre>
+    </div>
+</div>
+
+    </body>

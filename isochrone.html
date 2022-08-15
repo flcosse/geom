@@ -1,0 +1,411 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+      $("#footer").load("footer.html"); 
+      });
+        </script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Isochrone</title>
+    <link rel="shortcut icon" href="image/planet-earth.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/python.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <div class="container-fluid" id="footer"></div>
+      <div class="block">
+      <div class="article">
+        <h1>Isochrone avec l'api openrouteserivce et Plotly</h1>
+        <div class="tags">
+        <h4> <span class="badge bg-secondary">Python</span></h4>
+        <h4> <span class="badge bg-secondary">API</span></h4>
+        <h4> <span class="badge bg-secondary" style="float:none">Géocodage</span></h4>
+    </div>
+       <p >La librairie Nominatim renvoie les coordonnées d'une ville. Ces coordonnées servent à alimenter la requête faite à l'api d'openrouteserivce. La réponse sous format json est ensuite utilisée pour générer une carte avec Plotly.</p> 
+        <div class="card" style="width: 70%;text-align: center !important;margin:auto;margin-bottom: 5%;margin-top: 5%;">
+            <img src="image/DASH.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <a href="https://dash-isochrone.herokuapp.com/" target="_blank" class="btn btn-primary">Accéder à l'application</a>
+            </div>
+          </div>
+        <pre><code class="python">import requests
+import geopandas as gpd
+from geopy.geocoders import Nominatim
+import plotly.express as px
+import plotly.graph_objects as go
+import json
+import dash_bootstrap_components as dbc
+import dash
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output
+import osmnx as ox
+import os
+import flask
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, ])
+app.title = "Générateur d'isochrone"
+server = app.server
+config = {"displayModeBar": False}
+loading_style = {'position': 'relative', "margin-left": "auto", "margin-right": "auto", "top": "40vh", "z-index": "999"}
+
+app.layout = html.Div(
+    [
+        html.Div(
+            [
+                dcc.Loading(
+                    id="loading",
+                    type="default",
+                    parent_style=loading_style,
+                    color="#75cff0"
+                ),
+                html.Div(
+                    [
+                        html.Label(
+                            "Chercher une ville/adresse",
+                            style={
+                                "font-weight": "bold",
+                                "color": "dimgrey",
+                            },
+                        ),
+                        dcc.Input(
+                            id="input1",
+                            type="text",
+                            value="Pontacq",
+                            debounce=True,
+                            style={"width": "100%"},
+                        ),
+                    ],
+                    style={
+                        "border": "0px solid rgba(255,255,255,1)",
+                        "background-color": "rgba(250,250,251,255)",
+                        "z-index": "999",
+                        "width": "15.5%",
+                        "position": "relative",
+                        "margin-top": "5%",
+                        "left": "4vh",
+                        "padding": "1vh",
+                    },
+                ),
+                html.Div(
+                    [
+                        html.Label(
+                            "Modes", style={"font-weight": "bold", "color": "dimgrey"}
+                        ),
+                        dcc.RadioItems(
+                            id="input-radio-button",
+                            options=[
+                                {"label": " Voiture", "value": "driving-car"},
+                                {"label": " Vélo", "value": "cycling-regular"},
+                                {"label": " À pieds", "value": "foot-walking"},
+                            ],
+                            style={
+                                "padding": "1vh",
+                                "width": "90%",
+                                "display": "inline-block"
+                            },
+                            value="driving-car",
+                        ),
+                    ],
+                    style={
+                        "position": "relative",
+                        "z-index": "999",
+                        "background-color": "rgba(250,250,251,255)",
+                        "padding": "1vh",
+                        "margin-top": "1%",
+                        "width": "8%",
+                        "left": "4vh",
+                        "height": "30%",
+                    },
+                ),
+                html.Div(
+                    [
+                        html.Label(
+                            "Isochrone",
+                            style={
+                                "padding-right": "1vh",
+                                "font-weight": "bold",
+                                "color": "dimgrey",
+                            },
+                        ),
+                        html.Br(),
+                        html.Label("Incrémentation (min)"),
+                        dcc.Input(
+                            id="inc",
+                            type="number",
+                            min=2,
+                            max=11,
+                            value=10,
+                            debounce=True,
+                            style={
+                                "width": "5.5vh",
+                                "text-align": "center",
+                                "margin-left": "1vh",
+                            },
+                        ),
+                    ],
+                    style={
+                        "border": "0px solid rgba(255,255,255,1)",
+                        "background-color": "rgba(250,250,251,255)",
+                        "z-index": "999",
+                        "max-width": "auto",
+                        "position": "relative",
+                        "left": "4vh",
+                        "margin-top": "1%",
+                        "padding": "1vh",
+                        "width": "fit-content",
+                    },
+                ),
+                html.Div(
+                    [
+                        html.Label(
+                            "Opacité", style={"font-weight": "bold", "color": "dimgrey"}
+                        ),
+                        dcc.Slider(
+                            value=0.6,
+                            step=0.2,
+                            min=0,
+                            max=1,
+                            marks={
+                                0: "0%",
+                                0.2: "20%",
+                                0.4: "40%",
+                                0.6: "60%",
+                                0.8: "80%",
+                                1: "100%",
+                            },
+                            id="op",
+                        ),
+                    ],
+                    style={
+                        "z-index": "999",
+                        "position": "relative",
+                        "width": "15.5%",
+                        "left": "4vh",
+                        "margin-top": "1%",
+                        "background-color": "rgba(250,250,251,255)",
+                        "padding-left": "1vh",
+                    },
+                ),
+            ]
+        ),
+        html.Div(
+            [
+                dcc.Graph(
+                    id="our_graph",
+                    style={
+                        "display": "none",
+                        "width": "100%",
+                        "height": "100vh",
+                        "top":"0",
+                        "left":"0",
+                        "position": "absolute",
+                    },
+                    config=config,
+                ),
+                dcc.Graph(
+                    id="info",
+                    style={
+                        "display": "none",
+                        "width": "15%",
+                        "height": "30vh",
+                        "bottom":"5%",
+                        "right":"4%",
+                        "position": "absolute",
+                        "display": "none"
+                    },
+                    config=config,
+                ),
+            ]
+        ),
+    ]
+)
+
+@app.callback(
+    [Output('our_graph', 'figure'),
+     Output("our_graph", "style"),
+     Output('loading', 'parent_style'),
+     Output('info', 'figure'),
+     Output("info", "style")],
+    [
+        Input(component_id="input1", component_property="value"),
+        Input(component_id="op", component_property="value"),
+        Input(component_id="inc", component_property="value"),
+        Input(component_id="input-radio-button", component_property="value"),
+    ],
+)
+def iso(input1, op, inc, mode):
+    new_loading_style = loading_style
+    nom = input1
+    geolocator = Nominatim(user_agent="myapplication")
+    location = geolocator.geocode(nom)
+    text = [i for i in location]
+    coord = text[-1]
+    loc = [[coord[1], coord[0]]]
+    temp = [x for x in range(inc, 60, inc)]
+    temp = temp[:5]
+    dist = [i * 60 for i in temp]
+    dist = sorted(dist)
+    body = {"locations": loc, "range": dist}
+    family = '-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif'
+    headers = {
+        'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+        'Authorization': '5b3ce3597851110001cf6248df22650771d94c06a73d6fb78ba4706b',
+        'Content-Type': 'application/json; charset=utf-8'
+    }
+    call = requests.post(f'https://api.openrouteservice.org/v2/isochrones/{mode}', json=body, headers=headers)
+    call = call.json()
+    gdf = gpd.GeoDataFrame.from_features(call["features"])
+    data = gdf.iloc[0]["geometry"]
+    tags = {'shop': ["general","department_store","mall","supermarket","wholesale"]}
+    comm = ox.geometries_from_polygon(data, tags)
+    tags2 = {"amenity":["bar", "restaurant"]}
+    bar = ox.geometries_from_polygon(data, tags2)
+    tags3 = {"amenity": ["school","university","college"]}
+    school = ox.geometries_from_polygon(data, tags3)
+    x = ["Supermarchés","Restaurants","Ecoles"]
+    y = [len(comm),len(bar),len(school)]
+    info = px.bar(x=x, y=y,color_discrete_sequence=["#e15759","#e15759","#e15759"],title="Services à proximitéSource : OSM",)
+    info.update_layout(
+        {
+            "plot_bgcolor": "rgba(255,255,255,0)",
+            "paper_bgcolor": "rgba(255,255,255,0.7)",
+        },
+    margin={"r": 5, "l": 5, "b": 5, "t": 30},
+    showlegend=False,
+    font=dict(size=11,
+              family="-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif"),
+        title_font_family="-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
+        title_x=0.5,
+        hoverlabel=dict(
+            bgcolor="rgba(255,255,255,0.8)",
+        )
+        )
+    info.update_traces(hovertemplate="".join([
+            "%{y} %{x}"
+        ]))
+    info.update_yaxes(title='y', visible=False, showticklabels=False)
+    info.update_xaxes(title=None, visible=True, showticklabels=True)
+    legend_itemdoubleclick = False
+    info.layout.xaxis.fixedrange = True
+    info.layout.yaxis.fixedrange = True
+    info.update_yaxes(zeroline=False,)
+    info.update_yaxes(showgrid=False)
+
+    for i, j in zip(range((len(dist) - 1), -1, -1), range((len(dist) - 2), -1, -1)):
+        gdf["geometry"][i] = gdf["geometry"][i].difference(gdf["geometry"][j])
+    val = gdf.to_json()
+    val = json.loads(val)
+    gdf["min"] = [i / 60 for i in gdf["value"]]
+    tok = open(".mapbox_token.txt").read()
+    color = [
+        "rgb(239,237,143)",
+        "rgb(213,221,119)",
+        "rgb(169,190,83)",
+        "rgb(124,165,62)",
+        "rgb(56,130,48)",
+    ]
+
+    fig = go.Figure(
+        data=[
+            go.Choroplethmapbox(
+                geojson=val,
+                locations=gdf.index,
+                z=gdf["min"].astype(float),
+                colorscale=[
+                    [0, color[0]],
+                    [0.1, color[0]],
+                    [0.1, color[0]],
+                    [0.2, color[0]],
+                    [0.2, color[1]],
+                    [0.3, color[1]],
+                    [0.3, color[1]],
+                    [0.4, color[1]],
+                    [0.4, color[2]],
+                    [0.5, color[2]],
+                    [0.5, color[2]],
+                    [0.6, color[2]],
+                    [0.6, color[3]],
+                    [0.7, color[3]],
+                    [0.7, color[3]],
+                    [0.8, color[3]],
+                    [0.8, color[4]],
+                    [0.9, color[4]],
+                    [0.9, color[4]],
+                    [1.0, color[4]],
+                ],
+                colorbar=dict(tick0=0, dtick=inc),
+            )
+        ]
+    )
+    lat = gdf["center"][0][1]
+    lon = gdf["center"][0][0]
+
+    fig.update_traces(
+        colorbar_len=0.25,
+        colorbar_orientation="v",
+        marker_opacity=op,
+        marker_line_color="dimgrey",
+        marker_line_width=0.3,
+        hoverinfo="none",
+        colorbar_thickness=20,
+        colorbar_y=0.2,
+        colorbar_x=0.02,
+        colorbar_outlinewidth=0,
+        colorbar_bgcolor="rgba(250,250,251,255)",
+        colorbar_tickfont=dict(family=family, size=11, color="gray"),
+        colorbar_title_side="top",
+        colorbar_title_text="Trajets envoiture (min.)",
+        colorbar_title_font=dict(family=family, color="rgb(100,100,100)", size=15),
+    )
+    fig.update_layout(
+        margin={"r": 0, "l": 0, "b": 0, "t": 0},
+        mapbox=dict(
+            center=dict(lat=lat, lon=lon),
+            accesstoken=tok,
+            zoom=9.2,
+            uirevision="oui",
+            style="mapbox://styles/mapbox/streets-v11",
+        ),
+        legend_itemdoubleclick=False,
+    )
+
+    return (
+        fig,
+        {
+            "width": "100%",
+            "height": "100vh",
+            "top": "0",
+            "left": "0",
+            "position": "absolute",
+            "display": "inline",
+        },
+        new_loading_style,
+        info,
+        {
+            "width": "15%",
+            "height": "30vh",
+            "bottom": "7%",
+            "right": "4%",
+            "position": "absolute",
+            "display": "inline"
+        }
+    )
+
+
+if __name__ == '__main__':
+    app.run_server(debug=False)
+
+</code></pre>
+    </div>
+</div>
+
+    </body>
