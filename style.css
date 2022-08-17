@@ -74,9 +74,9 @@ h1 {
 .badge.bg-secondary {
 	float: left;
 	margin-right: 1%;
-	font-size: 16px;
+	font-size: 13px;
 	padding: 9px;
-	background-color: #525252!important;
+	background-color: #757575!important;
 	color: rgb(255, 255, 255) !important;
 	border-radius: 10px;
 }
