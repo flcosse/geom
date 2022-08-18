@@ -1,7 +1,9 @@
 * {
 	font-family: Segoe UI
 }
-
+body{
+	background-color:#f9f9fa !important;
+}
 html {
 	background-color: #f9f9fa;
 	margin-left: 15%;
