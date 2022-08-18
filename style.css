@@ -74,16 +74,16 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 5% !important;
 	font-weight: 700 !important;
-	color: #525252;
+	color: #353535;
 	margin-top: 11vh !important;
 }
 
 .badge.bg-secondary {
 	float: left;
 	margin-right: 1%;
-	font-size: 13px;
+	font-size: 15px;
 	padding: 9px;
-	background-color: #757575 !important;
+	background-color: #6c757d !important;
 	color: rgb(255, 255, 255) !important;
 	border-radius: 10px;
 	margin-bottom: 0.5vh;

@@ -30,12 +30,15 @@
         <h4> <span class="badge bg-secondary" style="float:none">Géocodage</span></h4>
     </div>
        <p >La librairie Nominatim renvoie les coordonnées d'une ville. Ces coordonnées servent à alimenter la requête faite à l'api d'openrouteserivce. La réponse sous format json est ensuite utilisée pour générer une carte avec Plotly.</p> 
-        <div class="card" style="width: 70%;text-align: center !important;margin:auto;margin-bottom: 5%;margin-top: 5%;">
-            <img src="image/DASH.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <a href="https://dash-isochrone.herokuapp.com/" target="_blank" class="btn btn-primary">Accéder à l'application</a>
-            </div>
-          </div>
+       <div class="card" style="width: auto;margin:auto;">
+        <img src="image/DASH.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Générateur d'isochrone</h5>
+          <p class="card-text">Isochrones générés via les options présentes dans l'interface.</p>
+          <a href="https://www.arcgis.com/apps/dashboards/3978fdd2a48d418bbc02e92e26a13cae" class="btn btn-outline-secondary">Accéder à l'application</a>
+        </div>
+      </div>
+      <br>
         <pre><code class="python">import requests
 import geopandas as gpd
 from geopy.geocoders import Nominatim
