@@ -86,11 +86,13 @@ h1 {
 	background-color: #757575 !important;
 	color: rgb(255, 255, 255) !important;
 	border-radius: 10px;
+	margin-bottom: 0.5vh;
 }
 
 
 .badge.bg-secondary:hover {
 	background-color: rgb(158, 158, 158) !important;
+
 }
 
 pre {
