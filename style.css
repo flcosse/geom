@@ -45,7 +45,7 @@ html {
 }
 
 .card:hover {
-	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
 	transition: transform .2s;
@@ -73,6 +73,7 @@ h1 {
 	margin-bottom: 5% !important;
 	font-weight: 700 !important;
 	color: #525252;
+	margin-top: 11vh !important;
 }
 
 .badge.bg-secondary {
@@ -91,7 +92,7 @@ h1 {
 }
 
 pre {
-	filter: drop-shadow(0 0 5px rgb(220, 220, 220));
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
 	page-break-inside: avoid;
 	display: block;
 	margin-top: 0;
@@ -115,7 +116,7 @@ pre {
 pre code {
 	font-family: monospace !important;
 	height: 80vh;
-	border-radius: 5px;
+	border-radius: 5px !important;
 	filter: drop-shadow(0 0 5px rgb(220, 220, 220));
 	background-color: rgb(255, 255, 255) !important;
 }
