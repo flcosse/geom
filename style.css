@@ -201,3 +201,8 @@ p {
 	width:32% !important;
 	height: 9% !important;
 }
+
+.d-inline-block.align-text-top{
+	width:100%;
+	margin-left:75%
+}
