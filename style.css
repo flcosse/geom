@@ -175,3 +175,15 @@ p {
 .python.hljs.language-python {
 	font-size: 15px;
 }
+
+.nav-link.dropdown-toggle, .nav-link{
+	font-weight: 500 !important;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+	border:1px solid rgb(46, 46, 46) !important;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding:1vh !important;
+	width:32% !important;
+	height: 9% !important;
+}
