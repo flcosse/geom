@@ -33,12 +33,15 @@
        <p >Les données sont récupérées depuis un CSV contenant plus de 200 000 lignes. Ces données sont traitées et filtrées avec Pandas et les graphiques sont générés par Plotly et Dash.</p> 
        ableau de bord inspiré de l'exercice final de <a href="https://github.com/Geo-Python-2021/Final-exercise" target="_blank"  class="link-primary" style="font-weight: 500;">
         Geo-Python 2021</a>.
-       <div class="card" style="width: 70%;text-align: center !important;margin:auto;margin-bottom: 5%;margin-top: 5%;">
+        <div class="card" style="width: auto;margin:auto">
             <img src="image/MET.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <a href="https://dash-dmeteo.herokuapp.com/" target="_blank" class="btn btn-primary">Accéder à l'application</a>
+              <h5 class="card-title">Application Dash</h5>
+              <p class="card-text">Visualisation permettant d'observer les dynamiques de températures sur une plage de temps choisie par l'utilisateur.</p>
+              <a href="https://dash-dmeteo.herokuapp.com/"  class="btn btn-outline-secondary">Accéder à l'application</a>
             </div>
           </div>
+          <br>
         <pre><code class="python">import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
