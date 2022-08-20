@@ -217,3 +217,8 @@ p {
 .nav-link.active{
 	color:#000000 !important;
 }
+
+#logo
+  {
+    cursor:pointer;
+  }
