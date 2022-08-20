@@ -224,8 +224,8 @@ p {
   }
 
 .navbar{
-	left:14% !important;
-	right:14% !important;
+	left:13% !important;
+	right:13% !important;
 	}
 
 
@@ -251,5 +251,5 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 10px -7px;
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
 }
