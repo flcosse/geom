@@ -1,0 +1,254 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+      $("#footer").load("footer.html"); 
+      });
+        </script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>PyQGIS</title>
+    <link rel="shortcut icon" href="image/planet-earth.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/python.min.js"></script>
+  
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <div class="container-fluid" id="footer"></div>
+      <div class="block">
+      <div class="article">
+        <h1>Tracé 3D avec PyQGIS et Plotly</h1>
+        <div class="tags">
+        <h4> <span class="badge bg-secondary">Python</span></h4>
+        <h4> <span class="badge bg-secondary">Rasterio</span></h4>
+        <h4> <span class="badge bg-secondary">Shapely</span></h4>
+        <h4> <span class="badge bg-secondary">Dash</span></h4>
+        <h4> <span class="badge bg-secondary" style="float:none">Leaflet</span></h4>
+    </div>
+         <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique.</p> 
+         <div class="fi" style="text-align: center">
+         <iframe src="https://dash-topo.herokuapp.com"scrolling="no"  frameBorder="0" height="120%" width="100%" title=""></iframe>
+      </div>
+         <pre><code class="python">import geopandas as gpd
+import numpy as np
+import pandas as pd
+import rasterio
+from pyproj import Geod
+from shapely.geometry import LineString
+from shapely.ops import unary_union
+import plotly.graph_objects as go
+from statistics import mean
+import math
+import dash
+from dash import dcc
+import dash_leaflet as dl
+from dash import html, Output, Input
+from scipy.ndimage.filters import uniform_filter1d
+from dash_extensions.javascript import arrow_function
+
+
+family = "-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif"
+app = dash.Dash(__name__, external_scripts=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+server = app.server
+app.css.append_css({ "external_url" : "/assets/stylesheet.css" })
+url = 'https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/png&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}'
+attribution = 'Geoportail France'
+
+app.layout = html.Div(
+    [
+        html.Div(
+            [
+                html.P(
+                    "Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil. ",
+                    style={"font-family": family, "font-weight": "500"},
+                ),
+                dl.Map(
+                    center=[44.7904, 4.8065],
+                    zoom=8,
+                    children=[
+                        dl.TileLayer(url=url, maxZoom=20, attribution=attribution),
+                        dl.FeatureGroup(
+                            [
+                                dl.EditControl(
+                                    drawToolbar={"mode": "polyline"}, id="edit_control"
+                                )
+                            ]
+                        ),
+                        dl.LayersControl(
+                            dl.Overlay(
+                                dl.GeoJSON(url="/assets/data.geojson", id="capitals"),
+                                name="Zone d'étude",
+                                checked=True,
+                            )
+                        ),
+                        dl.GeoJSON(
+                            id="geojson",
+                            hoverStyle=arrow_function(
+                                dict(weight=5, color="#666", dashArray="")
+                            ),
+                            options=dict(color="rgb(255, 170, 0)"),
+                        ),
+                    ],
+                    style={
+                        "width": "100%",
+                        "height": "40vh",
+                        "margin": "auto",
+                        "display": "inline-block",
+                    },
+                    id="mirror",
+                ),
+            ]
+        ),
+        html.Div(
+            [
+                dcc.Graph(
+                    id="our_graph",
+                    style={
+                        "height": "40vh",
+                        "position": "absolute",
+                        "width": "98%",
+                        "display": "none",
+                    },
+                )
+            ]
+        ),
+    ],
+    style={"background-color": "rgba(0,0,0,0)"},
+)
+
+
+@app.callback(
+    [
+        Output("geojson", "data"),
+        Output("our_graph", "figure"),
+        Output("our_graph", "style"),
+    ],
+    [Input("edit_control", "geojson")],
+)
+def profil(x):
+    coord1 = (
+        x["features"][-1]["geometry"]["coordinates"][0][0],
+        x["features"][-1]["geometry"]["coordinates"][0][1],
+    )
+    coord2 = (
+        x["features"][-1]["geometry"]["coordinates"][1][0],
+        x["features"][-1]["geometry"]["coordinates"][1][1],
+    )
+    src = rasterio.open(r"RASTER2.tif")
+    line = LineString([(coord1[0], coord1[1]), (coord2[0], coord2[1])])
+    geod = Geod(ellps="WGS84")
+    total_length = geod.geometry_length(line)
+    distance_delta = math.log2(total_length) / 100000
+    distances = np.arange(0, line.length, distance_delta)
+    points = [line.interpolate(distance) for distance in distances][line.boundary[1]]
+    multipoint = unary_union(points)
+    gdf2 = gpd.GeoDataFrame(index=[0], crs="EPSG:4326", geometry=[multipoint])
+    lat = [i.y for i in gdf2["geometry"][0]]
+    long = [i.x for i in gdf2["geometry"][0]]
+    df = pd.DataFrame({"Latitude": lat, "Longitude": long})
+    gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude))
+    gdf.crs = "EPSG:4326"
+    coord_list = [(x, y) for x, y in zip(gdf["geometry"].x, gdf["geometry"].y)]
+    gdf["value"] = [x for x in src.sample(coord_list)]
+    gdf = gdf.to_crs(2154)
+    data = x
+    x = [gdf["geometry"][0].distance(i) for i in gdf["geometry"]]
+    gdf["Distance"] = x
+    gdf = gdf.sort_values(by="Distance", ascending=True)
+
+    if gdf["Longitude"][0] != coord1[0]:
+        gdf = gdf.sort_values(by=["Longitude"], ascending=False)
+
+    gdf["value"] = gdf["value"].astype("float")
+    y = gdf["value"].to_list()
+    rgb = "255, 170, 0"
+    fig = go.Figure(
+        data=[
+            go.Scatter(
+                customdata=np.stack((gdf["Longitude"], gdf["Latitude"]), axis=1),
+                x=x,
+                y=uniform_filter1d(y, size=3),
+                hovertemplate="Distance : %{x:.0f}mAltitude : %{y:.0f}mLat / lon: %{customdata[1]:.3f} / %{customdata[0]:.3f}",
+                fill="tozeroy",
+                line_color=f"rgb({rgb})",
+                mode="lines",
+                fillcolor=f"rgba({rgb}, 0.3)",
+                hoverinfo="none",
+            )
+        ],
+    )
+    moyenne = mean(y)
+    moyenne = round(moyenne, 1)
+    maxi = int(float(max(y)))
+    pente = round(((y[-1] - y[0]) / max(x)) * 100, 1)
+    fig.update_yaxes(ticks="outside")
+    fig.update_xaxes(ticks="outside")
+    chiffre = 240
+    color = f"rgb({chiffre}, {chiffre}, {chiffre})"
+    fig.update(layout_yaxis_range=[0, maxi * 1.5])
+
+    fig.update_xaxes(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor="#686c69",
+        showgrid=True,
+        gridwidth=0.1,
+        gridcolor=color,
+    )
+    fig.update_yaxes(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor="#686c69",
+        showgrid=True,
+        gridwidth=0.1,
+        gridcolor=color,
+    )
+    fig.update_yaxes(title_text="Altitude")
+    fig.layout.xaxis.fixedrange = True
+    fig.layout.yaxis.fixedrange = True
+    fig.update_layout(
+        {
+            "plot_bgcolor": "rgba(255,255,255,0)",
+            "paper_bgcolor": "rgba(255,255,255,0)",
+        },
+        legend_itemdoubleclick=False,
+        margin={"r": 0, "l": 0},
+        xaxis_title=f"DistanceLongueur : {int(max(x))}m / Dénivelé : {round(y[-1] - y[0], 1)}m / Moyenne : {moyenne}m / Pente : {pente}%",
+        font=dict(size=11, family=family),
+        title_text=f"Profil topographique,Départ : {round(y[0])}m - Arrivée : {round(y[-1])}m ",
+        title_x=0,
+        title_y=0.9,
+        hovermode="x",
+        legend=dict(title=None),
+        hoverlabel=dict(
+            bgcolor="rgba(255,255,255,0.8)",
+            font=dict(
+                color="black",
+                family="-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
+                size=11,
+            ),
+        ),
+    )
+
+    return (
+        data,
+        fig,
+        {"height": "40vh", "position": "absolute", "width": "98%", "display": "inline"},
+    )
+
+
+if __name__ == "__main__":
+    app.run_server(debug=False)
+
+
+  </code></pre>
+      </div>
+  </div>
+  
+      </body>

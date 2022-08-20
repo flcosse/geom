@@ -185,7 +185,7 @@ p {
 }
 
 .navbar.fixed-top {
-	background-color: rgba(255, 255, 255, 0.98) !important;
+	background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .python.hljs.language-python {
