@@ -205,16 +205,15 @@ p {
 }
 
 .d-inline-block.align-text-top{
-	margin-left:14.5%;
-	width:25px
+	margin-left:12.5rem !important;
+	width:25px;
+    display:block;
 }
 
-.navbar-nav{
-	font-weight: 500;
-	color:rgb(95, 95, 95) !important
+.nav-link{
+	color:#000000 !important
 }
 
 .nav-link.active{
-	color:rgb(95, 95, 95) !important;
-	font-weight: 500;
+	color:#000000 !important;
 }
