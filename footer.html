@@ -1,8 +1,17 @@
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#f9f9fa !important;box-shadow: 0 12px 12px -8px rgba(33, 35, 38, 0.1);" >
+<nav class="navbar navbar-expand-lg fixed-top"  style="background-color:#f9f9fa !important" >
   <script>
     $("#logo").click(function() {
   window.location.href = 'index.html'
 });
+$(window).scroll(function() {     
+    var scroll = $(window).scrollTop();
+    if (scroll > 0) {
+        $(".navbar.navbar-expand-lg.fixed-top").addClass("active");
+    }
+    else {
+        $(".navbar.navbar-expand-lg.fixed-top").removeClass("active");
+    }
+})
   </script>
   <div class="container-fluid" >
 

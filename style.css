@@ -236,3 +236,12 @@ p {
 		margin-top:17% !important
 	}
   }
+
+
+.navbar.navbar-expand-lg.fixed-top {
+
+}
+
+.navbar.navbar-expand-lg.fixed-top.active {
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 10px -7px;
+}
