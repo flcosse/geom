@@ -71,10 +71,10 @@ html {
 h1 {
 	background-color: #f9f9fa !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-	margin-bottom: 5% !important;
+	margin-bottom: 3% !important;
 	font-weight: 700 !important;
 	color: #353535;
-	margin-top: 10% !important;
+	margin-top: 7% !important;
 }
 
 .badge.bg-secondary {
@@ -105,6 +105,7 @@ h1 {
 
 .badge.bg-secondary:hover {
 	background-color: rgb(158, 158, 158) !important;
+	cursor:pointer
 
 }
 
@@ -205,8 +206,7 @@ p {
 }
 
 .d-inline-block.align-text-top{
-	margin-left:14.5% !important;
-	width:25px;
+	width:24px;
     display:block;
 }
 
@@ -221,4 +221,18 @@ p {
 #logo
   {
     cursor:pointer;
+  }
+
+.navbar{
+	left:14% !important;
+	right:14% !important;
+	}
+
+
+
+
+@media only screen and (max-width: 600px) {
+	.navbar-toggler-icon{
+		margin:auto !important
+	}
   }
