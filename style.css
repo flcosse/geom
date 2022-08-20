@@ -231,8 +231,8 @@ p {
 
 
 
-@media only screen and (max-width: 600px) {
-	.navbar-toggler-icon{
-		margin:auto !important
+@media only screen and (max-width: 900px) {
+	h1{
+		margin-top:17% !important
 	}
   }
