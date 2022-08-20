@@ -230,12 +230,19 @@ p {
 
 
 
-
 @media only screen and (max-width: 900px) {
 	h1{
-		margin-top:17% !important
+		margin-top:15% !important
+	}
+	}
+
+@media only screen and (max-width: 480px) {
+	h1{
+		margin-top:25% !important
 	}
   }
+
+
 
 
 .navbar.navbar-expand-lg.fixed-top {
