@@ -51,23 +51,31 @@ import dash_leaflet as dl
 from dash import html, Output, Input
 from scipy.ndimage.filters import uniform_filter1d
 from dash_extensions.javascript import arrow_function
+import dash_bootstrap_components as dbc
 
-
-family = "-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif"
-app = dash.Dash(__name__, external_scripts=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+app = dash.Dash(__name__, external_scripts=[dbc.themes.BOOTSTRAP])
 server = app.server
-app.css.append_css({ "external_url" : "/assets/stylesheet.css" })
+app.css.append_css({"external_url": "/assets/stylesheet.css"})
 url = 'https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/png&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}'
-attribution = 'Geoportail France'
+attribution = '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>'
+config = {
+    'toImageButtonOptions': {
+        'format': 'svg',  # one of png, svg, jpeg, webp
+        'filename': 'custom_image',
+        'height': 500,
+        'width': 700,
+        'scale': 1
+    },
+    'displaylogo': False
+}
 
 app.layout = html.Div(
     [
         html.Div(
             [
                 html.P(
-                    "Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil. ",
-                    style={"font-family": family, "font-weight": "500"},
-                ),
+                    "Cliquez sur le symbole de la ligne pour commencer à tracer le profil "
+                    "topographique. Double clic sur le second point pour créer le profil. "),
                 dl.Map(
                     center=[44.7904, 4.8065],
                     zoom=8,
@@ -82,7 +90,11 @@ app.layout = html.Div(
                         ),
                         dl.LayersControl(
                             dl.Overlay(
-                                dl.GeoJSON(url="/assets/data.geojson", id="capitals"),
+                                dl.GeoJSON(
+                                    url="/assets/data.geojson",
+                                    id="capitals",
+                                    options=dict(color="#497bff"),
+                                ),
                                 name="Zone d'étude",
                                 checked=True,
                             )
@@ -115,6 +127,7 @@ app.layout = html.Div(
                         "width": "98%",
                         "display": "none",
                     },
+                    config=config
                 )
             ]
         ),
@@ -124,61 +137,42 @@ app.layout = html.Div(
 
 
 @app.callback(
-    [
-        Output("geojson", "data"),
-        Output("our_graph", "figure"),
-        Output("our_graph", "style"),
-    ],
-    [Input("edit_control", "geojson")],
-)
+    [Output("geojson", "data"),
+     Output("our_graph", "figure"),
+     Output("our_graph", "style")],
+    [Input("edit_control", "geojson")])
 def profil(x):
-    coord1 = (
-        x["features"][-1]["geometry"]["coordinates"][0][0],
-        x["features"][-1]["geometry"]["coordinates"][0][1],
-    )
-    coord2 = (
-        x["features"][-1]["geometry"]["coordinates"][1][0],
-        x["features"][-1]["geometry"]["coordinates"][1][1],
-    )
-    src = rasterio.open(r"RASTER2.tif")
+    coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])
+    coord2 = (x["features"][-1]["geometry"]["coordinates"][1][0], x["features"][-1]["geometry"]["coordinates"][1][1])
+    src = rasterio.open(r'RASTER2.tif')
     line = LineString([(coord1[0], coord1[1]), (coord2[0], coord2[1])])
-    geod = Geod(ellps="WGS84")
-    total_length = geod.geometry_length(line)
-    distance_delta = math.log2(total_length) / 100000
-    distances = np.arange(0, line.length, distance_delta)
-    points = [line.interpolate(distance) for distance in distances][line.boundary[1]]
-    multipoint = unary_union(points)
-    gdf2 = gpd.GeoDataFrame(index=[0], crs="EPSG:4326", geometry=[multipoint])
-    lat = [i.y for i in gdf2["geometry"][0]]
-    long = [i.x for i in gdf2["geometry"][0]]
-    df = pd.DataFrame({"Latitude": lat, "Longitude": long})
-    gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude))
-    gdf.crs = "EPSG:4326"
-    coord_list = [(x, y) for x, y in zip(gdf["geometry"].x, gdf["geometry"].y)]
-    gdf["value"] = [x for x in src.sample(coord_list)]
+    distances = np.arange(0, line.length, math.log2(Geod(ellps="WGS84").geometry_length(line)) / 100000)
+    points = [line.interpolate(distance) for distance in distances] + [line.boundary[1]]
+    gdf2 = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[unary_union(points)])
+    df = pd.DataFrame({"Latitude": [i.y for i in gdf2["geometry"][0]], "Longitude": [i.x for i in gdf2["geometry"][0]]})
+    gdf = gpd.GeoDataFrame(df, crs="EPSG:4326", geometry=gpd.points_from_xy([i.x for i in gdf2["geometry"][0]],[i.y for i in gdf2["geometry"][0]]))
+    gdf['value'] = [x for x in src.sample([(x, y) for x, y in zip(gdf['geometry'].x, gdf['geometry'].y)])]
     gdf = gdf.to_crs(2154)
-    data = x
-    x = [gdf["geometry"][0].distance(i) for i in gdf["geometry"]]
-    gdf["Distance"] = x
-    gdf = gdf.sort_values(by="Distance", ascending=True)
+    dist = [gdf["geometry"][0].distance(i) for i in gdf["geometry"]]
+    gdf["Distance"] = dist
+    gdf = gdf.sort_values(by='Distance', ascending=True)
 
     if gdf["Longitude"][0] != coord1[0]:
-        gdf = gdf.sort_values(by=["Longitude"], ascending=False)
+        gdf = gdf.sort_values(by=['Longitude'], ascending=False)
 
-    gdf["value"] = gdf["value"].astype("float")
+    gdf['value'] = gdf['value'].astype("float")
     y = gdf["value"].to_list()
-    rgb = "255, 170, 0"
     fig = go.Figure(
         data=[
             go.Scatter(
                 customdata=np.stack((gdf["Longitude"], gdf["Latitude"]), axis=1),
-                x=x,
+                x=dist,
                 y=uniform_filter1d(y, size=3),
-                hovertemplate="Distance : %{x:.0f}mAltitude : %{y:.0f}mLat / lon: %{customdata[1]:.3f} / %{customdata[0]:.3f}",
+                hovertemplate="Distance : %{x:.0f}m<br>Altitude : %{y:.0f}m<br><extra></extra>",
                 fill="tozeroy",
-                line_color=f"rgb({rgb})",
+                line_color="rgb(255, 170, 0)",
                 mode="lines",
-                fillcolor=f"rgba({rgb}, 0.3)",
+                fillcolor="rgba(255, 170, 0, 0.3)",
                 hoverinfo="none",
             )
         ],
@@ -186,11 +180,9 @@ def profil(x):
     moyenne = mean(y)
     moyenne = round(moyenne, 1)
     maxi = int(float(max(y)))
-    pente = round(((y[-1] - y[0]) / max(x)) * 100, 1)
+    pente = round(((y[-1] - y[0]) / max(dist)) * 100, 1)
     fig.update_yaxes(ticks="outside")
     fig.update_xaxes(ticks="outside")
-    chiffre = 240
-    color = f"rgb({chiffre}, {chiffre}, {chiffre})"
     fig.update(layout_yaxis_range=[0, maxi * 1.5])
 
     fig.update_xaxes(
@@ -199,7 +191,7 @@ def profil(x):
         zerolinecolor="#686c69",
         showgrid=True,
         gridwidth=0.1,
-        gridcolor=color,
+        gridcolor="rgba(0,0,0,0)",
     )
     fig.update_yaxes(
         zeroline=True,
@@ -207,11 +199,11 @@ def profil(x):
         zerolinecolor="#686c69",
         showgrid=True,
         gridwidth=0.1,
-        gridcolor=color,
+        gridcolor="rgba(0,0,0,0)",
     )
-    fig.update_yaxes(title_text="Altitude")
     fig.layout.xaxis.fixedrange = True
     fig.layout.yaxis.fixedrange = True
+    fig.update_yaxes(title_text="Altitude")
     fig.update_layout(
         {
             "plot_bgcolor": "rgba(255,255,255,0)",
@@ -219,35 +211,27 @@ def profil(x):
         },
         legend_itemdoubleclick=False,
         margin={"r": 0, "l": 0},
-        xaxis_title=f"DistanceLongueur : {int(max(x))}m / Dénivelé : {round(y[-1] - y[0], 1)}m / Moyenne : {moyenne}m / Pente : {pente}%",
-        font=dict(size=11, family=family),
-        title_text=f"Profil topographique,Départ : {round(y[0])}m - Arrivée : {round(y[-1])}m ",
+        xaxis_title=f"Distance<br><i>Longueur : {int(max(dist))}m / Dénivelé : {round(y[-1] - y[0], 1)}m / Moyenne : {moyenne}m / Pente : {pente}%</i>",
+        font=dict(size=11),
+        title_text=f"<i>Profil topographique,<br>Départ : {round(y[0])}m - Arrivée : {round(y[-1])}m </i>",
         title_x=0,
         title_y=0.9,
-        hovermode="x",
         legend=dict(title=None),
         hoverlabel=dict(
-            bgcolor="rgba(255,255,255,0.8)",
+            bgcolor="white",
+            bordercolor="rgb(232,232,232)",
             font=dict(
-                color="black",
-                family="-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
-                size=11,
+                color="rgb(80,80,80)",
+                size=13,
             ),
         ),
     )
-
-    return (
-        data,
-        fig,
-        {"height": "40vh", "position": "absolute", "width": "98%", "display": "inline"},
-    )
+    return x, fig, {"height": "auto", "position": "absolute", "width": "100%", "display": "inline"}
 
 
 if __name__ == "__main__":
     app.run_server(debug=False)
-
-
-  </code></pre>
+</code></pre>
       </div>
   </div>
   
