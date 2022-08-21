@@ -202,6 +202,12 @@ p {
 .nav-item.dropdown:active{
 	pointer-events:none !important
 }
+
+@media only screen and (max-width: 992px) {
+	.nav-item.dropdown:active{
+		pointer-events:all !important
+	}
+	}
 .dropdown-menu.show:active{
 	border: 0px;
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
