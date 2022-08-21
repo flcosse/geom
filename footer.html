@@ -1,75 +1,75 @@
 <nav class="navbar navbar-expand-lg fixed-top"  style="background-color:#f9f9fa !important" >
   <script>
-    $("#logo").click(function() {
-  window.location.href = 'index.html'
-});
-$(window).scroll(function() {     
-    var scroll = $(window).scrollTop();
-    if (scroll > 0) {
-        $(".navbar.navbar-expand-lg.fixed-top").addClass("active");
-    }
-    else {
-        $(".navbar.navbar-expand-lg.fixed-top").removeClass("active");
-    }
-})
+     $("#logo").click(function() {
+         window.location.href = 'index.html'
+     });
+     $(window).scroll(function() {
+         var scroll = $(window).scrollTop();
+         if (scroll > 0) {
+             $(".navbar.navbar-expand-lg.fixed-top").addClass("active");
+         } else {
+             $(".navbar.navbar-expand-lg.fixed-top").removeClass("active");
+         }
+     })
+       
   </script>
   <style>
-    .nav-link, .nav-link.active{
-      color:#606060 !important;
-      font-weight: 600;
-      font-size: 15px;
-    }
+     .nav-link, .nav-link.active{
+     color:#606060 !important;
+     font-weight: 600;
+     font-size: 15px;
+     }
+     .dropdown:hover .dropdown-menu {
+     display: block;
+     border: 0px;
+     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     pointer-events: all !important;
+     }
 
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
   <div class="container-fluid" >
-
-      <img src="image/planet-earth.png" id="logo"  alt="" width="30" height="24" class="d-inline-block align-text-top d-none d-lg-block">
- 
-    <button class="navbar-toggler col-md-6" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent" >
-      <ul class="navbar-nav mx-auto" >
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">ACCUEIL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">À PROPOS</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            ARCGIS 
-          </a>
-          
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="eol.html">Potentiel éolien</a></li>
-          </ul>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     <img src="image/planet-earth.png" id="logo"  alt="" width="30" height="24" class="d-inline-block align-text-top d-none d-lg-block">
+     <button class="navbar-toggler col-md-6" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent" >
+        <ul class="navbar-nav mx-auto" >
+           <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">ACCUEIL</a>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">À PROPOS</a>
+           </li>
+           <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ARCGIS 
+              </a>
+              <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="eol.html">Potentiel éolien</a></li>
+              </ul>
+           <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               QGIS
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pyqgis.html">Génération 3D</a></li>
-            </ul>
-          </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            PYTHON
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="profil.html">Profil topographique</a></li>
-            <li><a class="dropdown-item" href="isochrone.html">Isochrone</a></li>
-            <li><a class="dropdown-item" href="temp.html">Visualisation de température</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" style="color:rgb(124, 124, 124) !important">JAVASCRIPT</a>
-        </li>
-  
-      </ul>
-      
-    </div>
+              </a>
+              <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="pyqgis.html">Génération 3D</a></li>
+              </ul>
+           </li>
+           <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              PYTHON
+              </a>
+              <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="profil.html">Profil topographique</a></li>
+                 <li><a class="dropdown-item" href="isochrone.html">Isochrone</a></li>
+                 <li><a class="dropdown-item" href="temp.html">Visualisation de température</a></li>
+              </ul>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link disabled" style="color:rgb(124, 124, 124) !important">JAVASCRIPT</a>
+           </li>
+        </ul>
+     </div>
   </div>
 </nav>
