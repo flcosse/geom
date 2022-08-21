@@ -26,6 +26,14 @@
      pointer-events: all !important;
      }
 
+
+
+.nav-item.dropdown:hover > .nav-link.dropdown-toggle::after{
+   transform: rotate(180deg);
+}
+.nav-link.dropdown-toggle:after {
+  transition: 0.4s;
+}
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <div class="container-fluid" >
