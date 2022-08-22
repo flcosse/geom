@@ -1,8 +1,18 @@
 <html lang="en">
    <head>
       <style>
+         .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
          body{
-         padding:1vh
+         padding:1vh;
+         background-color:#f9f9fa !important;
          }
          .offcanvas-backdrop.show{
          opacity: 0 !important;
@@ -11,6 +21,12 @@
          .form-check-input{
             margin-left: 1% !important;
             margin-right:2% !important
+         }
+         label{
+            color:#353535
+         }
+         .--bs-navbar-toggler-border-radius, .navbar-toggler{
+            border-radius:2px !important
          }
       </style>
       <meta charset="UTF-8">
@@ -27,7 +43,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Leaflet</title>
    </head>
-   <body>
+   <body class="noselect">
       <nav class="navbar bg-light fixed-top">
          <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -40,7 +56,8 @@
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                </div>
                <div class="offcanvas-body">
-                  <label for="" style="margin-bottom: 1vh;font-weight: 700;">Mode de transport</label>
+                  <label for="" style="margin-top:-5vh;margin-bottom: 8vh;z-index: 999;position: absolute;">Cliquez sur la carte pour générer un isochrone.</label>
+                  <label for="" style="margin-top:1.7vh;margin-bottom: 2vh;font-weight: 700;">Mode de transport</label>
                   <div class="form-check">
                      
                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="voiture" checked>
@@ -60,15 +77,15 @@
                      A pieds
                      </label>
                   </div>
-                  <label for="" style="margin-bottom:2vh;font-weight: 700" id="incr">Sélectionnez le temps</label><br>
-                  <select name="" id="test" style="margin-left: 7% !important;">
-                     <option value="1">15 minutes</option>
-                     <option selected>30 minutes</option>
-                     <option value="1">45 minutes</option>
-                     <option value="2">1 heure</option>
-                  </select><br><br>
-                  <label for="" style="margin-bottom:2vh;font-weight: 700" id="incr">Télécharger l'isochrone</label><br>
-                  <button type="button" class="btn btn-outline-primary" style="margin-left: 7% !important;">Télécharger</button>
+                  <label for="" style="margin-bottom:0vh;font-weight: 700" id="incr">Sélectionnez le temps</label><br>
+                  <label for="" style="margin-bottom: 3vh;">Les performances peuvent varier selon le temps.</label>
+
+                  <select id="ddlViewBy" style="margin-left:7%">
+                     <option value="900">15 minutes</option>
+                     <option value="1800" selected="selected">30 minutes</option>
+                     <option value="2700">45 minutes</option>
+                     <option value="3600">60 minutes</option>
+                   </select><br><br>
 
                </div>
             </div>
