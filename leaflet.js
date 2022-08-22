@@ -71,4 +71,5 @@ map.on('click', function(e) {
     L.marker([lat, lng], {icon:greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
     document.getElementById("llat").innerHTML = `\xa0${Math.round(lat * 1000) / 1000}`
     document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
-});
+
+})
