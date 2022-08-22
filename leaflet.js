@@ -31,7 +31,8 @@ map.on('click', function(e) {
     var lat = coord.lat;
     var lng = coord.lng;
     let request = new XMLHttpRequest();
-
+    var llat = document.getElementById("lat");
+    
     request.open('POST', `https://api.openrouteservice.org/v2/isochrones/${mode}`);
 
     request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
@@ -68,5 +69,6 @@ map.on('click', function(e) {
     request.send(body);
     map.panTo(new L.LatLng(lat, lng));
     L.marker([lat, lng], {icon:greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
-    
+    document.getElementById("llat").innerHTML = `\xa0${Math.round(lat * 1000) / 1000}`
+    document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
 });
