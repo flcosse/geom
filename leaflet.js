@@ -58,13 +58,9 @@ map.on('click', function(e) {
       });
 
     request.onreadystatechange = function() {
-        var data;
         if (this.readyState === 4) {
-            console.log('Status:', this.status);
             var data = this.responseText
-            console.log('Headers:', this.getAllResponseHeaders());
             L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${text[0]} minutes`,{sticky: true}).addTo(map);
-   
         }
     };
     
