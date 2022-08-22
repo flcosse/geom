@@ -32,11 +32,13 @@ map.on('click', function(e) {
     request.setRequestHeader('Authorization', '5b3ce3597851110001cf6248df22650771d94c06a73d6fb78ba4706b');
 
     request.onreadystatechange = function() {
+        
         if (this.readyState === 4) {
-            console.log('Status:', this.status);
-            console.log('Headers:', this.getAllResponseHeaders());
-            console.log('Body:', this.responseText);
+            var geo = this.responseText
         }
+        var geojsonFeature = geo
+        console.log(geojsonFeature)
+        L.geoJSON(geojsonFeature).addTo(map);
     };
 
     const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[300]}`;
@@ -44,5 +46,4 @@ map.on('click', function(e) {
     map.panTo(new L.LatLng(lat, lng));
     var marker = L.marker([lat, lng]).bindTooltip(`Centre de l'isochrone<br>Latitude : ${Math.round(lat * 1000) / 1000}<br>Longitude : ${Math.round(lng * 1000) / 1000}`).addTo(map);
 
-    console.log(mode)
 });
