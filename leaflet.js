@@ -48,8 +48,14 @@ map.on('click', function(e) {
 
     var value = e.value;
     var text = e.options[e.selectedIndex].text;
-    var text = text.split(" ")
+    if (text == "Intervalle de 10 minutes"){
+        var text = "600,1200,1800,2400,3000,3600"
+    }
+    else {var text = text.split(" ");
+        var text = text[0]
+    }
 
+    
     var polystyle = {
         "color": "#497bff",
         "weight": 3,
@@ -67,11 +73,12 @@ map.on('click', function(e) {
     request.onreadystatechange = function() {
         if (this.readyState === 4) {
             var data = this.responseText
-            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${text[0]} minutes`,{sticky: true}).addTo(map);
+            console.log(data)
+            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${Math.ceil(text[0]*1.666)} minutes`,{sticky: true}).addTo(map);
         }
     };
     
-    const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[${String(text[0]*60)}]}`;
+    const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[${String(text)}]}`;
     request.send(body);
     map.panTo(new L.LatLng(lat, lng));
     L.marker([lat, lng], {icon:greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
