@@ -8,9 +8,15 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token
 	accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
 }).addTo(map);
 
-map.on('click', function(e) {
+var pan = document.getElementById("pan");
+var gen = document.getElementById("gen");
 
-    const velo = document.getElementById("velo");
+
+map.on('click', function(e) {
+    if (pan.checked == true){
+        map.off('click');
+    }
+    else{const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
     let mode;
@@ -71,5 +77,15 @@ map.on('click', function(e) {
     L.marker([lat, lng], {icon:greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
     document.getElementById("llat").innerHTML = `\xa0${Math.round(lat * 1000) / 1000}`
     document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
+    var southWest = L.latLng(-89.98155760646617, -180),
+    northEast = L.latLng(89.99346179538875, 180);
+    var bounds = L.latLngBounds(southWest, northEast);
 
+    map.setMaxBounds(bounds);
+    map.on('drag', function() {
+        map.panInsideBounds(bounds, { animate: false });
+});}
+    
+    
 })
+
