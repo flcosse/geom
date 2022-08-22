@@ -16,7 +16,7 @@ map.on('click', function(e) {
     if (pan.checked == true){
         map.off('click');
     }
-    else{const velo = document.getElementById("velo");
+    else if(pan.checked == false){const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
     let mode;
@@ -50,11 +50,14 @@ map.on('click', function(e) {
     var text = e.options[e.selectedIndex].text;
     if (text == "Intervalle de 10 minutes"){
         var text = "600,1200,1800,2400,3000,3600"
+        var aff = 'Intervalle de 10'
     }
     else {var text = text.split(" ");
-        var text = text[0]
+        var text = text[0]*60
+        var aff = text/60
     }
-
+    console.log(Number(text))
+    console.log(text)
     
     var polystyle = {
         "color": "#497bff",
@@ -73,8 +76,8 @@ map.on('click', function(e) {
     request.onreadystatechange = function() {
         if (this.readyState === 4) {
             var data = this.responseText
-            console.log(data)
-            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${Math.ceil(text[0]*1.666)} minutes`,{sticky: true}).addTo(map);
+
+            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${aff} minutes`,{sticky: true}).addTo(map);
         }
     };
     
