@@ -115,7 +115,7 @@ var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create("div", "legend");
-  div.innerHTML += "<h4>Légende</h4>";
+  div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
   div.innerHTML += `<i style="background: #4D96FF"></i><span>15 minutes</span><br>`;
   div.innerHTML += '<i style="background:#6BCB77"></i><span>30 minutes</span><br>';
   div.innerHTML += '<i style="background: #FFD93D"></i><span>45 minutes</span><br>';
