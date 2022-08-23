@@ -11,12 +11,18 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token
 var pan = document.getElementById("pan");
 var gen = document.getElementById("gen");
 
+document.getElementById("gen").click();
+document.getElementById("pan").onclick= function(){
+    document.getElementById("map").style.cursor="grab";
+    map.off('click')
+    console.log("pan on")
+}
+
+document.getElementById("gen").onclick= function(){
+    document.getElementById("map").style.cursor="crosshair";
 
 map.on('click', function(e) {
-    if (pan.checked == true){
-        map.off('click');
-    }
-    else if(pan.checked == false){const velo = document.getElementById("velo");
+    {const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
     let mode;
@@ -56,8 +62,7 @@ map.on('click', function(e) {
         var text = text[0]*60
         var aff = text/60
     }
-    console.log(Number(text))
-    console.log(text)
+
     
     var polystyle = {
         "color": "#497bff",
@@ -97,5 +102,5 @@ map.on('click', function(e) {
 });}
     
     
-})
+})}
 

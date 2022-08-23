@@ -35,6 +35,19 @@
          margin-top:2.5rem !important
          }
          }
+         button#gen, button#pan{
+            background-color: white ;
+            border:2px solid rgba(0,0,0,0.2)
+         }
+         .gen,.pan{
+            background-color: white !;
+            padding:1vh;
+            border:2px solid rgba(0,0,0,0.2);
+            height:2rem !important;
+            vertical-align: middle !important;
+            font-size:none !important;
+            line-height:none !important
+         }
       </style>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -100,15 +113,12 @@
             </div>
          </div>
       </nav>
-      <div id="map"></div>                  
-      <div class="opt" style="border: 2px solid rgba(0,0,0,0.2);background-color:#f9f9fa;padding:1.5vh;position:absolute;margin-top:-6rem;margin-left:.6rem;z-index:999">
-      <div class="form-check">            
-         <input type="radio" class="form-check-input" name="choix" id="gen" checked><label for="">Générer</label><br>
-      </div>
-      <div class="form-check"> 
-         <input type="radio"  class="form-check-input"name="choix" id="pan"><label for="">Naviguer</label>
-      </div>
 
+      <div id="map"></div>          
+      <div class="opt" style="z-index:999;margin-left:2.5rem !important;margin-top:-46.35rem;padding:1rem;position:absolute">      
+      <button  type="button"    id="pan">N</button>
+      <button type="button"   id="gen" >G</button>
+   </div>  
       <script src="leaflet.js"></script>
    </body>
 </html>
