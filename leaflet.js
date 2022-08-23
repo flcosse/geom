@@ -91,7 +91,7 @@ map.on('click', function(e) {
         if (this.readyState === 4) {
             var data = this.responseText
 
-            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${aff} minutes`,{sticky: true}).addTo(map);
+            L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
         }
     };
     
