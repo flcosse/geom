@@ -45,12 +45,18 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token
 var pan = document.getElementById("pan");
 var gen = document.getElementById("gen");
 
+document.getElementById("gen").click();
+document.getElementById("pan").onclick= function(){
+    document.getElementById("map").style.cursor="grab";
+    map.off('click')
+    console.log("pan on")
+}
+
+document.getElementById("gen").onclick= function(){
+    document.getElementById("map").style.cursor="crosshair";
 
 map.on('click', function(e) {
-    if (pan.checked == true){
-        map.off('click');
-    }
-    else{const velo = document.getElementById("velo");
+    {const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
     let mode;
@@ -65,7 +71,6 @@ map.on('click', function(e) {
         mode = "foot-walking"
         nom = "À pieds"
     }
-
     
     var coord = e.latlng;
     var lat = coord.lat;
@@ -82,10 +87,28 @@ map.on('click', function(e) {
 
     var value = e.value;
     var text = e.options[e.selectedIndex].text;
-    var text = text.split(" ")
+    if (text == "Intervalle de 10 minutes"){
+        var text = "600,1200,1800,2400,3000,3600"
+        var aff = 'Intervalle de 10'
+    }
+    else {var text = text.split(" ");
+        var text = text[0]*60
+        var aff = text/60
+    }
 
+    var couleur;
+    if (aff == 15){
+        couleur = "rgb(117, 173, 111)"
+    } else if (aff == 30){
+        couleur = "rgb(255, 190, 0)"
+    } else if (aff == 45){
+        couleur = "rgb(255, 126, 1)"
+    } else if (aff == 60){
+        couleur = "rgb(227, 7, 29)"
+    } else{ couleur = "#497bff"}
+    
     var polystyle = {
-        "color": "#497bff",
+        "color": couleur,
         "weight": 3,
         "opacity": 1,
         "fillOpacity":0.1
@@ -101,11 +124,12 @@ map.on('click', function(e) {
     request.onreadystatechange = function() {
         if (this.readyState === 4) {
             var data = this.responseText
-            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${text[0]} minutes`,{sticky: true}).addTo(map);
+
+            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${aff} minutes`,{sticky: true}).addTo(map);
         }
     };
     
-    const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[${String(text[0]*60)}]}`;
+    const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[${String(text)}]}`;
     request.send(body);
     map.panTo(new L.LatLng(lat, lng));
     L.marker([lat, lng], {icon:greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
@@ -118,8 +142,24 @@ map.on('click', function(e) {
     map.setMaxBounds(bounds);
     map.on('drag', function() {
         map.panInsideBounds(bounds, { animate: false });
-});}  
-})
+});}
+})}
+
+var legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Légende</h4>";
+  div.innerHTML += `<i style="background: #D9F8C4"></i><span>15 minutes</span><br>`;
+  div.innerHTML += '<i style="background:#F9F9C5"></i><span>30 minutes</span><br>';
+  div.innerHTML += '<i style="background: #FAD9A1"></i><span>45 minutes</span><br>';
+  div.innerHTML += '<i style="background: #F37878"></i><span>60 minutes</span><br>';
+
+  return div;
+};
+
+legend.addTo(map);
+
 </code></pre>
     </div>
 </div>

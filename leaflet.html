@@ -1,5 +1,18 @@
 <html lang="en">
    <head>
+<script>
+   function test(){
+   alert("Hi");
+}
+
+window.onload = function(){
+  document.getElementById('gen').click();
+  
+var scriptTag = document.createElement("script");
+scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+document.getElementsByTagName("head")[0].appendChild(scriptTag);
+}
+</script>
       <style>
          .noselect {
          -webkit-touch-callout: none; /* iOS Safari */
@@ -35,20 +48,59 @@
          margin-top:2.5rem !important
          }
          }
+         .leaflet-control-zoom.leaflet-bar.leaflet-control{
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border:0px
+         }
+
          button#gen, button#pan{
             background-color: white ;
-            border:2px solid rgba(0,0,0,0.2)
+            border: 0px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
          }
          .gen,.pan{
             background-color: white !;
-            padding:1vh;
-            border:2px solid rgba(0,0,0,0.2);
             height:2rem !important;
             vertical-align: middle !important;
             font-size:none !important;
             line-height:none !important
          }
+         .legend {
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 6px 8px;
+  font: 14px Segoe UI;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  line-height: 24px;
+  color: #555;
+}
+.legend h4 {
+  text-align: center;
+  font-size: 16px;
+  margin: 2px 12px 8px;
+  color: #777;
+}
+
+.legend span {
+  position: relative;
+  bottom: 3px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin: 0 8px 0 0;
+  opacity: 0.8;
+}
+
+.legend i.icon {
+  background-size: 18px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
       </style>
+
       <meta charset="UTF-8">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -115,8 +167,10 @@
       </nav>
 
       <div id="map"></div>          
-      <div class="opt" style="z-index:999;margin-left:2.5rem !important;margin-top:-46.35rem;padding:1rem;position:absolute">      
-      <button  type="button"    id="pan">N</button>
+      <div class="opt" style="z-index:999;margin-left:3.5% !important;margin-top:-59.5%;padding:1rem;position:absolute">      
+      <button  type="button" data-bs-toggle="tooltip" data-bs-placement="top"
+      data-bs-custom-class="custom-tooltip"
+      data-bs-title="This top tooltip is themed via CSS variables."   id="pan">N</button>
       <button type="button"   id="gen" >G</button>
    </div>  
       <script src="leaflet.js"></script>

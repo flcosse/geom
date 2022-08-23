@@ -37,7 +37,6 @@ map.on('click', function(e) {
         mode = "foot-walking"
         nom = "À pieds"
     }
-
     
     var coord = e.latlng;
     var lat = coord.lat;
@@ -63,9 +62,19 @@ map.on('click', function(e) {
         var aff = text/60
     }
 
+    var couleur;
+    if (aff == 15){
+        couleur = "#4D96FF"
+    } else if (aff == 30){
+        couleur = "#6BCB77"
+    } else if (aff == 45){
+        couleur = "#FFD93D"
+    } else if (aff == 60){
+        couleur = "#FF6B6B"
+    } else{ couleur = "#4dcfdb"}
     
     var polystyle = {
-        "color": "#497bff",
+        "color": couleur,
         "weight": 3,
         "opacity": 1,
         "fillOpacity":0.1
@@ -100,7 +109,20 @@ map.on('click', function(e) {
     map.on('drag', function() {
         map.panInsideBounds(bounds, { animate: false });
 });}
-    
-    
 })}
 
+var legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Légende</h4>";
+  div.innerHTML += `<i style="background: #4D96FF"></i><span>15 minutes</span><br>`;
+  div.innerHTML += '<i style="background:#6BCB77"></i><span>30 minutes</span><br>';
+  div.innerHTML += '<i style="background: #FFD93D"></i><span>45 minutes</span><br>';
+  div.innerHTML += '<i style="background: #FF6B6B"></i><span>60 minutes</span><br>';
+  div.innerHTML += '<i style="background: #4dcfdb"></i><span>Interv. 10 minutes</span><br>';
+
+  return div;
+};
+
+legend.addTo(map);
