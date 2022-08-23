@@ -62,12 +62,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             border: 0px;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
          }
-         .gen,.pan{
-            height:2rem !important;
-            vertical-align: middle !important;
-            font-size:none !important;
-            line-height:none !important
-         }
+
          button#gen{
             background-color: rgba(0,0,0,0);
             background-image: url('image/crosshair.jpg');
@@ -75,12 +70,19 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             color:rgba(0,0,0,0)
 
          }
+         button#gen:hover{
+            background-image: url('image/CROSS.jpg');
+         }
+         
          button#pan{
             background-color: rgba(0,0,0,0);
-            background-image: url('image/télécharger.jpg');
+            background-image: url('image/MAIN.jpg');
             background-size: contain;
             color:rgba(0,0,0,0)
 
+         }
+         button#pan:hover{
+            background-image: url('image/MAIN2.jpg');
          }
 
          .legend {
