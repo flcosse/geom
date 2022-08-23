@@ -19,7 +19,6 @@ document.getElementById("pan").onclick= function(){
 
 document.getElementById("gen").onclick= function(){
     document.getElementById("map").style.cursor="crosshair";
-var layer;
 map.on('click', function(e) {
     {
     const velo = document.getElementById("velo");
@@ -92,6 +91,7 @@ map.on('click', function(e) {
             var data = this.responseText
             var layer = L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
             layer.addTo(map);
+            
 
         }
     };
@@ -110,10 +110,12 @@ map.on('click', function(e) {
     map.on('drag', function() {
         map.panInsideBounds(bounds, { animate: false });
 
-    
-
+ 
 });
-}})}
+}
+
+}
+)}
 
 var legend = L.control({ position: "bottomleft" });
 
@@ -132,7 +134,7 @@ legend.onAdd = function(map) {
 legend.addTo(map);
 
 
+
 document.getElementById("del").onclick = function(){
     window.location.reload();
 }
-
