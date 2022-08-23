@@ -1,5 +1,6 @@
 <html lang="en">
    <head>
+      
 <script>
    function test(){
    alert("Hi");
@@ -12,6 +13,10 @@ var scriptTag = document.createElement("script");
 scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
 document.getElementsByTagName("head")[0].appendChild(scriptTag);
 }
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 </script>
       <style>
          .noselect {
@@ -54,17 +59,30 @@ document.getElementsByTagName("head")[0].appendChild(scriptTag);
          }
 
          button#gen, button#pan{
-            background-color: white ;
             border: 0px;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
          }
          .gen,.pan{
-            background-color: white !;
             height:2rem !important;
             vertical-align: middle !important;
             font-size:none !important;
             line-height:none !important
          }
+         button#gen{
+            background-color: rgba(0,0,0,0);
+            background-image: url('image/crosshair.jpg');
+            background-size: contain;
+            color:rgba(0,0,0,0)
+
+         }
+         button#pan{
+            background-color: rgba(0,0,0,0);
+            background-image: url('image/télécharger.jpg');
+            background-size: contain;
+            color:rgba(0,0,0,0)
+
+         }
+
          .legend {
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   padding: 6px 8px;
@@ -102,6 +120,7 @@ document.getElementsByTagName("head")[0].appendChild(scriptTag);
       </style>
 
       <meta charset="UTF-8">
+      
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
          crossorigin=""/>
@@ -168,10 +187,8 @@ document.getElementsByTagName("head")[0].appendChild(scriptTag);
 
       <div id="map"></div>          
       <div class="opt" style="z-index:999;margin-left:5vh !important;margin-top:-91.8vh;padding:1rem;position:absolute">      
-      <button  type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-      data-bs-custom-class="custom-tooltip"
-      data-bs-title="This top tooltip is themed via CSS variables."   id="pan">N</button>
-      <button type="button"   id="gen" >G</button>
+      <button  type="button" data-toggle="tooltip" data-bs-html="true" title="Navigation" id="pan">N</button>
+      <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="gen" >G</button>
    </div>  
       <script src="leaflet.js"></script>
    </body>

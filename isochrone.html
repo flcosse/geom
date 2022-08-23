@@ -4,6 +4,9 @@
       $(function(){
       $("#footer").load("footer.html"); 
       });
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
         </script>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
@@ -98,14 +101,14 @@ map.on('click', function(e) {
 
     var couleur;
     if (aff == 15){
-        couleur = "rgb(117, 173, 111)"
+        couleur = "#4D96FF"
     } else if (aff == 30){
-        couleur = "rgb(255, 190, 0)"
+        couleur = "#6BCB77"
     } else if (aff == 45){
-        couleur = "rgb(255, 126, 1)"
+        couleur = "#FFD93D"
     } else if (aff == 60){
-        couleur = "rgb(227, 7, 29)"
-    } else{ couleur = "#497bff"}
+        couleur = "#FF6B6B"
+    } else{ couleur = "#4dcfdb"}
     
     var polystyle = {
         "color": couleur,
@@ -125,7 +128,7 @@ map.on('click', function(e) {
         if (this.readyState === 4) {
             var data = this.responseText
 
-            L.geoJSON(JSON.parse(data), {style:polystyle}).bindTooltip(`<b>Temps</b> : ${aff} minutes`,{sticky: true}).addTo(map);
+            L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
         }
     };
     
@@ -149,17 +152,17 @@ var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create("div", "legend");
-  div.innerHTML += "<h4>Légende</h4>";
-  div.innerHTML += `<i style="background: #D9F8C4"></i><span>15 minutes</span><br>`;
-  div.innerHTML += '<i style="background:#F9F9C5"></i><span>30 minutes</span><br>';
-  div.innerHTML += '<i style="background: #FAD9A1"></i><span>45 minutes</span><br>';
-  div.innerHTML += '<i style="background: #F37878"></i><span>60 minutes</span><br>';
+  div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
+  div.innerHTML += `<i style="background: #4D96FF"></i><span>15 minutes</span><br>`;
+  div.innerHTML += '<i style="background:#6BCB77"></i><span>30 minutes</span><br>';
+  div.innerHTML += '<i style="background: #FFD93D"></i><span>45 minutes</span><br>';
+  div.innerHTML += '<i style="background: #FF6B6B"></i><span>60 minutes</span><br>';
+  div.innerHTML += '<i style="background: #4dcfdb"></i><span>Interv. 10 minutes</span><br>';
 
   return div;
 };
 
 legend.addTo(map);
-
 </code></pre>
     </div>
 </div>
