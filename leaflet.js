@@ -1,4 +1,4 @@
-var map = L.map('map',{ dragging: !L.Browser.mobile }).setView([48.856614, 2.3522219], 10);
+var map = L.map('map',{ dragging: !L.Browser.mobile }).setView([48.856614, 2.3522219], 8);
 
 L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -15,14 +15,14 @@ document.getElementById("gen").click();
 document.getElementById("pan").onclick= function(){
     document.getElementById("map").style.cursor="grab";
     map.off('click')
-    console.log("pan on")
 }
 
 document.getElementById("gen").onclick= function(){
     document.getElementById("map").style.cursor="crosshair";
-
+var layer;
 map.on('click', function(e) {
-    {const velo = document.getElementById("velo");
+    {
+    const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
     let mode;
@@ -90,8 +90,9 @@ map.on('click', function(e) {
     request.onreadystatechange = function() {
         if (this.readyState === 4) {
             var data = this.responseText
+            var layer = L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
+            layer.addTo(map);
 
-            L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
         }
     };
     
@@ -108,8 +109,11 @@ map.on('click', function(e) {
     map.setMaxBounds(bounds);
     map.on('drag', function() {
         map.panInsideBounds(bounds, { animate: false });
-});}
-})}
+
+    
+
+});
+}})}
 
 var legend = L.control({ position: "bottomleft" });
 
@@ -126,3 +130,9 @@ legend.onAdd = function(map) {
 };
 
 legend.addTo(map);
+
+
+document.getElementById("del").onclick = function(){
+    window.location.reload();
+}
+
