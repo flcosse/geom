@@ -1,7 +1,10 @@
 
 <html lang="en">
    <head>
-      
+      <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
 <script>
    function test(){
    alert("Hi");
@@ -67,7 +70,10 @@ width: 3rem; height: 3rem
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             border:0px
          }
-
+         .leaflet-control-geocoder.leaflet-bar.leaflet-control{
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border:0px
+         }
          button#gen, button#pan, button#del{
             background-color: white;
             border: 0px;
@@ -154,6 +160,7 @@ width: 3rem; height: 3rem
       <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
          integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
          crossorigin=""></script>
+         <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
       <link rel="shortcut icon" href="image/compass-solid.svg" type="image/x-icon">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
