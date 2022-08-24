@@ -1,12 +1,14 @@
+
 var map = L.map('map',{ dragging: !L.Browser.mobile }).setView([48.856614, 2.3522219], 8);
 
-L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
 	maxZoom: 22,
 	subdomains: 'abcd',
 	accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
-}).addTo(map);
+})
+tile.addTo(map);
 
 var pan = document.getElementById("pan");
 var gen = document.getElementById("gen");
@@ -21,6 +23,7 @@ document.getElementById("gen").onclick= function(){
     document.getElementById("map").style.cursor="crosshair";
 map.on('click', function(e) {
     {
+        document.getElementById("loading").style.display="block";
     const velo = document.getElementById("velo");
     const voiture = document.getElementById("voiture");
     const pieds = document.getElementById("pieds");
@@ -91,7 +94,7 @@ map.on('click', function(e) {
             var data = this.responseText
             var layer = L.geoJSON(JSON.parse(data), {style:polystyle}).addTo(map);
             layer.addTo(map);
-            
+            document.getElementById("loading").style.display="none";
 
         }
     };
@@ -139,13 +142,7 @@ document.getElementById("del").onclick = function(){
     map.eachLayer(function (layer) {
         map.removeLayer(layer);
     });
-    L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
-	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	minZoom: 0,
-	maxZoom: 22,
-	subdomains: 'abcd',
-	accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
-}).addTo(map);
+    tile.addTo(map);
 
 
 

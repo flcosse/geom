@@ -20,6 +20,14 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 })
 </script>
       <style>
+         .spinner-border.text-primary{
+            color:#497bff !important;
+            display:none;
+position: absolute;
+margin-top: -50vh !important;
+z-index: 999;
+
+         }
          .noselect {
          -webkit-touch-callout: none; /* iOS Safari */
          -webkit-user-select: none; /* Safari */
@@ -208,6 +216,9 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       <button  type="button" data-toggle="tooltip" data-bs-html="true" title="Navigation" id="pan">N</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="gen" >G</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Rafraîchir"  id="del" >G</button>
+         
+      </div><div class="d-flex justify-content-center">
+         <div class="spinner-border text-primary" id="loading"role="status"></div></div>
       <script src="leaflet.js"></script>
    </body>
 </html>
