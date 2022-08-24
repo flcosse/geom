@@ -217,14 +217,14 @@ width: 3rem; height: 3rem
                   </div>
                   <label for="" style="font-weight: 700" id="incr">Sélectionnez le temps</label><br>
                   <label for="" >Les performances peuvent varier selon le temps.</label>
-                  <select id="ddlViewBy" style="width:100%" >
+                  <select id="ddlViewBy" style="width:100%;margin-bottom: 3vh;" >
                      <option value="900">15 minutes</option>
                      <option value="1800" selected="selected">30 minutes</option>
                      <option value="2700">45 minutes</option>
                      <option value="3600">60 minutes</option>
                      <option value="3600">Intervalle de 10 minutes</option>
                   </select>
-                  <br><br>
+                  <label for="" style="font-weight: 700;margin-bottom: 2vh !important;" >Obtenir les isochrones</label><br><button class="btn btn-outline-primary" id="test" style="width:100%">Téléchargement</button>
 
                </div>
             </div>
@@ -239,6 +239,8 @@ width: 3rem; height: 3rem
          
       </div><div class="d-flex justify-content-center">
          <div class="spinner-border text-primary" id="loading"role="status"></div></div>
+         
+
       <script src="leaflet.js"></script>
    </body>
 </html>

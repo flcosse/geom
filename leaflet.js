@@ -1,6 +1,4 @@
-var map = L.map('map', {
-    dragging: !L.Browser.mobile
-}).setView([48.856614, 2.3522219], 8);
+var map = L.map('map', {dragging: !L.Browser.mobile}).setView([48.856614, 2.3522219], 8);
 
 var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
     attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -91,16 +89,23 @@ document.getElementById("gen").onclick = function() {
                 iconAnchor: [17, 29],
                 popupAnchor: [20, 20],
             });
-
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
-                    var data = this.responseText
-                    var layer = L.geoJSON(JSON.parse(data), {
-                        style: polystyle
-                    }).addTo(map);
+                    data = this.responseText
+                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
                     layer.addTo(map);
                     document.getElementById("loading").style.display = "none";
-
+                    
+                    function download_txt() {
+                        var textToSave = data
+                        var hiddenElement = document.createElement('a');
+                        hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+                        hiddenElement.target = '_blank';
+                        hiddenElement.download = 'file.json';
+                        hiddenElement.click();
+                      }
+                      
+                      document.getElementById('test').addEventListener('click', download_txt);
                 }
             };
 
@@ -115,7 +120,7 @@ document.getElementById("gen").onclick = function() {
             var southWest = L.latLng(-89.98155760646617, -180),
                 northEast = L.latLng(89.99346179538875, 180);
             var bounds = L.latLngBounds(southWest, northEast);
-
+            
             map.setMaxBounds(bounds);
             map.on('drag', function() {
                 map.panInsideBounds(bounds, {
@@ -164,5 +169,8 @@ var geocoder = L.Control.geocoder({
         bbox.getSouthWest()
       ]);
       map.fitBounds(poly.getBounds());
+      map.setZoom(17)
     })
     .addTo(map);
+
+ 
