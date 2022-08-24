@@ -114,13 +114,10 @@ document.getElementById("gen").onclick = function() {
             const body = `{"locations":[[${String(lng)},${String(lat)}]],"range":[${String(text)}]}`;
             request.send(body);
             map.panTo(new L.LatLng(lat, lng));
-            L.marker([lat, lng], {
-                icon: greenIcon
-            }).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
+            L.marker([lat, lng], {icon: greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
             document.getElementById("llat").innerHTML = `\xa0${Math.round(lat * 1000) / 1000}`
             document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
-            var southWest = L.latLng(-89.98155760646617, -180),
-                northEast = L.latLng(89.99346179538875, 180);
+            var southWest = L.latLng(-89.98155760646617, -180),northEast = L.latLng(89.99346179538875, 180);
             var bounds = L.latLngBounds(southWest, northEast);
             
             map.setMaxBounds(bounds);
@@ -133,9 +130,7 @@ document.getElementById("gen").onclick = function() {
     })
 }
 
-var legend = L.control({
-    position: "bottomleft"
-});
+var legend = L.control({position: "bottomleft"});
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
@@ -150,7 +145,6 @@ legend.onAdd = function(map) {
 };
 
 legend.addTo(map);
-
 
 document.getElementById("del").onclick = function() {
     var data;
@@ -173,7 +167,4 @@ var geocoder = L.Control.geocoder({
       ]);
       map.fitBounds(poly.getBounds());
       map.setZoom(17)
-    })
-    .addTo(map);
-
- 
+    }).addTo(map);

@@ -44,7 +44,6 @@ var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?a
     subdomains: 'abcd',
     accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
 })
-
 tile.addTo(map);
 
 var pan = document.getElementById("pan");
@@ -127,14 +126,25 @@ document.getElementById("gen").onclick = function() {
                 iconAnchor: [17, 29],
                 popupAnchor: [20, 20],
             });
-
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
-                    var data = this.responseText
+                    data = ""
+                    data = this.responseText
                     var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
                     layer.addTo(map);
                     document.getElementById("loading").style.display = "none";
-
+                    
+                    function download_txt() {
+                        var textToSave = data
+                        var hiddenElement = document.createElement('a');
+                        hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+                        hiddenElement.target = '_blank';
+                        hiddenElement.download = `${Math.round(lat * 100) / 100}_${Math.round(lat * 100) / 100}.json`;
+                        hiddenElement.click();
+                        console.log(textToSave)
+                      }
+                      
+                      document.getElementById('test').addEventListener('click', download_txt);
                 }
             };
 
@@ -144,10 +154,9 @@ document.getElementById("gen").onclick = function() {
             L.marker([lat, lng], {icon: greenIcon}).bindTooltip(`<b>Mode</b> : ${nom}<br><b>Latitude</b> : ${Math.round(lat * 1000) / 1000}<br><b>Longitude</b> : ${Math.round(lng * 1000) / 1000}`).addTo(map);
             document.getElementById("llat").innerHTML = `\xa0${Math.round(lat * 1000) / 1000}`
             document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
-            var southWest = L.latLng(-89.98155760646617, -180),
-                northEast = L.latLng(89.99346179538875, 180);
+            var southWest = L.latLng(-89.98155760646617, -180),northEast = L.latLng(89.99346179538875, 180);
             var bounds = L.latLngBounds(southWest, northEast);
-
+            
             map.setMaxBounds(bounds);
             map.on('drag', function() {
                 map.panInsideBounds(bounds, {
@@ -175,11 +184,27 @@ legend.onAdd = function(map) {
 legend.addTo(map);
 
 document.getElementById("del").onclick = function() {
+    var data;
     map.eachLayer(function(layer) {
         map.removeLayer(layer);
     });
     tile.addTo(map);
 }
+
+var geocoder = L.Control.geocoder({
+    defaultMarkGeocode: false
+  })
+    .on('markgeocode', function(e) {
+      var bbox = e.geocode.bbox;
+      var poly = L.polygon([
+        bbox.getSouthEast(),
+        bbox.getNorthEast(),
+        bbox.getNorthWest(),
+        bbox.getSouthWest()
+      ]);
+      map.fitBounds(poly.getBounds());
+      map.setZoom(17)
+    }).addTo(map);
 </code></pre>
     </div>
 </div>
