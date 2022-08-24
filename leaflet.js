@@ -91,6 +91,7 @@ document.getElementById("gen").onclick = function() {
             });
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
+                    data = ""
                     data = this.responseText
                     var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
                     layer.addTo(map);
@@ -101,8 +102,9 @@ document.getElementById("gen").onclick = function() {
                         var hiddenElement = document.createElement('a');
                         hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
                         hiddenElement.target = '_blank';
-                        hiddenElement.download = 'file.json';
+                        hiddenElement.download = `${Math.round(lat * 100) / 100}_${Math.round(lat * 100) / 100}.json`;
                         hiddenElement.click();
+                        console.log(textToSave)
                       }
                       
                       document.getElementById('test').addEventListener('click', download_txt);
@@ -151,6 +153,7 @@ legend.addTo(map);
 
 
 document.getElementById("del").onclick = function() {
+    var data;
     map.eachLayer(function(layer) {
         map.removeLayer(layer);
     });
