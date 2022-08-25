@@ -279,3 +279,8 @@ p {
 .navbar.navbar-expand-lg.fixed-top.active {
 	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
 }
+
+
+.nav-link.dropdown-toggle:hover{
+	color:rgb(0,0,0) !important
+}
