@@ -18,6 +18,12 @@ document.getElementById("pan").onclick = function() {
     map.off('click')
 }
 
+var col15;
+var col30;
+var col45;
+var col60;
+var col10;
+
 document.getElementById("gen").onclick = function() {
     document.getElementById("map").style.cursor = "crosshair";
     map.on('click', function(e) {
@@ -91,7 +97,6 @@ document.getElementById("gen").onclick = function() {
             });
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
-                    data = ""
                     data = this.responseText
                     var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
                     layer.addTo(map);
@@ -102,7 +107,7 @@ document.getElementById("gen").onclick = function() {
                         var hiddenElement = document.createElement('a');
                         hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
                         hiddenElement.target = '_blank';
-                        hiddenElement.download = `${Math.round(lat * 100) / 100}_${Math.round(lat * 100) / 100}.json`;
+                        hiddenElement.download = `${Math.round(lat * 1000) / 1000}_${Math.round(lng * 1000) / 1000}.json`;
                         hiddenElement.click();
                         console.log(textToSave)
                       }
@@ -166,5 +171,4 @@ var geocoder = L.Control.geocoder({
         bbox.getSouthWest()
       ]);
       map.fitBounds(poly.getBounds());
-      map.setZoom(17)
-    }).addTo(map);
+      map.setZoom(17)}).addTo(map);
