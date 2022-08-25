@@ -98,7 +98,18 @@ document.getElementById("gen").onclick = function() {
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
                     data = this.responseText
-                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
+                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).bindPopup(`${aff} minutes`).addTo(map);
+
+                    layer.on('mouseover', function() {
+                        this.setStyle({
+                            color: '#666',
+                            fillColor:couleur
+                        });
+                    });
+
+                    layer.on('mouseout', function() {
+                        this.setStyle(polystyle)
+                    });
                     layer.addTo(map);
                     document.getElementById("loading").style.display = "none";
                     
@@ -124,7 +135,6 @@ document.getElementById("gen").onclick = function() {
             document.getElementById("llng").innerHTML = `\xa0${Math.round(lng * 1000) / 1000}`
             var southWest = L.latLng(-89.98155760646617, -180),northEast = L.latLng(89.99346179538875, 180);
             var bounds = L.latLngBounds(southWest, northEast);
-            
             map.setMaxBounds(bounds);
             map.on('drag', function() {
                 map.panInsideBounds(bounds, {
@@ -172,3 +182,6 @@ var geocoder = L.Control.geocoder({
       ]);
       map.fitBounds(poly.getBounds());
       map.setZoom(17)}).addTo(map);
+
+
+      
