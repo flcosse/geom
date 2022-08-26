@@ -31,10 +31,13 @@
         <h4> <span class="badge bg-secondary">Dash</span></h4>
         <h4> <span class="badge bg-secondary" style="float:none">Leaflet</span></h4>
     </div>
-         <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique.</p> 
+         <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique. Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil.</p> 
          <div class="fi" style="text-align: center">
-         <iframe src="https://dash-topo.herokuapp.com"scrolling="no"  frameBorder="0" height="120%" width="100%" title=""></iframe>
-      </div>
+            <iframe src="https://dash-topo.herokuapp.com/"scrolling="no" style="position:relative;z-index:999" frameBorder="0" height="120%" width="100%" title=""></iframe>
+            <div class="spinner-border text-primary"style="margin-top:-30vh !important;color:#497bff !important" role="status">
+                <span class="visually-hidden" >Loading...</span>
+              </div>
+        </div>
          <pre><code class="python">import geopandas as gpd
 import numpy as np
 import pandas as pd

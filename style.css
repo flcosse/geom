@@ -2,10 +2,10 @@
 	font-family: Segoe UI
 }
 body{
-	background-color:#f9f9fa !important;
+	background-color:rgb(40, 40, 40) !important;
 }
 html {
-	background-color: #f9f9fa;
+	background-color: rgb(40, 40, 40);
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -17,7 +17,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #f9f9fa !important;
+	background-color: rgb(40, 40, 40) !important;
 }
 
 .section-title h2 {
@@ -37,8 +37,10 @@ html {
 
 .card {
 	border: 0px !important;
+	background-color: rgb(55, 55, 55) !important;
 	border-radius: 15px !important;
 	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+	
 }
 
 .card-img-top {
@@ -47,32 +49,35 @@ html {
 }
 
 .card:hover {
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
 	transition: transform .2s;
 }
 
 .card:hover .card-title {
-	color: rgb(95, 95, 95)
+	color: rgb(165, 165, 165)
 }
 
 .card:hover .card-text{
-	color:rgb(161, 161, 161)
+	color: rgb(135, 135, 135)
 }
 
-
+.col{
+	background-color:rgb(40, 40, 40) !important;
+}
 .article {
 
-	background-color: #f9f9fa;
+	background-color: rgb(40, 40, 40);
 }
 
 h1 {
-	background-color: #f9f9fa !important;
+	background-color: rgb(40, 40, 40) !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #353535;
+	color: rgb(218, 218, 219);
 	margin-top: 7% !important;
 }
 
@@ -109,14 +114,21 @@ h1 {
 }
 
 pre {
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	page-break-inside: avoid;
 	display: block;
 	margin-top: 0;
 	margin-bottom: 1rem;
-	color: #292b2c;
 	font-family: Consolas !important;
 	font-size: 15px !important;
+}
+
+.javascript.hljs.language-javascript, .python.hljs.language-python{
+	background-color: rgb(55, 55, 55) !important;
+	color:rgb(180, 180, 180)
+}
+
+.text{
+	color:rgb(134, 134, 134) !important
 }
 
 .hljs-keyword,
@@ -134,6 +146,7 @@ pre {
 .hljs-literal {
 	font-family: Consolas !important;
 	font-size: 15px;
+	
 }
 .hljs-keyword{
 	color:#497bff !important
@@ -143,8 +156,6 @@ pre code {
 	font-family: monospace !important;
 	height: 80vh;
 	border-radius: 5px !important;
-	filter: drop-shadow(0 0 5px rgb(220, 220, 220));
-	background-color: rgb(255, 255, 255) !important;
 }
 
 pre code::-webkit-scrollbar {
@@ -159,10 +170,6 @@ pre code::-webkit-scrollbar-thumb {
 	background-color: #fafafa;
 }
 
-pre code::-webkit-scrollbar-thumb {
-	background-color: #fafafa;
-	border-radius: 20px;
-}
 
 pre code::-webkit-scrollbar-thumb {
 	background-color: #d6dee1;
@@ -175,18 +182,24 @@ pre code::-webkit-scrollbar-thumb:hover {
 	background-color: #a8bbbf;
 }
 
+pre code::-webkit-scrollbar-thumb:hover{
+	background-color: white;
+}
+
+
+
 p {
 	float: none !important
 }
 
 .card-title {
 	font-weight: 700;
-	color: rgb(61, 61, 61);
+	color: rgb(230, 230, 230);
 }
 
 .card-text {
 	font-size: 15px;
-	color: rgb(134, 134, 134)
+	color: rgb(150, 150, 150)
 }
 
 .navbar.fixed-top {
@@ -243,7 +256,7 @@ p {
 		margin-top:15% !important
 	}
 	html {
-		background-color: #f9f9fa;
+		background-color: rgb(40, 40, 40);
 		margin-left: 5%;
 		margin-right: 5%;
 	}
@@ -258,7 +271,7 @@ p {
 		margin-top:25% !important
 	}
 	html {
-		background-color: #f9f9fa;
+		background-color: rgb(40, 40, 40);
 		margin-left: 0%;
 		margin-right:0%;
 	}
@@ -277,10 +290,26 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgba(0, 0, 0) !important
+}
+
+::-webkit-scrollbar-corner {
+	/*
+	background-image: url(resources/corner.png);
+	background-repeat: no-repeat;
+	*/
+	display:none
+	}
+
+.nav-link.dropdown-toggle:hover{
+	color:rgb(255, 255, 255) !important
 }
 
 
-.nav-link.dropdown-toggle:hover{
-	color:rgb(0,0,0) !important
+.pb-2.border-bottom{
+	color:rgb(218, 218, 219) !important;
+}
+
+p{
+	color:rgb(180, 180, 180)
 }

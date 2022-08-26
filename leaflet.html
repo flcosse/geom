@@ -1,6 +1,7 @@
 
 <html lang="en">
    <head>
+      
       <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
@@ -23,6 +24,15 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 })
 </script>
       <style>
+         .container-fluid{
+	background-color: rgb(40, 40, 40)  !important;
+}
+.navbar.navbar-dark.bg-dark{
+   background-color: rgb(40, 40, 40)  !important;
+}
+.navbar-brand{
+   color:rgb(218, 218, 219) !important
+}
          .spinner-border.text-primary{
             color:#497bff !important;
             display:none;
@@ -46,12 +56,12 @@ width: 3rem; height: 3rem
          }
          body{
          padding:1vh;
-         background-color:#f9f9fa !important;
+         background-color:rgb(40, 40, 40) !important;
          }
          .offcanvas-backdrop.show{
          opacity: 0 !important;
          }
-         #map { height: 91vh;margin-top:7vh }
+         #map { height: 90vh !important;margin-top:0vh }
          label{
          color:#353535;
          margin-bottom: 0.2rem;
@@ -143,13 +153,13 @@ width: 3rem; height: 3rem
   background: white;
   background: rgba(255, 255, 255, 0.8);
   line-height: 24px;
-  color: #555;
+  color: rgb(46, 46, 51);
 }
 .legend h4 {
   text-align: center;
   font-size: 16px;
   margin: 2px 12px 8px;
-  color: #777;
+  color:rgb(40, 40, 40);
 }
 
 .legend span {
@@ -189,7 +199,7 @@ width: 3rem; height: 3rem
       <title>Leaflet</title>
    </head>
    <body class="noselect">
-      <nav class="navbar bg-light fixed-top">
+      <nav class="navbar navbar-dark bg-dark">
          <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -239,8 +249,8 @@ width: 3rem; height: 3rem
          </div>
       </nav>
 
-      <div id="map" style="background-color:#f9f9fa"></div>          
-      <div class="opt" style="z-index:999;margin-left:5vh !important;margin-top:-91.8vh;padding:1rem;position:absolute">      
+      <div id="map" style="background-color:rgb(40, 40, 40)"></div>          
+      <div class="opt" style="z-index:999;margin-left:5vh !important;margin-top:-90.8vh;padding:1rem;position:absolute">      
       <button  type="button" data-toggle="tooltip" data-bs-html="true" title="Navigation" id="pan">N</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="gen" >G</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Rafraîchir"  id="del" >G</button>
