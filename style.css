@@ -1,5 +1,5 @@
 * {
-	font-family: Segoe UI
+	font-family: Arial, Helvetica, sans-serif
 }
 body{
 	background-color:rgb(40, 40, 40) !important;
@@ -311,7 +311,7 @@ p {
 }
 
 p{
-	color:rgb(200, 200, 200)
+	color:rgb(200, 200, 200);
 }
 
 a#link{

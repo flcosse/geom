@@ -98,7 +98,7 @@ document.getElementById("gen").onclick = function() {
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
                     data = this.responseText
-                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).bindPopup(`${aff} minutes`).addTo(map);
+                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
 
                     layer.on('mouseover', function() {
                         this.setStyle({
