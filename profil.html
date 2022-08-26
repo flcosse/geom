@@ -32,6 +32,15 @@
         <h4> <span class="badge bg-secondary" style="float:none">Leaflet</span></h4>
     </div>
          <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique. Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil.</p> 
+         <ul style="list-style: circle;color:rgb(180, 180, 180)">
+            <li>Le script récupère les coordonnées de l'utilisateur lorsqu'il trace une ligne.</li>
+            <li>Ces coordonnées servent à placer une série de points, avec Shapely, plus ou moins dense selon la longueur de la ligne.</li>
+            <li>Ces points serviront à prélever les valeurs raster du MNT avec Rasterio.</li>
+            <li>Ensuite avec Geopandas les données sont réorganisées dans un geodataframe avec un classement selon une distance croissante.</li>
+            <li>Les points sont intégrés à un graphique généré par Plotly.</li>
+            <li>Le framework Dash vient assurer la communication entre la carte Leaflet et le graphique.</li>	
+            <li>Pour finir, Dash crée l'application avec Dash-leaflet pour la carte, Plotly pour le graphique et un fichier GeoJSON pour délimiter l'emprise du MNT.</li>	
+            </ul>
          <div class="fi" style="text-align: center">
             <iframe src="https://dash-topo.herokuapp.com/"scrolling="no" style="position:relative;z-index:999;" frameBorder="0" height="120%" width="100%" title=""></iframe>
             <div class="spinner-border text-primary"style="margin-top:-30vh !important;color:#497bff !important" role="status">
