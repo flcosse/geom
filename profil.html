@@ -76,7 +76,7 @@ url = 'https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?REQUEST=GetTile&SERV
 attribution = '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>'
 config = {
     'toImageButtonOptions': {
-        'format': 'svg',  # one of png, svg, jpeg, webp
+        'format': 'svg',
         'filename': 'custom_image',
         'height': 500,
         'width': 700,
@@ -89,46 +89,22 @@ app.layout = html.Div(
     [
         html.Div(
             [
-                html.P(
-                    "Cliquez sur le symbole de la ligne pour commencer à tracer le profil "
-                    "topographique. Double clic sur le second point pour créer le profil. "),
                 dl.Map(
                     center=[44.7904, 4.8065],
                     zoom=8,
-                    children=[
-                        dl.TileLayer(url=url, maxZoom=20, attribution=attribution),
-                        dl.FeatureGroup(
-                            [
-                                dl.EditControl(
-                                    drawToolbar={"mode": "polyline"}, id="edit_control"
-                                )
-                            ]
-                        ),
+                    children=[dl.TileLayer(url=url, maxZoom=20, attribution=attribution),
+                        dl.FeatureGroup([dl.EditControl(drawToolbar={"mode": "polyline"}, id="edit_control")]),
                         dl.LayersControl(
-                            dl.Overlay(
-                                dl.GeoJSON(
-                                    url="/assets/data.geojson",
-                                    id="capitals",
-                                    options=dict(color="#497bff"),
-                                ),
+                            dl.Overlay(dl.GeoJSON(url="/assets/data.geojson",id="capitals",options=dict(color="#497bff")),
                                 name="Zone d'étude",
-                                checked=True,
-                            )
+                                checked=True)
                         ),
                         dl.GeoJSON(
                             id="geojson",
-                            hoverStyle=arrow_function(
-                                dict(weight=5, color="#666", dashArray="")
-                            ),
-                            options=dict(color="rgb(255, 170, 0)"),
-                        ),
+                            hoverStyle=arrow_function(dict(weight=5, color="#666", dashArray="")),
+                            options=dict(color="rgb(255, 170, 0)")),
                     ],
-                    style={
-                        "width": "100%",
-                        "height": "40vh",
-                        "margin": "auto",
-                        "display": "inline-block",
-                    },
+                    style={"width": "100%","height": "40vh","margin": "auto","display": "inline-block"},
                     id="mirror",
                 ),
             ]
@@ -137,12 +113,7 @@ app.layout = html.Div(
             [
                 dcc.Graph(
                     id="our_graph",
-                    style={
-                        "height": "40vh",
-                        "position": "absolute",
-                        "width": "98%",
-                        "display": "none",
-                    },
+                    style={"height": "40vh","position": "absolute","width": "98%","display": "none"},
                     config=config
                 )
             ]
