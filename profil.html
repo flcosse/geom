@@ -32,15 +32,6 @@
         <h4> <span class="badge bg-secondary" style="float:none">Leaflet</span></h4>
     </div>
          <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique. Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil.</p> 
-         <ul style="list-style: circle;color:rgb(180, 180, 180)">
-            <li>Le script récupère les coordonnées de l'utilisateur lorsqu'il trace une ligne.</li>
-            <li>Ces coordonnées servent à placer une série de points, avec Shapely, plus ou moins dense selon la longueur de la ligne.</li>
-            <li>Ces points serviront à prélever les valeurs raster du MNT avec Rasterio.</li>
-            <li>Ensuite avec Geopandas les données sont réorganisées dans un geodataframe avec un classement selon une distance croissante.</li>
-            <li>Les points sont intégrés à un graphique généré par Plotly.</li>
-            <li>Le framework Dash vient assurer la communication entre la carte Leaflet et le graphique.</li>	
-            <li>Pour finir, Dash crée l'application avec Dash-leaflet pour la carte, Plotly pour le graphique et un fichier GeoJSON pour délimiter l'emprise du MNT.</li>	
-            </ul>
          <div class="fi" style="text-align: center">
             <iframe src="https://dash-topo.herokuapp.com/"scrolling="no" style="position:relative;z-index:999;" frameBorder="0" height="120%" width="100%" title=""></iframe>
             
@@ -48,8 +39,115 @@
                 <span class="visually-hidden" >Loading...</span>
                 <div class="row">
                     <strong style="margin-top:-28vh !important;color:rgb(230, 230, 230) !important">En attente d'une ligne...</strong>
-                  </div>
-            
+                  </div></div>
+                <p>
+    Le script récupère les coordonnées de l'utilisateur lorsqu'il trace une ligne. 
+            <pre><code class="python">coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])
+coord2 = (x["features"][-1]["geometry"]["coordinates"][1][0], x["features"][-1]["geometry"]["coordinates"][1][1])</code></pre>
+<p> Ces coordonnées servent à placer une série de points, avec Shapely, plus ou moins dense selon la longueur de la ligne.
+            <pre><code class="python">line = LineString([(coord1[0], coord1[1]), (coord2[0], coord2[1])])
+distances = np.arange(0, line.length, math.log2(Geod(ellps="WGS84").geometry_length(line)) / 100000)
+points = [line.interpolate(distance) for distance in distances] + [line.boundary[1]]
+gdf2 = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[unary_union(points)])</code></pre>
+<p>Ces points serviront à prélever les valeurs raster du MNT avec Rasterio.
+            <pre><code class="python">df = pd.DataFrame({"Latitude": [i.y for i in gdf2["geometry"][0]], "Longitude": [i.x for i in gdf2["geometry"][0]]})
+gdf = gpd.GeoDataFrame(df, crs="EPSG:4326", geometry=gpd.points_from_xy([i.x for i in gdf2["geometry"][0]],[i.y for i in gdf2["geometry"][0]]))
+gdf['value'] = [x for x in src.sample([(x, y) for x, y in zip(gdf['geometry'].x, gdf['geometry'].y)])]</code></pre>
+<p>  Ensuite avec Geopandas les données sont réorganisées dans un geodataframe avec un classement selon une distance croissante.
+<pre><code class="python">gdf = gdf.to_crs(2154)
+dist = [gdf["geometry"][0].distance(i) for i in gdf["geometry"]]
+gdf["Distance"] = dist
+gdf = gdf.sort_values(by='Distance', ascending=True)
+
+if gdf["Longitude"][0] != coord1[0]:
+    gdf = gdf.sort_values(by=['Longitude'], ascending=False)
+
+gdf['value'] = gdf['value'].astype("float")
+y = gdf["value"].to_list()</code></pre>
+<p>  Les points sont intégrés à un graphique généré par Plotly.
+            <pre><code class="python">fig = go.Figure(
+        data=[
+            go.Scatter(
+                customdata=np.stack((gdf["Longitude"], gdf["Latitude"]), axis=1),
+                x=dist,
+                y=uniform_filter1d(y, size=3),
+                hovertemplate="Distance : %{x:.0f}m<br>Altitude : %{y:.0f}m<br><extra></extra>",
+                fill="tozeroy",
+                line_color="rgb(255, 170, 0)",
+                mode="lines",
+                fillcolor="rgba(255, 170, 0, 0.3)",
+                hoverinfo="none",
+            )
+        ],
+    )
+    moyenne = mean(y)
+    moyenne = round(moyenne, 1)
+    maxi = int(float(max(y)))
+    pente = round(((y[-1] - y[0]) / max(dist)) * 100, 1)
+    fig.update_yaxes(ticks="outside")
+    fig.update_xaxes(ticks="outside")
+    fig.update(layout_yaxis_range=[0, maxi * 1.5])
+
+    fig.update_xaxes(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor="#686c69",
+        showgrid=True,
+        gridwidth=0.1,
+        gridcolor="rgba(0,0,0,0)",
+    )
+    fig.update_yaxes(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor="#686c69",
+        showgrid=True,
+        gridwidth=0.1,
+        gridcolor="rgba(0,0,0,0)",
+    )
+    fig.layout.xaxis.fixedrange = True
+    fig.layout.yaxis.fixedrange = True
+    fig.update_yaxes(title_text="Altitude")
+    fig.update_layout(
+        {
+            "plot_bgcolor": "rgba(255,255,255,0)",
+            "paper_bgcolor": "rgba(255,255,255,0)",
+        },
+        legend_itemdoubleclick=False,
+        margin={"r": 0, "l": 0},
+        xaxis_title=f"Distance<br><i>Longueur : {int(max(dist))}m / Dénivelé : {round(y[-1] - y[0], 1)}m / Moyenne : {moyenne}m / Pente : {pente}%</i>",
+        font=dict(size=11),
+        title_text=f"<i>Profil topographique,<br>Départ : {round(y[0])}m - Arrivée : {round(y[-1])}m </i>",
+        title_x=0,
+        title_y=0.9,
+        legend=dict(title=None),
+        hoverlabel=dict(
+            bgcolor="white",
+            bordercolor="rgb(232,232,232)",
+            font=dict(
+                color="rgb(80,80,80)",
+                size=13,
+            ),
+        ),
+    )</code></pre>
+    <p>  Le framework Dash vient assurer la communication entre la carte Leaflet et le graphique.	
+            <pre><code class="python">@app.callback(
+    [Output("geojson", "data"),
+     Output("map", "figure"),
+     Output("map", "style")],
+    [Input("edit_control", "geojson")])</code></pre>
+    <p>  Pour finir, Dash crée l'application avec Dash-leaflet pour la carte, Plotly pour le graphique et un fichier GeoJSON pour délimiter l'emprise du MNT.	
+<pre><code class="python">dl.Map(
+center=[44.7904, 4.8065],
+zoom=8,
+children=[dl.TileLayer(url=url, maxZoom=20, attribution=attribution),
+    dl.FeatureGroup([dl.EditControl(drawToolbar={"mode": "polyline"}, id="edit_control")]),
+    dl.LayersControl(
+        dl.Overlay(dl.GeoJSON(url="/assets/data.geojson",id="zone",options=dict(color="#497bff")),
+            name="Zone d'étude",
+            checked=True))</code></pre>    
+        </ul>
+         
+        <p>Script final : </p>
                 </div>
          <pre><code class="python">import geopandas as gpd
 import numpy as np
@@ -85,17 +183,15 @@ config = {
     'displaylogo': False
 }
 
-app.layout = html.Div(
-    [
-        html.Div(
-            [
+app.layout = html.Div([
+        html.Div([
                 dl.Map(
                     center=[44.7904, 4.8065],
                     zoom=8,
                     children=[dl.TileLayer(url=url, maxZoom=20, attribution=attribution),
                         dl.FeatureGroup([dl.EditControl(drawToolbar={"mode": "polyline"}, id="edit_control")]),
                         dl.LayersControl(
-                            dl.Overlay(dl.GeoJSON(url="/assets/data.geojson",id="capitals",options=dict(color="#497bff")),
+                            dl.Overlay(dl.GeoJSON(url="/assets/data.geojson",id="zone",options=dict(color="#497bff")),
                                 name="Zone d'étude",
                                 checked=True)
                         ),
@@ -106,27 +202,22 @@ app.layout = html.Div(
                     ],
                     style={"width": "100%","height": "40vh","margin": "auto","display": "inline-block"},
                     id="mirror",
-                ),
-            ]
+                )]
         ),
-        html.Div(
-            [
-                dcc.Graph(
-                    id="our_graph",
+        html.Div([dcc.Graph(
+                    id="map",
                     style={"height": "40vh","position": "absolute","width": "98%","display": "none"},
                     config=config
-                )
-            ]
-        ),
-    ],
+                )]
+        )],
     style={"background-color": "rgba(0,0,0,0)"},
 )
 
 
 @app.callback(
     [Output("geojson", "data"),
-     Output("our_graph", "figure"),
-     Output("our_graph", "style")],
+     Output("map", "figure"),
+     Output("map", "style")],
     [Input("edit_control", "geojson")])
 def profil(x):
     coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])

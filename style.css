@@ -124,11 +124,11 @@ pre {
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
 	background-color: rgb(55, 55, 55) !important;
-	color:rgb(180, 180, 180)
+	color:rgb(200, 200, 200)
 }
 
 .text{
-	color:rgb(134, 134, 134) !important
+	color:rgb(200,200,200) !important
 }
 
 .hljs-keyword,
@@ -154,7 +154,7 @@ pre {
 
 pre code {
 	font-family: monospace !important;
-	height: 80vh;
+	max-height: 80vh;
 	border-radius: 5px !important;
 }
 
@@ -311,7 +311,7 @@ p {
 }
 
 p{
-	color:rgb(180, 180, 180)
+	color:rgb(200, 200, 200)
 }
 
 a#link{
