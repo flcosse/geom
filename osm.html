@@ -30,7 +30,13 @@
       <h4> <span class="badge bg-secondary" style="float:none">OSM</span></h4>
   </div>
        <p >Ce diagramme utilise les données d'OpenStreetMap récupérés à partir de la librairie osmnx. La librairie envoie une requête aux serveurs d'OpenStreetMap qui nous renvoient les données de landue. Le graphique est ensuite généré par Plotly.
-
+        <ul style="list-style: circle;color:rgb(180, 180, 180)">
+            <li>Le script fonctionne avec une fonction qui récupère le nom d'une ville.</li>
+            <li>Ce nom servira pour alimenter la requête à la librairie OSMnx.</li>
+            <li>Les réponses sont des géométries qui seront intégrés à un <i>geodataframe</i>.</li>
+            <li>Les données sont triées et organisées et intègreront un graphique généré par Plotly.</li>
+            <li>Une carte est disponible en dessous pour comparer aavec les données avec les villes alentours.</li>	
+            </ul>
     </p> 
        <iframe src="file.html" allow="clipboard-read; clipboard-write" scrolling="no"frameBorder="0" height="50%" width="100%" title=""></iframe>
        <iframe src="https://osmlanduse.org/#13.5/-0.36386/43.31562/0/"scrolling="no"frameBorder="0" height="50%" width="100%" title="Iframe Example" style="margin-bottom: 7%;"></iframe>
