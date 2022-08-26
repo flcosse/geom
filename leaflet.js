@@ -18,11 +18,11 @@ document.getElementById("pan").onclick = function() {
     map.off('click')
 }
 
-var col15;
-var col30;
-var col45;
-var col60;
-var col10;
+var col15 = "#4d7adb"
+var col30 = "#88db4d"
+var col45 = "#dbb84d"
+var col60 = "#db4d4d"
+var col10 = "#4dcfdb"
 
 document.getElementById("gen").onclick = function() {
     document.getElementById("map").style.cursor = "crosshair";
@@ -71,15 +71,15 @@ document.getElementById("gen").onclick = function() {
 
             var couleur;
             if (aff == 15) {
-                couleur = "#4D96FF"
+                couleur = col15
             } else if (aff == 30) {
-                couleur = "#6BCB77"
+                couleur = col30
             } else if (aff == 45) {
-                couleur = "#FFD93D"
+                couleur = col45
             } else if (aff == 60) {
-                couleur = "#FF6B6B"
+                couleur = col60
             } else {
-                couleur = "#4dcfdb"
+                couleur = col10
             }
 
             var polystyle = {
@@ -90,7 +90,7 @@ document.getElementById("gen").onclick = function() {
             };
 
             var greenIcon = new L.Icon({
-                iconUrl: 'pin.png',
+                iconUrl: 'location-dot-solid.svg',
                 iconSize: [35, 35],
                 iconAnchor: [17, 29],
                 popupAnchor: [20, 20],
