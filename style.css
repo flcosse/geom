@@ -317,3 +317,48 @@ p{
 a#link{
 	--bs-link-color:#497bff !important
 }
+
+     .nav-link, .nav-link.active{
+     color:rgb(218, 218, 219) !important;
+     font-weight: 600;
+     font-size: 15px;
+     }
+     .dropdown:hover .dropdown-menu {
+     display: block;
+     border: 0px;
+     box-shadow: rgba(0, 0, 0, 1) 1.95px 1.95px 2.6px;
+     pointer-events: all !important;
+     background-color: rgb(46, 46, 51);
+     }
+
+
+.dropdown-item{
+   color:rgb(218, 218, 219)
+}
+.nav-item.dropdown:hover > .nav-link.dropdown-toggle::after{
+   transform: rotate(225deg);
+}
+.nav-link.dropdown-toggle:after {
+  transition: 0.2s;
+}
+
+
+
+
+
+.dropdown-toggle::after {
+   display: inline-block;
+  width: 0.7vh;
+  height: 0.7vh;
+  border: .3em solid;
+  border-width: 0 .15em .15em 0;
+  transform: rotateZ(220)
+}
+
+.dropdown-toggle::after {
+  transform: rotate(45deg); 
+}
+
+.navbar.navbar-dark.navbar-expand-lg.fixed-top{
+   background-color:rgb(40, 40, 40) !important;
+}
