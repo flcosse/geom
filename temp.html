@@ -73,89 +73,45 @@ config = {"displayModeBar": False}
 app = Dash(__name__, external_stylesheets=["/assets/style.css"])
 server = app.server
 
-app.layout = html.Div(
-    [
+app.layout = html.Div([
         html.Div(
             [
-                html.Div(
-                    [
-                        html.Div(
-                            id="hiver",
-                        ),
-                    ],
-                    style=style,
-                ),
-                html.Div(
-                    [
-                        html.Div(id="printemps"),
-                    ],
-                    style=style,
-                ),
-                html.Div(
-                    [
-                        html.Div(id="automne"),
-                    ],
-                    style=style,
-                ),
-                html.Div(
-                    [html.Div(id="ete")],
-                    style=style,
-                ),
-            ],
+                html.Div([html.Div(id="hiver")],style=style),
+                html.Div([html.Div(id="printemps")],style=style),
+                html.Div([html.Div(id="automne")],style=style),
+                html.Div([html.Div(id="ete")],style=style)],
             style={
                 "display": "flex",
                 "justify-content": "space-between",
                 "margin-left": "0.5%",
             },
         ),
-        html.P(
-            "Visualisation et analyse de données météos autour du globe",
-        ),
-        html.Div(
-            [
-                html.Div(
-                    [
+        html.P("Visualisation et analyse de données météos autour du globe"),
+        html.Div([
+                html.Div([
                         dcc.Graph(
                             id="graph",
                             style={"display": "none", "float": "left"},
-                            config=config,
-                        ),
-                    ]
-                ),
-                html.Div(
-                    [
-                        dl.Map(
-                            center=[48.82219190894788, -19.284284779917197],
-                            zoom=1,
-                            children=[
-                                dl.TileLayer(url=url,attribution=attribution),
-                                dl.GeoJSON(
-                                    url="/assets/PAYS.geojson",
-                                    id="capitals",
-                                    options=dict(weight=1, color="dimgrey"),
-                                    hoverStyle=arrow_function(
-                                        dict(weight=3, color="royalblue", dashArray="")
-                                    ),
-                                ),
-                            ],
-                            id="map2",
+                            config=config),
+                        ]),
+                html.Div([dl.Map(center=[48.82219190894788, -19.284284779917197],zoom=1,
+                            children=[dl.TileLayer(url=url,attribution=attribution),
+                            dl.GeoJSON(url="/assets/PAYS.geojson",id="capitals",options=dict(weight=1, color="dimgrey"),
+                            hoverStyle=arrow_function(dict(weight=3, color="royalblue", dashArray=""))),
+                            ],id="map2",
                         ),
                         html.Div(id="capital"),
                     ]
                 ),
-                html.Div(
-                    [
+                html.Div([
                         dcc.Graph(
                             id="meanf",
                             config=config,
-                        ),
-                    ]
-                ),
-            ],
+                        )]
+                )],
             style={"margin-left": "0.5%", "margin-right": "0.5%"},
         ),
-        html.Div(
-            [
+        html.Div([
                 dcc.RangeSlider(
                     min=1800,
                     max=2010,
@@ -177,54 +133,31 @@ app.layout = html.Div(
                     id="slider",
                     pushable=20,
                 ),
-            ],
-        ),
-        html.Div(
-            [
-                html.P(
-                    "*Certaines données anciennes sont absentes ou partielles",
-                    style={"font-style": "italic"},
-                )
-            ]
-        ),
-    ]
-)
+            ]),
+        html.Div([html.P("*Certaines données anciennes sont absentes ou partielles",
+        style={"font-style": "italic"})])
+])
 
 
 @app.callback(
-    [
-        Output("graph", "figure"),
-        Output("graph", "style"),
-        Output("hiver", "children"),
-        Output("ete", "children"),
-        Output("automne", "children"),
-        Output("printemps", "children"),
-        Output("meanf", "figure"),
-    ],
-    [
-     Input('slider', 'value'),
-     Input("capitals", "click_feature")]
+    [Output("graph", "figure"),
+    Output("graph", "style"),
+    Output("hiver", "children"),
+    Output("ete", "children"),
+    Output("automne", "children"),
+    Output("printemps", "children"),
+    Output("meanf", "figure"),],
+    [Input('slider', 'value'),
+    Input("capitals", "click_feature")]
 )
 def graph(date,feature):
-    df = pd.read_csv(
-        r"PAYS.csv",
-        usecols=[
-            "dt",
-            "AverageTemperature",
-            "Country",
-        ],
-    )
+    df = pd.read_csv(r"PAYS.csv",usecols=["dt","AverageTemperature","Country"])
     df = df.dropna()
     df = df[df["Country"] == feature['properties']['ADMIN']]
     nom = df["Country"].unique()[0]
     translated = GoogleTranslator(source='auto', target='fr').translate(nom)
 
-    fig = make_subplots(
-        rows=2,
-        cols=2,
-        subplot_titles=["Hiver", "Été", "Automne", "Printemps"],
-        vertical_spacing=0.2,
-    )
+    fig = make_subplots(rows=2,cols=2,subplot_titles=["Hiver", "Été", "Automne", "Printemps"],vertical_spacing=0.2)
     df = df.loc[df["dt"].between(str(date[0]),str(date[1]+1))]
     df["Dates"] = pd.to_datetime(df.dt)
 
@@ -261,11 +194,7 @@ def graph(date,feature):
     rows = [(1, 1), (1, 2), (2, 1), (2, 2)]
     resultat = []
 
-    for i, j, z in zip(
-        [hiver, ete, automne, printemps],
-        rows,
-        ["royalblue", "#FFD700", "#F3872F", "#61B15A"],
-    ):
+    for i, j, z in zip([hiver, ete, automne, printemps],rows,["royalblue", "#FFD700", "#F3872F", "#61B15A"]):
         fig.add_trace(
             go.Scatter(
                 x=i["Dates"],
@@ -376,11 +305,7 @@ def graph(date,feature):
         gridcolor="rgba(0,0,0,0)",
     )
 
-    meanf.update_traces(
-        hovertemplate="".join([
-            "%{y:.2f}°C",
-        ])
-    )
+    meanf.update_traces(hovertemplate="".join(["%{y:.2f}°C"]))
 
     return (
         fig,
