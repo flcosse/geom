@@ -286,7 +286,7 @@ p {
 
 .navbar.navbar-expand-lg.fixed-top {
 	border-radius:2px !important;
-    transition: all 0.25s linear;
+    transition: all 0.15s linear;
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
