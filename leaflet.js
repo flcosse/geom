@@ -91,7 +91,7 @@ document.getElementById("gen").onclick = function() {
 
             var greenIcon = new L.Icon({
                 iconUrl: 'pin-m+7e7e7e@2x.png',
-                iconSize: [30, 42],
+                iconSize: [31, 42],
                 iconAnchor: [18, 34],
                 popupAnchor: [20, 20],
             });
