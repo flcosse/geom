@@ -90,9 +90,9 @@ document.getElementById("gen").onclick = function() {
             };
 
             var greenIcon = new L.Icon({
-                iconUrl: 'location-dot-solid.svg',
-                iconSize: [35, 35],
-                iconAnchor: [17, 29],
+                iconUrl: 'pin-m+7e7e7e@2x.png',
+                iconSize: [30, 42],
+                iconAnchor: [18, 34],
                 popupAnchor: [20, 20],
             });
             request.onreadystatechange = function() {
@@ -102,7 +102,7 @@ document.getElementById("gen").onclick = function() {
 
                     layer.on('mouseover', function() {
                         this.setStyle({
-                            color: 'rgb(80, 80, 80)',
+                            color: '#5c5c5c',
                             fillColor:couleur
                         });
                     });
