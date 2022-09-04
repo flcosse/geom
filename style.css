@@ -34,9 +34,9 @@ html {
 
 .card {
 	border: 0px !important;
-	background-color: #ffffff !important;
+	background-color: #F9f9f9 !important;
 	border-radius: 15px !important;
-	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
 	
 }
 
@@ -115,12 +115,12 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
-	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
+	    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
 
 }
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
-	background-color: #ffffff !important;
+	background-color: #F9f9f9 !important;
 	color:#212121
 	
 }
@@ -324,7 +324,7 @@ a#link{
 	.dropdown:hover .dropdown-menu {
 	display: block;
 	border: 0px;
-	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
+	    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
 	pointer-events: all !important;
 	background-color: #F5F5F5;
 	}
@@ -342,7 +342,9 @@ a#link{
 
 
 
-
+.dropdown-item{
+	letter-spacing: 0px !important;
+}
 
 .dropdown-toggle::after {
   display: inline-block;
@@ -359,4 +361,8 @@ a#link{
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top{
   background-color:#F5F5F5 !important;
+}
+
+.nav-item, .nav-item-dropdown{
+	letter-spacing: 1px;
 }
