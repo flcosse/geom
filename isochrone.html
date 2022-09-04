@@ -32,7 +32,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
         <h4> <span class="badge bg-secondary">API</span></h4>
         <h4> <span class="badge bg-secondary" style="float:none">Leaflet</span></h4>
         <p >Une carte Leaflet sert de support pour récupérer des coordonnées via des cliques. Ces coordonnées servent à remplir une requête envoyée à l'API d'Openrouteserivce. La réponse sera un fichier au format JSON qui sera affichée sur la carte. Des éléments du panneau latéral comme le moyen de transport ou le temps servent également à compléter cette requête.</p> 
-         <ul style="list-style: circle;color:rgb(180, 180, 180)">
+         <ul style="list-style: circle">
             <li>La carte est initialisée au départ avec une vue sur Paris.</li>
             <li>Dès qu'un clique est enregistré sur la carte, une requête à l'API est envoyée.</li>
             <li>La réponse au format JSON est ajoutée à la carte, au même titre qu'un point à l'origine de l'isochrone.</li>

@@ -25,13 +25,13 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 </script>
       <style>
          .container-fluid{
-	background-color: rgb(40, 40, 40)  !important;
+	background-color: #fcfcfc  !important;
 }
 .navbar.navbar-dark.bg-dark{
-   background-color: rgb(40, 40, 40)  !important;
+   background-color: #fcfcfc  !important;
 }
 .navbar-brand{
-   color:rgb(218, 218, 219) !important
+   color:#212121 !important
 }
          .spinner-border.text-primary{
             color:#497bff !important;
@@ -56,7 +56,7 @@ width: 3rem; height: 3rem
          }
          body{
          padding:1vh;
-         background-color:rgb(40, 40, 40) !important;
+         background-color:#fcfcfc !important;
          }
          .offcanvas-backdrop.show{
          opacity: 0 !important;
@@ -159,7 +159,7 @@ width: 3rem; height: 3rem
   text-align: center;
   font-size: 16px;
   margin: 2px 12px 8px;
-  color:rgb(40, 40, 40);
+  color:#fcfcfc;
 }
 
 .legend span {
@@ -199,7 +199,7 @@ width: 3rem; height: 3rem
       <title>Leaflet</title>
    </head>
    <body class="noselect">
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar ">
          <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -249,7 +249,7 @@ width: 3rem; height: 3rem
          </div>
       </nav>
 
-      <div id="map" style="background-color:rgb(40, 40, 40)"></div>          
+      <div id="map" style="background-color:#fcfcfc"></div>          
       <div class="opt" style="z-index:999;margin-left:5vh !important;margin-top:-90.8vh;padding:1rem;position:absolute">      
       <button  type="button" data-toggle="tooltip" data-bs-html="true" title="Navigation" id="pan">N</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="gen" >G</button>
@@ -259,6 +259,6 @@ width: 3rem; height: 3rem
          <div class="spinner-border text-primary" id="loading"role="status"></div></div>
          
 
-      <script src="leaflet.js"></script>
+      <script src="/js/leaflet.js"></script>
    </body>
 </html>

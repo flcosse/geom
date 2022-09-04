@@ -2,10 +2,10 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  !important
 }
 body{
-	background-color:rgb(36, 37, 38) !important;
+	background-color:#F5F5F5 !important;
 }
 html {
-	background-color: rgb(36, 37, 38);
+	background-color: #F5F5F5;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -14,7 +14,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: rgb(36, 37, 38) !important;
+	background-color: #F5F5F5 !important;
 }
 
 .section-title h2 {
@@ -34,9 +34,9 @@ html {
 
 .card {
 	border: 0px !important;
-	background-color: rgb(58, 59, 60) !important;
+	background-color: #ffffff !important;
 	border-radius: 15px !important;
-	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
 	
 }
 
@@ -46,35 +46,33 @@ html {
 }
 
 .card:hover {
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
 	transition: transform .2s;
 }
 
 .card:hover .card-title {
-	color: rgb(165, 165, 165)
+	color: #212121
 }
 
 .card:hover .card-text{
-	color: rgb(135, 135, 135)
+	color: #757575
 }
 
 .col{
-	background-color:rgb(36, 37, 38) !important;
+	background-color:#F5F5F5 !important;
 }
 .article {
 
-	background-color: rgb(36, 37, 38);
+	background-color: #F5F5F5;
 }
 
 h1 {
-	background-color: rgb(36, 37, 38) !important;
+	background-color: #F5F5F5 !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: rgb(230, 230, 230);
+	color: #212121;
 	margin-top: 7% !important;
 }
 
@@ -117,15 +115,18 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
+	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
+
 }
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
-	background-color: rgb(58, 59, 60) !important;
-	color:rgb(200, 200, 200)
+	background-color: #ffffff !important;
+	color:#212121
+	
 }
 
 .text{
-	color:rgb(200,200,200) !important
+	color:#212121 !important
 }
 
 .hljs-keyword,
@@ -180,7 +181,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover{
-	background-color: white;
+	background-color: #497bff;
 }
 
 
@@ -191,16 +192,16 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: rgb(230, 230, 230);
+	color: #212121;
 }
 
 .card-text {
 	font-size: 15px;
-	color: rgb(150, 150, 150)
+	color: #757575
 }
 
 .navbar.fixed-top {
-	background-color: rgba(255, 255, 255, 0.9) !important;
+	background-color: #F5F5F5 !important;
 }
 
 .python.hljs.language-python {
@@ -253,7 +254,7 @@ p {
 		margin-top:15% !important
 	}
 	html {
-		background-color: rgb(36, 37, 38);
+		background-color: #F5F5F5;
 		margin-left: 5%;
 		margin-right: 5%;
 	}
@@ -268,7 +269,7 @@ p {
 		margin-top:25% !important
 	}
 	html {
-		background-color: rgb(36, 37, 38);
+		background-color: #F5F5F5;
 		margin-left: 6%;
 		margin-right:6%;
 	}
@@ -287,28 +288,28 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgba(0, 0, 0) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(134, 134, 134) !important
 }
 
 ::-webkit-scrollbar-corner {
-	/*
-	background-image: url(resources/corner.png);
-	background-repeat: no-repeat;
-	*/
+
 	display:none
 	}
 
 .nav-link.dropdown-toggle:hover{
-	color:rgb(255, 255, 255) !important
+	color:#000000 !important
 }
 
-
+.hljs-string{
+	color:rgb(56, 179, 58) !important
+}
 .pb-2.border-bottom{
-	color:rgb(218, 218, 219) !important;
+	color:#212121 !important;
+	font-weight: 700;
 }
 
 p{
-	color:rgb(200, 200, 200);
+	color:#212121;
 }
 
 a#link{
@@ -316,21 +317,21 @@ a#link{
 }
 
 .nav-link, .nav-link.active{
-	color:rgb(218, 218, 219) !important;
+	color:#484848!important;
 	font-weight: 600;
 	font-size: 15px;
 	}
 	.dropdown:hover .dropdown-menu {
 	display: block;
 	border: 0px;
-	box-shadow: rgba(0, 0, 0, 1) 1.95px 1.95px 2.6px;
+	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .2) !important;
 	pointer-events: all !important;
-	background-color: rgb(58, 59, 60);
+	background-color: #F5F5F5;
 	}
 
 
 .dropdown-item{
-  color:rgb(218, 218, 219)
+  color:#212121
 }
 .nav-item.dropdown:hover > .nav-link.dropdown-toggle::after{
   transform: rotate(225deg);
@@ -357,5 +358,5 @@ a#link{
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top{
-  background-color:rgb(36, 37, 38) !important;
+  background-color:#F5F5F5 !important;
 }
