@@ -1,148 +1,144 @@
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript">
-     $(function(){
-     $("#footer").load("footer.html"); 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script type="text/javascript">
+     $(function() {
+       $("#footer").load("footer.html");
      });
-     
-       
-  </script>
-  <style>
+   </script>
+   <style>
      @media only screen and (max-width: 480px) {
-     body{
-     margin-right:10% !important;
-     margin-left:10% !important
+       body {
+         margin-right: 10% !important;
+         margin-left: 10% !important
+       }
      }
-     }
-  </style>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="utf-8">
-  <title>Accueil</title>
-  <link rel="shortcut icon" href="image/compass-solid.svg" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-</head>
-<body>
-  <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/python.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  <div class="container-fluid" id="footer"></div>
-  <h2 class="pb-2 border-bottom" style="margin-top: 7% !important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Projets</h2>
-  <a href="profil.html" style="text-decoration: none;">
+   </style>
+   <link rel="stylesheet" href="style.css">
+   <meta charset="utf-8">
+   <title>Accueil</title>
+   <link rel="shortcut icon" href="image/compass-solid.svg" type="image/x-icon">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+ </head>
+ <body>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/python.min.js"></script>
+   <script>
+     hljs.initHighlightingOnLoad();
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <div class="container-fluid" id="footer"></div>
+   <h2 class="pb-2 border-bottom" style="margin-top: 7% !important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Projets</h2>
+   <a href="profil.html" style="text-decoration: none;">
      <div class="block">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-           <div class="col">
-              <div class="card">
-                 <img src="image/360_F_124615518_OpD3shpyp84aw5n67nMSVJHEkbljRBqg.webp" class="card-img-top" alt="...">
-                 <div class="card-body">
-                    <h5 class="card-title">Profil topographique</h5>
-                    <p class="card-text">Import d'un MNT pour réaliser des profils topographiques intéractifs sur Leaflet.js et Dash.</p>
-                 </div>
-              </div>
+       <div class="row row-cols-1 row-cols-md-3 g-4">
+         <div class="col">
+           <div class="card">
+             <img src="image/360_F_124615518_OpD3shpyp84aw5n67nMSVJHEkbljRBqg.webp" class="card-img-top" alt="...">
+             <div class="card-body">
+               <h5 class="card-title">Profil topographique</h5>
+               <p class="card-text">Import d'un MNT pour réaliser des profils topographiques intéractifs sur Leaflet.js et Dash.</p>
+             </div>
            </div>
-  </a>
-  <a href="isochrone.html" style="text-decoration: none;">
-  <div class="col">
-  <div class="card">
-  <img src="image/1914-isochrone-carte-1280x830.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title">Générateur d'isochrone</h5>
-  <p class="card-text">Utilisation de l'API d'openrouteserivce pour la cartographie d'isochrone avec Leaflet</p>
-  </div>
-  </div>
-  </div>
-  </a>
-  <a href="eol.html" style="text-decoration: none;">
-  <div class="col">
-  <div class="card">
-  <img src="image/Capture d’écran 2022-08-04 143718.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title">Analyse de potentiel éolien</h5>
-  <p class="card-text">Analyse multicritère réalisée sur ArcGIS Pro dans le but d'identifier de nouveaux parcs éoliens.</p>
-  </div>
-  </div>
-  </div>
-  </a>
-  <a href="temp.html" style="text-decoration: none;">
-  <div class="col">
-  <div class="card">
-  <img src="image/DefPalette_current_weathermaps2.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title">Analyse de données de température</h5>
-  <p class="card-text">Analyses et visualisations interactives de données météos faites avec Pandas, Leaflet et Dash.</p>
-  </div>
-  </div>
-  </div>
-  </a>
-  <a href="qgis.html" style="text-decoration: none;">
-  <div class="col">
-  <div class="card">
-  <img src="image/Europe_PVOUT_mid-size-map_256x180mm-300dpi_v20210430.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title">Analyse de potentiel solaire</h5>
-  <p class="card-text">Analyse multicritère réalisée sur QGIS dans le but d'identifier les emplacements de champs solaires.</p>          </div>
-  </div>
-  </div>
-  </a>
-  </div>
-  </div>
-  </a>
-  <style>
-     #min{
-     width:14%;
-     margin-right:2vh;
-     cursor: pointer;
+         </div>
+   </a>
+   <a href="isochrone.html" style="text-decoration: none;">
+     <div class="col">
+       <div class="card">
+         <img src="image/1914-isochrone-carte-1280x830.webp" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Générateur d'isochrone</h5>
+           <p class="card-text">Utilisation de l'API d'openrouteserivce pour la cartographie d'isochrone avec Leaflet</p>
+         </div>
+       </div>
+     </div>
+   </a>
+   <a href="eol.html" style="text-decoration: none;">
+     <div class="col">
+       <div class="card">
+         <img src="image/Capture d’écran 2022-08-04 143718.webp" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Analyse de potentiel éolien</h5>
+           <p class="card-text">Analyse multicritère réalisée sur ArcGIS Pro dans le but d'identifier de nouveaux parcs éoliens.</p>
+         </div>
+       </div>
+     </div>
+   </a>
+   <a href="temp.html" style="text-decoration: none;">
+     <div class="col">
+       <div class="card">
+         <img src="image/DefPalette_current_weathermaps2.webp" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Analyse de données de température</h5>
+           <p class="card-text">Analyses et visualisations interactives de données météos faites avec Pandas, Leaflet et Dash.</p>
+         </div>
+       </div>
+     </div>
+   </a>
+   <a href="qgis.html" style="text-decoration: none;">
+     <div class="col">
+       <div class="card">
+         <img src="image/Europe_PVOUT_mid-size-map_256x180mm-300dpi_v20210430.webp" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Analyse de potentiel solaire</h5>
+           <p class="card-text">Analyse multicritère réalisée sur QGIS dans le but d'identifier les emplacements de champs solaires.</p>
+         </div>
+       </div>
+     </div>
+   </a>
+   </div>
+   </div>
+   </a>
+   <style>
+     #min {
+       width: 14%;
+       margin-right: 2vh;
+       cursor: pointer;
      }
-  </style>
-  <br>
-  <h2 class="pb-2 border-bottom">Compétences</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+   </style>
+   <br>
+   <h2 class="pb-2 border-bottom">Compétences</h2>
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
      <div class="col d-flex align-items-start">
-        <img src="image/layers.webp" id="min"   alt="">        
-        <div>
-           <h5 class="card-title">
-           Analyse spatiale</h4>
+       <img src="image/layers.webp" id="min" alt="">
+       <div>
+         <h5 class="card-title"> Analyse spatiale </h4>
            <p>Traitement de données géographiques et réalisation d'analyse multicritère pour trouver des sites propices.</p>
-        </div>
+       </div>
      </div>
      <div class="col d-flex align-items-start">
-        <img src="image/database.webp" id="min"  alt="">        
-        <div>
-           <h5 class="card-title">
-           Bases de données</h4>
+       <img src="image/database.webp" id="min" alt="">
+       <div>
+         <h5 class="card-title"> Bases de données </h4>
            <p>Gestion de bases de donnée avec PostgreSQL et PostGIS.</p>
-        </div>
+       </div>
      </div>
      <div class="col d-flex align-items-start">
-        <img src="image/map.webp" id="min" alt="">        
-        <div>
-           <h5 class="card-title">
-           Application web</h4>
+       <img src="image/map.webp" id="min" alt="">
+       <div>
+         <h5 class="card-title"> Application web </h4>
            <p>Intégration de frameworks comme Dash en Python ou de Leaflet.js pour réaliser des interfaces d'application web.</p>
-        </div>
+       </div>
      </div>
      <div class="col d-flex align-items-start">
-        <img src="image/file-sharing.webp" id="min" alt="">
-        <div>
-           <h5 class="card-title">
-           Programmation</h4>
+       <img src="image/file-sharing.webp" id="min" alt="">
+       <div>
+         <h5 class="card-title"> Programmation </h4>
            <p>Automatisation de processus de géotraitements avec Geopandas ou dans l'environnement de QGIS.</p>
-        </div>
+       </div>
      </div>
      <div class="col d-flex align-items-start">
-        <img src="image/antenna.webp" id="min" alt="">        
-        <div>
-           <h5 class="card-title">
-           Télédétection</h4>
+       <img src="image/antenna.webp" id="min" alt="">
+       <div>
+         <h5 class="card-title"> Télédétection </h4>
            <p>Utilisation d'imagerie satellite ou issue de drones pour réaliser des analyses raster.</p>
-        </div>
+       </div>
      </div>
-  </div>
-  </div>
-  </div>
-  <br><br>
-</body>
-</html>
+   </div>
+   </div>
+   </div>
+   <br>
+   <br>
+ </body>
+ </html>
