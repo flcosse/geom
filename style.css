@@ -2,10 +2,10 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  !important
 }
 body{
-	background-color:#F5F5F5 !important;
+	background-color:#fafbfe !important;
 }
 html {
-	background-color: #F5F5F5;
+	background-color: #fafbfe;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -14,7 +14,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #F5F5F5 !important;
+	background-color: #fafbfe !important;
 }
 
 .section-title h2 {
@@ -33,16 +33,15 @@ html {
 }
 
 .card {
-	border: 0px !important;
-	background-color: #F9f9f9 !important;
-	border-radius: 15px !important;
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
-	
+	border: 0px #eef2f7 !important;
+	background-color: #fff !important;
+	border-radius: .50rem !important;
+	box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1),0 3px 6px 0 rgba(0,0,0,0.07) !important;
 }
 
 .card-img-top {
-	border-top-left-radius: 15px !important;
-	border-top-right-radius: 15px !important;
+	border-top-left-radius: .50rem !important;
+	border-top-right-radius: .50rem !important;
 }
 
 .card:hover {
@@ -60,15 +59,15 @@ html {
 }
 
 .col{
-	background-color:#F5F5F5 !important;
+	background-color:#fafbfe !important;
 }
 .article {
 
-	background-color: #F5F5F5;
+	background-color: #fafbfe;
 }
 
 h1 {
-	background-color: #F5F5F5 !important;
+	background-color: #fafbfe !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
@@ -115,12 +114,12 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
-	    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
+	    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
 
 }
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
-	background-color: #F9f9f9 !important;
+	background-color: #fff !important;
 	color:#212121
 	
 }
@@ -201,7 +200,7 @@ p {
 }
 
 .navbar.fixed-top {
-	background-color: #F5F5F5 !important;
+	background-color: #fafbfe !important;
 }
 
 .python.hljs.language-python {
@@ -226,7 +225,7 @@ p {
 	}
 .dropdown-menu.show:active{
 	border: 0px;
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .d-inline-block.align-text-top{
@@ -254,7 +253,7 @@ p {
 		margin-top:15% !important
 	}
 	html {
-		background-color: #F5F5F5;
+		background-color: #fafbfe;
 		margin-left: 5%;
 		margin-right: 5%;
 	}
@@ -269,7 +268,7 @@ p {
 		margin-top:25% !important
 	}
 	html {
-		background-color: #F5F5F5;
+		background-color: #fafbfe;
 		margin-left: 6%;
 		margin-right:6%;
 	}
@@ -324,9 +323,9 @@ a#link{
 	.dropdown:hover .dropdown-menu {
 	display: block;
 	border: 0px;
-	    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
+	    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
 	pointer-events: all !important;
-	background-color: #F9f9f9;
+	background-color: #fff;
 	}
 
 
@@ -360,7 +359,7 @@ a#link{
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top{
-  background-color:#F5F5F5 !important;
+  background-color:#fafbfe !important;
 }
 
 .nav-item, .nav-item-dropdown{
