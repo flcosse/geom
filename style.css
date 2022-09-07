@@ -301,7 +301,8 @@ p {
 }
 
 .hljs-string{
-	color:rgb(56, 179, 58) !important
+	color:#83bd2d !important;
+	font-weight: 500 !important;
 }
 .pb-2.border-bottom{
 	color:#212121 !important;
