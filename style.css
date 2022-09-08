@@ -1,5 +1,5 @@
 * {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  !important
+	font-family: "Poppins", system-ui!important
 }
 body{
 	background-color:#fafbfe !important;
@@ -74,6 +74,7 @@ h1 {
 	font-weight: 700 !important;
 	color: #212121;
 	margin-top: 7% !important;
+	letter-spacing: 1px;
 }
 
 .badge.bg-secondary {
@@ -99,7 +100,7 @@ h1 {
 }
 
 .dropdown-item{
-	--bs-dropdown-link-active-bg:#497bff !important
+	--bs-dropdown-link-active-bg:rgba(0,0,0,0) !important
 }
 
 .badge.bg-secondary:hover {
@@ -126,7 +127,8 @@ pre {
 }
 
 .text{
-	color:#212121 !important
+	color:#212121 !important;
+	font-size:200px !important
 }
 
 .hljs-keyword,
@@ -208,13 +210,7 @@ p {
 	font-size: 15px;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon{
-	border:1px solid rgb(46, 46, 46) !important;
-	background-color: rgba(0, 0, 0, 0.7);
-	padding:1vh !important;
-	width:32% !important;
-	height: 9% !important;
-}
+
 .nav-item.dropdown:active{
 	pointer-events:none !important
 }
@@ -284,7 +280,7 @@ p {
 
 .navbar.navbar-expand-lg.fixed-top {
 	border-radius:2px !important;
-    transition: all 0.15s linear;
+    transition: all .3s linear;
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
@@ -307,6 +303,7 @@ p {
 .pb-2.border-bottom{
 	color:#212121 !important;
 	font-weight: 700;
+	letter-spacing: 2px;
 }
 
 p{
@@ -314,13 +311,14 @@ p{
 }
 
 a#link{
-	--bs-link-color:#497bff !important
+	--bs-link-color:#497bff !important;
+	color:white
 }
 
 .nav-link, .nav-link.active{
 	color:#484848!important;
 	font-weight: 600;
-	font-size: 15px;
+	font-size: 16px;
 	}
 	.dropdown:hover .dropdown-menu {
 	display: block;
@@ -328,12 +326,22 @@ a#link{
 	box-shadow: 0 0.375rem 0.75rem rgb(140 152 164 / 20%) !important;
 	pointer-events: all !important;
 	background-color: #fff;
+	padding:1vh;
+	border-radius: 0.7vh;
 	}
 
 
 .dropdown-item{
-  color:#212121
+  color:#212121;
+  border-radius: 0.5vh;
+
 }
+
+.dropdown-item:hover{
+	color:#000000;
+	font-weight: 700;
+	transition: font-weight .05s linear;
+  }
 .nav-item.dropdown:hover > .nav-link.dropdown-toggle::after{
   transform: rotate(225deg);
 }
@@ -366,4 +374,10 @@ a#link{
 
 .nav-item, .nav-item-dropdown{
 	letter-spacing: 1px;
+	font-size: 20px !important;
 }
+
+.dropdown-menu{
+	--bs-dropdown-link-hover-bg:rgba(0,0,0,0);
+}
+

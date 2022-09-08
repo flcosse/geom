@@ -124,18 +124,21 @@ app.layout = html.Div([
 def profil(x):
     coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])
     coord2 = (x["features"][-1]["geometry"]["coordinates"][1][0], x["features"][-1]["geometry"]["coordinates"][1][1])
-    src = rasterio.open(r'RASTER2.tif')
+    src = rasterio.open(r'raster.tif')
     line = LineString([(coord1[0], coord1[1]), (coord2[0], coord2[1])])
     distances = np.arange(0, line.length, math.log2(Geod(ellps="WGS84").geometry_length(line)) / 100000)
     points = [line.interpolate(distance) for distance in distances] + [line.boundary[1]]
     gdf2 = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[unary_union(points)])
-    df = pd.DataFrame({"Latitude": [i.y for i in gdf2["geometry"][0]], "Longitude": [i.x for i in gdf2["geometry"][0]]})
-    gdf = gpd.GeoDataFrame(df, crs="EPSG:4326", geometry=gpd.points_from_xy([i.x for i in gdf2["geometry"][0]],[i.y for i in gdf2["geometry"][0]]))
+    lat = [i.y for i in gdf2["geometry"][0]]
+    lon = [i.x for i in gdf2["geometry"][0]]
+    df = pd.DataFrame({"Latitude": lat, "Longitude": lon})
+    gdf = gpd.GeoDataFrame(df, crs="EPSG:4326", geometry=gpd.points_from_xy(lon,lat))
     gdf['value'] = [x for x in src.sample([(x, y) for x, y in zip(gdf['geometry'].x, gdf['geometry'].y)])]
     gdf = gdf.to_crs(2154)
     dist = [gdf["geometry"][0].distance(i) for i in gdf["geometry"]]
     gdf["Distance"] = dist
     gdf = gdf.sort_values(by='Distance', ascending=True)
+
 
     if gdf["Longitude"][0] != coord1[0]:
         gdf = gdf.sort_values(by=['Longitude'], ascending=False)
