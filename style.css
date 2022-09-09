@@ -2,10 +2,10 @@
 	font-family: "Poppins", system-ui!important
 }
 body{
-	background-color:#fafbfe !important;
+	background-color:#f9f9f9 !important;
 }
 html {
-	background-color: #fafbfe;
+	background-color: #f9f9f9;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -14,7 +14,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #fafbfe !important;
+	background-color: #f9f9f9 !important;
 }
 
 .section-title h2 {
@@ -52,7 +52,7 @@ html {
 }
 
 .card:hover .card-title {
-	color: #212121
+	color: #212529
 }
 
 .card:hover .card-text{
@@ -60,19 +60,19 @@ html {
 }
 
 .col{
-	background-color:#fafbfe !important;
+	background-color:#f9f9f9 !important;
 }
 .article {
 
-	background-color: #fafbfe;
+	background-color: #f9f9f9;
 }
 
 h1 {
-	background-color: #fafbfe !important;
+	background-color: #f9f9f9 !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #212121;
+	color: #212529;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -122,12 +122,12 @@ pre {
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
 	background-color: #fff !important;
-	color:#212121
+	color:#212529
 	
 }
 
 .text{
-	color:#212121 !important;
+	color:#212529 !important;
 	font-size:200px !important
 }
 
@@ -194,7 +194,7 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #212121;
+	color: #212529;
 }
 
 .card-text {
@@ -203,7 +203,7 @@ p {
 }
 
 .navbar.fixed-top {
-	background-color: #fafbfe !important;
+	background-color: #f9f9f9 !important;
 }
 
 .python.hljs.language-python {
@@ -250,7 +250,7 @@ p {
 		margin-top:15% !important
 	}
 	html {
-		background-color: #fafbfe;
+		background-color: #f9f9f9;
 		margin-left: 5%;
 		margin-right: 5%;
 	}
@@ -265,7 +265,7 @@ p {
 		margin-top:25% !important
 	}
 	html {
-		background-color: #fafbfe;
+		background-color: #f9f9f9;
 		margin-left: 6%;
 		margin-right:6%;
 	}
@@ -301,13 +301,13 @@ p {
 	font-weight: 500 !important;
 }
 .pb-2.border-bottom{
-	color:#212121 !important;
+	color:#212529 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p{
-	color:#212121;
+	color:#212529;
 }
 
 a#link{
@@ -333,14 +333,14 @@ a#link{
 
 
 .dropdown-item{
-  color:#212121;
+  color:#212529;
   border-radius: 0.5vh;
   transition: font-weight .05s linear, color .05s linear ;
 
 }
 
 .dropdown-item:hover{
-	color:#212121;
+	color:#212529;
 	font-weight:700;
 	
   }
@@ -371,7 +371,7 @@ a#link{
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top{
-  background-color:#fafbfe !important;
+  background-color:#f9f9f9 !important;
 }
 
 .nav-item, .nav-item-dropdown{
