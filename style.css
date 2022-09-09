@@ -87,7 +87,7 @@ h1 {
 	padding: 9px;
 	background-color: #4c7aff !important;
 	color: aliceblue !important;
-	border-radius: 10px;
+	border-radius: 0.7vh;
 	margin-bottom: 0.5vh;
 	font-weight: 500 !important;
 }
@@ -159,7 +159,7 @@ pre {
 pre code {
 	font-family: monospace !important;
 	max-height: 80vh;
-	border-radius: 5px !important;
+	border-radius: 0.7vh !important;
 }
 
 pre code::-webkit-scrollbar {
@@ -399,7 +399,7 @@ li{
 }
 
 .textaire{
-	background-color:#383838;padding:1rem;border-radius:1vh;margin-bottom:2vh
+	background-color:#383838;padding:1rem;border-radius: 0.7vh;margin-bottom:2vh
 }
 
 ul{
