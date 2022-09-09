@@ -52,7 +52,7 @@ html {
 }
 
 .card:hover .card-title {
-	color: #0e2127
+	color: #333333
 }
 
 .card:hover .card-text{
@@ -72,7 +72,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #0e2127;
+	color: #333333;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -122,12 +122,12 @@ pre {
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
 	background-color: #fff !important;
-	color:#0e2127
+	color:#333333
 	
 }
 
 .text{
-	color:#0e2127 !important;
+	color:#333333 !important;
 	font-size:200px !important
 }
 
@@ -194,7 +194,7 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #0e2127;
+	color: #333333;
 }
 
 .card-text {
@@ -301,18 +301,17 @@ p {
 	font-weight: 500 !important;
 }
 .pb-2.border-bottom{
-	color:#0e2127 !important;
+	color:#333333 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p{
-	color:#0e2127;
+	color:#333333;
 }
 
 a#link{
 	--bs-link-color:#4c7aff !important;
-	color:white
 }
 
 .nav-link, .nav-link.active{
@@ -333,14 +332,14 @@ a#link{
 
 
 .dropdown-item{
-  color:#0e2127;
+  color:#333333;
   border-radius: 0.5vh;
   transition: font-weight .05s linear, color .05s linear ;
 
 }
 
 .dropdown-item:hover{
-	color:#0e2127;
+	color:#333333;
 	font-weight:700;
 	
   }
