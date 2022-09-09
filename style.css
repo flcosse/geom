@@ -35,7 +35,7 @@ html {
 .card {
 	border: 0px #eef2f7 !important;
 	background-color: #343434 !important;
-	border-radius: .50rem !important;
+	border-radius: 0.7vh !important;
 	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.08) !important;
 	transition: transform .3s, box-shadow .3s, background-color .3s;
 }
