@@ -53,7 +53,7 @@ html {
 }
 
 .card:hover .card-title {
-	color: #b9b9b9
+	color: #e3e3e3
 }
 
 
@@ -75,7 +75,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #b9b9b9;
+	color: #e3e3e3;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -126,12 +126,12 @@ pre {
 
 .javascript.hljs.language-javascript, .python.hljs.language-python{
 	background-color: #383838 !important;
-	color:#b9b9b9
+	color:#e3e3e3
 	
 }
 
 .text{
-	color:#b9b9b9 !important;
+	color:#e3e3e3 !important;
 	font-size:200px !important
 }
 
@@ -198,7 +198,7 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #b9b9b9;
+	color: #e3e3e3;
 }
 
 .card-text {
@@ -305,13 +305,13 @@ p {
 	font-weight: 500 !important;
 }
 .pb-2.border-bottom{
-	color:#b9b9b9 !important;
+	color:#e3e3e3 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p{
-	color:#b9b9b9;
+	color:#e3e3e3;
 }
 
 a#link{
@@ -319,7 +319,7 @@ a#link{
 }
 
 .nav-link, .nav-link.active{
-	color:#b9b9b9!important;
+	color:#e3e3e3!important;
 	font-weight: 600;
 	font-size: 16px;
 	}
@@ -336,14 +336,14 @@ a#link{
 
 
 .dropdown-item{
-  color:#b9b9b9;
+  color:#e3e3e3;
   border-radius: 0.5vh;
   transition: font-weight .05s linear, color .05s linear ;
 
 }
 
 .dropdown-item:hover{
-	color:#b9b9b9;
+	color:#e3e3e3;
 	font-weight:700;
 	
   }
@@ -387,15 +387,15 @@ a#link{
 }
 
 li{
-	color:#b9b9b9 !important
+	color:#e3e3e3 !important
 }
 
 #spin{
-	margin-top:-30vh !important;color:#b9b9b9 !important
+	margin-top:-30vh !important;color:#e3e3e3 !important
 }
 
 #spintext{
-	margin-top:-25vh !important;color:#b9b9b9 !important
+	margin-top:-25vh !important;color:#e3e3e3 !important
 }
 
 .textaire{
