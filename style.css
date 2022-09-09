@@ -37,6 +37,7 @@ html {
 	background-color: #fff !important;
 	border-radius: .50rem !important;
 	box-shadow: 0 0.375rem 0.75rem rgb(140 152 164 / 8%) !important;
+	transition: transform .3s, box-shadow .3s;
 }
 
 .card-img-top {
@@ -47,7 +48,7 @@ html {
 .card:hover {
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
-	transition: transform .3s, box-shadow .3s;
+	
 	box-shadow: 0 0.375rem 0.75rem rgb(140 152 164 / 20%) !important;
 }
 
@@ -280,7 +281,7 @@ p {
 
 .navbar.navbar-expand-lg.fixed-top {
 	border-radius:2px !important;
-    transition: all .3s linear;
+    transition:  .3s linear;
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
@@ -334,13 +335,14 @@ a#link{
 .dropdown-item{
   color:#212121;
   border-radius: 0.5vh;
+  transition: font-weight .05s linear;
 
 }
 
 .dropdown-item:hover{
 	color:#000000;
 	font-weight: 700;
-	transition: font-weight .05s linear;
+	
   }
 .nav-item.dropdown:hover > .nav-link.dropdown-toggle::after{
   transform: rotate(225deg);
