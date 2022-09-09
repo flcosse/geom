@@ -59,7 +59,7 @@ html {
 
 
 .card:hover .card-text{
-	color: #a0a0a0
+	color: #a6a6a6
 }
 
 .col{
@@ -203,7 +203,7 @@ p {
 
 .card-text {
 	font-size: 15px;
-	color: #a0a0a0
+	color: #a6a6a6
 }
 
 .navbar.fixed-top {
@@ -408,6 +408,11 @@ ul{
 
 #oui{
 	margin-bottom: 2vh;
-	margin-top:-2% !important;
-	margin-left:6vh
+	margin-top:-1.5% !important;
+	margin-left:5.5vh;
+	font-weight: 500;
+}
+
+#resume{
+	color:#a6a6a6
 }
