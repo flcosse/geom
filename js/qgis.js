@@ -1,5 +1,5 @@
 var map = L.map('map').setView([43.3269942, -0.8532809], 9);
-var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
 	maxZoom: 22,
@@ -594,7 +594,7 @@ var reseau = {
     ]
     }
 var polystyle = {
-                "color": "#282828",
+                "color": "#E3E3E3",
                 "weight": 1.4,
                 "opacity": 1,
                 "fillOpacity": 0.1
@@ -631,12 +631,12 @@ var legend = L.control({position: "bottomleft"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='margin-left:-0.5vh'>Note de l'analyse</h4>";
-    div.innerHTML += `<i style="background: #440154;"></i><span>1</span><br>`;
-    div.innerHTML += '<i style="background:#3b528b  "></i><span>2</span><br>';
-    div.innerHTML += '<i style="background: #21908d"></i><span>3</span><br>';
-    div.innerHTML += '<i style="background: #5dc963"></i><span>4</span><br>';
-    div.innerHTML += '<i style="background: #fde725"></i><span>5</span><br>';
-    div.innerHTML += '<i style="background: #282828; height:3px;margin-top:1.1vh"></i><span>Réseau électrique</span><br>';
+    div.innerHTML += `<i style="background: #440154;"></i><span id="test">1</span><br>`;
+    div.innerHTML += '<i style="background:#3b528b  "></i><span id="test">2</span><br>';
+    div.innerHTML += '<i style="background: #21908d"></i><span id="test">3</span><br>';
+    div.innerHTML += '<i style="background: #5dc963"></i><span id="test">4</span><br>';
+    div.innerHTML += '<i style="background: #fde725"></i><span id="test">5</span><br>';
+    div.innerHTML += '<i style="background: #E3E3E3; height:3px;margin-top:1.1vh"></i><span id="test">Réseau électrique</span><br>';
 
 
     return div;
