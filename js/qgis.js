@@ -594,8 +594,8 @@ var reseau = {
     ]
     }
 var polystyle = {
-                "color": "#333333",
-                "weight": 2,
+                "color": "#282828",
+                "weight": 1.4,
                 "opacity": 1,
                 "fillOpacity": 0.1
             };
@@ -633,7 +633,7 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style="background: #21908d"></i><span>3</span><br>';
     div.innerHTML += '<i style="background: #5dc963"></i><span>4</span><br>';
     div.innerHTML += '<i style="background: #fde725"></i><span>5</span><br>';
-    div.innerHTML += '<i style="background: #333333; height:3px;margin-top:1.1vh"></i><span>Réseau électrique</span><br>';
+    div.innerHTML += '<i style="background: #282828; height:3px;margin-top:1.1vh"></i><span>Réseau électrique</span><br>';
 
 
     return div;
