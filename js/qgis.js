@@ -620,8 +620,11 @@ function style(feature) {
     };
 }
 
-L.geoJSON(layer,{style: style}).addTo(map);
-L.geoJSON(reseau, {style: polystyle}).addTo(map);
+var layerGroup = L.geoJSON(layer, {
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup('<p>'+feature.properties.DN+'/5</p>');
+    },style: style
+  }).addTo(map);L.geoJSON(reseau, {style: polystyle}).addTo(map);
 
 var legend = L.control({position: "bottomleft"});
 
