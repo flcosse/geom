@@ -69,25 +69,25 @@ document.getElementById("gen").onclick = function() {
                 var aff = text / 60
             }
 
-            var couleur;
-            if (aff == 15) {
-                couleur = col15
-            } else if (aff == 30) {
-                couleur = col30
-            } else if (aff == 45) {
-                couleur = col45
-            } else if (aff == 60) {
-                couleur = col60
-            } else {
-                couleur = col10
+            function getColor(d) {
+                return d >= 3600 ? '#fdd525' :
+                       d >= 3000  ? '#fde725' :
+                       d >= 2400  ? '#5dc963' :
+                       d >= 1800  ? '#21908d' :
+                       d >= 1200   ? '#3b528b' :
+                       d >= 600   ? '#440154' :
+                       d > 0   ? '#FED976' :
+                                  '#FFEDA0';
             }
-
-            var polystyle = {
-                "color": couleur,
-                "weight": 3,
-                "opacity": 1,
-                "fillOpacity": 0.1
-            };
+            function style(feature) {
+                return {
+                    fillColor: getColor(feature.properties.value),
+                    weight: 4,
+                    opacity: 1,
+                    color: getColor(feature.properties.value),
+                    fillOpacity: 0.3
+                };
+            }
 
             var greenIcon = new L.Icon({
                 iconUrl: 'pin-m+7e7e7e@2x.png',
@@ -98,18 +98,9 @@ document.getElementById("gen").onclick = function() {
             request.onreadystatechange = function() {
                 if (this.readyState === 4) {
                     data = this.responseText
-                    var layer = L.geoJSON(JSON.parse(data), {style: polystyle}).addTo(map);
+                    console.log(data)
+                    var layer = L.geoJSON(JSON.parse(data), {style: style}).addTo(map);
 
-                    layer.on('mouseover', function() {
-                        this.setStyle({
-                            color: '#5c5c5c',
-                            fillColor:couleur
-                        });
-                    });
-
-                    layer.on('mouseout', function() {
-                        this.setStyle(polystyle)
-                    });
                     layer.addTo(map);
                     document.getElementById("loading").style.display = "none";
                     
@@ -147,14 +138,16 @@ document.getElementById("gen").onclick = function() {
 
 var legend = L.control({position: "bottomleft"});
 
+
+
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
-    div.innerHTML += `<i style="background: #4D96FF"></i><span>15 minutes</span><br>`;
-    div.innerHTML += '<i style="background:#6BCB77"></i><span>30 minutes</span><br>';
-    div.innerHTML += '<i style="background: #FFD93D"></i><span>45 minutes</span><br>';
-    div.innerHTML += '<i style="background: #FF6B6B"></i><span>60 minutes</span><br>';
-    div.innerHTML += '<i style="background: #4dcfdb"></i><span>Interv. 10 minutes</span><br>';
+    div.innerHTML += `<i style="background: #440154"></i><span>15 minutes</span><br>`;
+    div.innerHTML += '<i style="background:#21908d"></i><span>30 minutes</span><br>';
+    div.innerHTML += '<i style="background: #5dc963"></i><span>45 minutes</span><br>';
+    div.innerHTML += '<i style="background: #fdd525"></i><span>60 minutes</span><br>';
+    div.innerHTML += '<i style="background: #fdd525"></i><span>Interv. 10 minutes</span><br>';
 
     return div;
 };
