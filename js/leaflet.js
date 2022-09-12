@@ -85,7 +85,7 @@ document.getElementById("gen").onclick = function() {
                     weight: 4,
                     opacity: 1,
                     color: getColor(feature.properties.value),
-                    fillOpacity: 0.3
+                    fillOpacity: 0.2
                 };
             }
 
