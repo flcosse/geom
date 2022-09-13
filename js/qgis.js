@@ -612,10 +612,10 @@ function getColor(d) {
 }
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.value),
+        fillColor: getColor(feature.properties.DN),
         weight: .5,
         opacity: 1,
-        color: getColor(feature.properties.value),
+        color: getColor(feature.properties.DN),
         fillOpacity: 0.9
     };
 }
