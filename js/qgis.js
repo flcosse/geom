@@ -646,3 +646,12 @@ legend.onAdd = function(map) {
 };
 
 legend.addTo(map);
+
+
+
+var layers = {
+    "Réseau": res,
+    "Couche":layerGroup
+}
+
+L.control.layers(null,layers).addTo(map)
