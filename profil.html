@@ -141,7 +141,6 @@ def profil(x):
     gdf["Distance"] = dist
     gdf = gdf.sort_values(by='Distance', ascending=True)
 
-
     if gdf["Longitude"][0] != coord1[0]:
         gdf = gdf.sort_values(by=['Longitude'], ascending=False)
 
