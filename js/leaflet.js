@@ -7,6 +7,7 @@ var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?a
 	subdomains: 'abcd',
 	accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
 });
+
 tile.addTo(map);
 
 var pan = document.getElementById("pan");
@@ -17,12 +18,6 @@ document.getElementById("pan").onclick = function() {
     document.getElementById("map").style.cursor = "grab";
     map.off('click')
 }
-
-var col15 = "#4d7adb"
-var col30 = "#88db4d"
-var col45 = "#FFD93D"
-var col60 = "#FF6B6B"
-var col10 = "#4dcfdb"
 
 document.getElementById("gen").onclick = function() {
     document.getElementById("map").style.cursor = "crosshair";
@@ -52,7 +47,6 @@ document.getElementById("gen").onclick = function() {
             var llat = document.getElementById("lat");
 
             request.open('POST', `https://api.openrouteservice.org/v2/isochrones/${mode}`);
-
             request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
             request.setRequestHeader('Content-Type', 'application/json');
             request.setRequestHeader('Authorization', '5b3ce3597851110001cf6248df22650771d94c06a73d6fb78ba4706b');
@@ -79,6 +73,7 @@ document.getElementById("gen").onclick = function() {
                        d > 0   ? '#FED976' :
                                   '#FFEDA0';
             }
+
             function style(feature) {
                 return {
                     fillColor: getColor(feature.properties.value),
@@ -127,18 +122,12 @@ document.getElementById("gen").onclick = function() {
             var southWest = L.latLng(-89.98155760646617, -180),northEast = L.latLng(89.99346179538875, 180);
             var bounds = L.latLngBounds(southWest, northEast);
             map.setMaxBounds(bounds);
-            map.on('drag', function() {
-                map.panInsideBounds(bounds, {
-                    animate: false
-                });
-            });
+            map.on('drag', function() {map.panInsideBounds(bounds, {animate: false})});
         }
     })
 }
 
 var legend = L.control({position: "bottomleft"});
-
-
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
@@ -148,7 +137,6 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style="background: #5dc963"></i><span>45 minutes</span><br>';
     div.innerHTML += '<i style="background: #fdd525"></i><span>60 minutes</span><br>';
     div.innerHTML += '<i style="background: #fdd525"></i><span>Interv. 10 minutes</span><br>';
-
     return div;
 };
 
@@ -156,25 +144,16 @@ legend.addTo(map);
 
 document.getElementById("del").onclick = function() {
     var data;
-    map.eachLayer(function(layer) {
-        map.removeLayer(layer);
-    });
+    map.eachLayer(function(layer) {map.removeLayer(layer)});
     tile.addTo(map);
 }
 
-var geocoder = L.Control.geocoder({
-    defaultMarkGeocode: false
-  })
-    .on('markgeocode', function(e) {
-      var bbox = e.geocode.bbox;
-      var poly = L.polygon([
-        bbox.getSouthEast(),
-        bbox.getNorthEast(),
-        bbox.getNorthWest(),
-        bbox.getSouthWest()
-      ]);
-      map.fitBounds(poly.getBounds());
-      map.setZoom(17)}).addTo(map);
-
-
-      
+var geocoder = L.Control.geocoder({defaultMarkGeocode: false}).on('markgeocode', function(e) {
+    var bbox = e.geocode.bbox;
+    var poly = L.polygon([
+    bbox.getSouthEast(),
+    bbox.getNorthEast(),
+    bbox.getNorthWest(),
+    bbox.getSouthWest()]);
+    map.fitBounds(poly.getBounds());
+    map.setZoom(17)}).addTo(map);
