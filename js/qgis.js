@@ -593,6 +593,7 @@ var reseau = {
     { "type": "Feature", "properties": { "fid": 370, "operator:wikidata": null, "voltage": "63000" }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -0.3608771, 43.2924184 ], [ -0.3607812, 43.2924691 ] ] ] } }
     ]
     }
+
 var polystyle = {
                 "color": "#E3E3E3",
                 "weight": 2,
@@ -623,16 +624,12 @@ function style(feature) {
 var layerGroup = L.geoJSON(layer, {
     onEachFeature: function (feature, layer) {
       layer.bindPopup('<p>'+feature.properties.DN+'/5</p>');
-    },style: style
-  }).addTo(map);
+    },style: style}).addTo(map);
 
 var res = L.geoJSON(reseau, {
     onEachFeature: function (feature, layer) {
-      layer.bindTooltip('<p>'+feature.properties.voltage/1000+' kV</p>',{
-        sticky: true 
-      });
-    },style: polystyle
-  }).addTo(map);
+      layer.bindTooltip('<p>'+feature.properties.voltage/1000+' kV</p>',{sticky: true });
+    },style: polystyle}).addTo(map);
 
 var legend = L.control({position: "bottomleft"});
 
@@ -645,8 +642,6 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style="background: #5dc963"></i><span id="test">4</span><br>';
     div.innerHTML += '<i style="background: #fde725"></i><span id="test">5</span><br>';
     div.innerHTML += '<i style="background: #E3E3E3; height:3px;margin-top:.6rem"></i><span id="test">Réseau électrique</span><br>';
-
-
     return div;
 };
 
