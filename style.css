@@ -265,12 +265,21 @@ p {
 	}
 }
 
+.titre{
+	margin-top: 7vh;
+}
 @media only screen and (max-width: 766px) {
 .card-img-top {
 	border-top-left-radius: .50rem !important;
 	border-top-right-radius: .50rem !important;
 	max-height: 60vh;
 }
+html {
+	background-color: #282828;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
 }
 @media only screen and (max-width: 480px) {
 	h1 {
@@ -427,7 +436,7 @@ ul {
 #oui {
 	margin-bottom: 2vh;
 	margin-top: -1.5% !important;
-	margin-left: 6.2vh;
+	margin-left: 5.5vh;
 	font-weight: 500;
 }
 
