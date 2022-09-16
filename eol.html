@@ -6,6 +6,7 @@
       $("#footer").load("footer.html"); 
       });
         </script>
+      
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <title>Potentiel éolien</title>
@@ -34,6 +35,7 @@
     </div>
     <div class="textaire">
     <p>
+      
         Ce tableau de bord est entièrement crée avec la suite Esri. Les analyses spatiales et raster sont faites avec ArcGIS Pro et le tableau de bord avec ArcGIS Dashboard. Cette analyse multi critère s'inspire de la <a href="https://learn.arcgis.com/fr/projects/perform-a-site-suitability-analysis-for-a-new-wind-farm/" target="_blank" id="link" style="font-weight: 500;">
             leçon d'Esri</a> sur le potentiel éolien du Colorado.
         <ul style="list-style: circle;">
@@ -47,8 +49,14 @@
             </ul>
           </p>
             <br>
+            <style>
+              .card:hover{
+                -webkit-transform: scale(1, 1);
+      transform: scale(1, 1);
+            }
+            </style>
             <div class="card" style="width: auto;margin:auto">
-              <img src="image/ESRI2.webp" class="card-img-top" alt="...">
+              <img src="image/ESRI2.webp" style="max-height: 100%" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Dashboard</h5>
                 <p class="card-text">Webmap et outil d'analyse conçu avec la solution Esri présentant les résultats d'une analyse multicritère.</p>
