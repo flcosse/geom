@@ -443,3 +443,29 @@ ul {
 #resume {
 	color: #a6a6a6
 }
+
+html::-webkit-scrollbar-track
+{
+	background-color: #282828;
+	
+
+}
+
+html::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #e3e3e3;
+
+}
+
+html::-webkit-scrollbar-thumb
+{
+	background-color: #e3e3e3;
+	border-radius: 0.7vh !important;
+
+}
+html::-webkit-scrollbar-thumb:hover
+{
+	background-color: #b3b2b2;
+
+}
