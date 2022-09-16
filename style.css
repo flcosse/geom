@@ -255,8 +255,7 @@ p {
 
 	html {
 		background-color: #282828;
-		margin-left: 5%;
-		margin-right: 5%;
+
 	}
 
 	.navbar {
@@ -278,8 +277,8 @@ p {
 
 	html {
 		background-color: #282828;
-		margin-left: 25%;
-		margin-right: 25%;
+		margin-left: 15%;
+		margin-right: 15%;
 	}
 	.titre{
 		margin-bottom: 10% !important;
@@ -475,5 +474,13 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .navbar-toggler{
+	border-radius: 0.7vh;
 	max-width: 60px;
 }
+
+.navbar-toggler-icon {
+	background-image: none;
+  }
+  .navbar-toggler-icon {
+	background-image: url('image/paragraph.png');
+  }
