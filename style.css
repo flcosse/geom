@@ -281,6 +281,9 @@ p {
 		margin-left: 25%;
 		margin-right: 25%;
 	}
+	.titre{
+		margin-bottom: 10% !important;
+	}
 
 }
 
@@ -298,6 +301,9 @@ p {
 	.navbar {
 		left: 0% !important;
 		right: 0% !important;
+	}
+	.titre{
+		margin-bottom: 15% !important;
 	}
 }
 
@@ -466,4 +472,8 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-thumb:hover {
 	background-color: #b3b2b2;
 
+}
+
+.navbar-toggler{
+	max-width: 60px;
 }
