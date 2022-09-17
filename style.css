@@ -449,7 +449,7 @@ ul {
 }
 
 #resume {
-	color: #666666
+	color: #0e2127
 }
 
 html::-webkit-scrollbar-track {
@@ -489,3 +489,29 @@ html::-webkit-scrollbar-thumb:hover {
   .navbar-toggler:focus{
 	box-shadow: rgba(100, 100, 100, 0.16) 0px 1px 4px, rgb(150, 150, 150) 0px 0px 0px 1px;
   }
+
+  #test{
+	color:#282828 !important
+
+  }
+
+  .legend {
+	box-shadow: rgba(100, 100, 100, 0.5) 1.95px 1.95px 2.6px;
+padding: 6px 8px;
+font: 14px Segoe UI;
+background: #F0F2F5;
+line-height: 24px;
+color: rgb(46, 46, 51);
+border-radius: 0.7vh;
+}
+
+.container-fluid{
+	background-color: #F0F2F5  !important;
+}
+.navbar.navbar-dark.bg-dark{
+   background-color: #F0F2F5  !important;
+}
+.navbar-brand{
+	color:#282828 !important
+ }
+
