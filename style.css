@@ -242,10 +242,11 @@ p {
 	cursor: pointer;
 }
 
-.navbar {
-	left: 13% !important;
-	right: 13% !important;
+#logo{
+	margin-left:14% !important;
+	position: absolute;
 }
+
 
 
 @media only screen and (max-width: 900px) {
