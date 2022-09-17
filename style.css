@@ -56,12 +56,12 @@ html {
 }
 
 .card:hover .card-title {
-	color: #282828
+	color: #0e2127
 }
 
 
 .card:hover .card-text {
-	color: #606060
+	color: #0e2127
 }
 
 .col {
@@ -78,7 +78,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #282828;
+	color: #0e2127;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -129,11 +129,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #FFFFFF !important;
-	color: #282828
+	color: #0e2127
 }
 
 .text {
-	color: #282828 !important;
+	color: #0e2127 !important;
 	font-size: 200px !important
 }
 
@@ -200,12 +200,12 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #282828;
+	color: #0e2127;
 }
 
 .card-text {
 	font-size: 15px;
-	color: #606060
+	color: #0e2127
 }
 
 .navbar.fixed-top {
@@ -331,13 +331,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #282828 !important;
+	color: #0e2127 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #282828;
+	color: #0e2127;
 }
 
 a#link {
@@ -346,7 +346,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #282828 !important;
+	color: #0e2127 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -364,14 +364,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #282828;
+	color: #0e2127;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #282828;
+	color: #0e2127;
 	font-weight: 700;
 
 }
@@ -417,17 +417,17 @@ a#link {
 }
 
 li {
-	color: #282828 !important
+	color: #0e2127 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #282828 !important
+	color: #0e2127 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #282828 !important
+	color: #0e2127 !important
 }
 
 .textaire {
@@ -458,12 +458,12 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar {
 	width: 8px;
-	background-color: #282828;
+	background-color: #0e2127;
 
 }
 
 html::-webkit-scrollbar-thumb {
-	background-color: #282828;
+	background-color: #0e2127;
 	border-radius: 0.7vh !important;
 
 }
