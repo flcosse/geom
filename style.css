@@ -36,7 +36,7 @@ html {
 
 .card {
 	border: 0px #eef2f7 !important;
-	background-color: #2e2e38 !important;
+	background-color: #32323d !important;
 	border-radius: 0.7vh !important;
 	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.08) !important;
 	transition: transform .3s, box-shadow .3s, background-color .3s;
@@ -128,7 +128,7 @@ pre {
 
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
-	background-color: #2e2e38 !important;
+	background-color: #32323d !important;
 	color: #f2f2f2
 }
 
@@ -356,7 +356,7 @@ a#link {
 	border: 1px solid rgba(120, 120, 120, 0.05);
 	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.2) !important;
 	pointer-events: all !important;
-	background-color: #2e2e38;
+	background-color: #32323d;
 	line-height: 25px;
 	padding: 1vh;
 	border-radius: 0.7vh;
@@ -431,7 +431,7 @@ li {
 }
 
 .textaire {
-	background-color: #2e2e38;
+	background-color: #32323d;
 	padding: 1rem;
 	border-radius: 0.7vh;
 	margin-bottom: 2vh
@@ -453,7 +453,7 @@ ul {
 }
 
 html::-webkit-scrollbar-track {
-	background-color: #2e2e38;
+	background-color: #32323d;
 }
 
 html::-webkit-scrollbar {
