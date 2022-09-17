@@ -476,7 +476,7 @@ html::-webkit-scrollbar-thumb:hover {
 .navbar-toggler{
 	border-radius: 0.7vh;
 	max-width: 60px;
-	border:1px solid #282828
+	border:0.1px solid #cdcdcd
 }
 
 .navbar-toggler-icon {
@@ -484,4 +484,8 @@ html::-webkit-scrollbar-thumb:hover {
   }
   .navbar-toggler-icon {
 	background-image: url('image/paragraph.png');
+  }
+
+  .navbar-toggler:focus{
+	box-shadow: rgba(100, 100, 100, 0.16) 0px 1px 4px, rgb(150, 150, 150) 0px 0px 0px 1px;
   }
