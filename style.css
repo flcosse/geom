@@ -259,10 +259,7 @@ p {
 
 	}
 
-	.navbar {
-		left: 5% !important;
-		right: 5% !important;
-	}
+
 }
 
 .titre {
@@ -298,10 +295,7 @@ p {
 		margin-right: 6%;
 	}
 
-	.navbar {
-		left: 0% !important;
-		right: 0% !important;
-	}
+
 	.titre{
 		margin-bottom: 15% !important;
 	}
