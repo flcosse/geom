@@ -43,8 +43,8 @@ html {
 }
 
 .card-img-top {
-	border-top-left-radius: .50rem !important;
-	border-top-right-radius: .50rem !important;
+	border-top-left-radius: .7vh !important;
+	border-top-right-radius: .7vh !important;
 	max-height: 30vh;
 }
 
