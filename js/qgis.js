@@ -595,7 +595,7 @@ var reseau = {
     }
 
 var polystyle = {
-                "color": "#282828",
+                "color": "#363636",
                 "weight": 2,
                 "opacity": 1,
                 "fillOpacity": 0.1
