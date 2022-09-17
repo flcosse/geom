@@ -1,5 +1,5 @@
 var map = L.map('map').setView([43.3269942, -0.8532809], 9);
-var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
 	maxZoom: 22,
@@ -595,7 +595,7 @@ var reseau = {
     }
 
 var polystyle = {
-                "color": "#E3E3E3",
+                "color": "#282828",
                 "weight": 2,
                 "opacity": 1,
                 "fillOpacity": 0.1
@@ -641,7 +641,7 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style="background: #21908d"></i><span id="test">3</span><br>';
     div.innerHTML += '<i style="background: #5dc963"></i><span id="test">4</span><br>';
     div.innerHTML += '<i style="background: #fde725"></i><span id="test">5</span><br>';
-    div.innerHTML += '<i style="background: #E3E3E3; height:3px;margin-top:.6rem"></i><span id="test">Réseau électrique</span><br>';
+    div.innerHTML += '<i style="background: #282828; height:3px;margin-top:.6rem"></i><span id="test">Réseau électrique</span><br>';
     return div;
 };
 
