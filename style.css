@@ -476,6 +476,7 @@ html::-webkit-scrollbar-thumb:hover {
 .navbar-toggler{
 	border-radius: 0.7vh;
 	max-width: 60px;
+	border:1px solid #282828
 }
 
 .navbar-toggler-icon {
