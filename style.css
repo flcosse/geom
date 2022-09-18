@@ -56,12 +56,12 @@ html {
 }
 
 .card:hover .card-title {
-	color: #f2f2f2
+	color: #e8e8e8
 }
 
 
 .card:hover .card-text {
-	color: #f2f2f2
+	color: #b2b2b2
 }
 
 .col {
@@ -78,7 +78,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #f2f2f2;
+	color: #b2b2b2;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -129,11 +129,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #2d2d2d !important;
-	color: #f2f2f2
+	color: #b2b2b2
 }
 
 .text {
-	color: #f2f2f2 !important;
+	color: #b2b2b2 !important;
 	font-size: 200px !important
 }
 
@@ -200,7 +200,7 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #f2f2f2;
+	color: #e8e8e8;
 }
 
 .card-text {
@@ -327,13 +327,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #f2f2f2 !important;
+	color: #b2b2b2 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #f2f2f2;
+	color: #b2b2b2;
 }
 
 a#link {
@@ -342,7 +342,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #f2f2f2 !important;
+	color: #b2b2b2 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -360,14 +360,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #f2f2f2;
+	color: #b2b2b2;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #f2f2f2;
+	color: #b2b2b2;
 	font-weight: 700;
 
 }
@@ -413,17 +413,17 @@ a#link {
 }
 
 li {
-	color: #f2f2f2 !important
+	color: #b2b2b2 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #f2f2f2 !important
+	color: #b2b2b2 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #f2f2f2 !important
+	color: #b2b2b2 !important
 }
 
 .textaire {
@@ -442,6 +442,7 @@ ul {
 	margin-top: -1.5% !important;
 	margin-left: 5.5vh;
 	font-weight: 500;
+	color:#e8e8e8
 }
 
 #resume {
@@ -454,12 +455,12 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar {
 	width: 8px;
-	background-color: #f2f2f2;
+	background-color: #b2b2b2;
 
 }
 
 html::-webkit-scrollbar-thumb {
-	background-color: #f2f2f2;
+	background-color: #b2b2b2;
 	border-radius: 0.7vh !important;
 
 }
@@ -508,5 +509,5 @@ border-radius: 0.7vh;
    background-color: #1e1e1e  !important;
 }
 .navbar-brand{
-	color:#f2f2f2 !important
+	color:#b2b2b2 !important
  }
