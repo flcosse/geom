@@ -61,7 +61,7 @@ html {
 
 
 .card:hover .card-text {
-	color: #b2b2b2
+	color: #e8e8e8
 }
 
 .col {
@@ -78,7 +78,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #b2b2b2;
+	color: #e8e8e8;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -129,11 +129,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #2d2d2d !important;
-	color: #b2b2b2
+	color: #e8e8e8
 }
 
 .text {
-	color: #b2b2b2 !important;
+	color: #e8e8e8 !important;
 	font-size: 200px !important
 }
 
@@ -327,13 +327,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #b2b2b2 !important;
+	color: #e8e8e8 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #b2b2b2;
+	color: #e8e8e8;
 }
 
 a#link {
@@ -342,7 +342,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #b2b2b2 !important;
+	color: #e8e8e8 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -360,14 +360,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #b2b2b2;
+	color: #e8e8e8;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #b2b2b2;
+	color: #ffff;
 	font-weight: 700;
 
 }
@@ -413,17 +413,17 @@ a#link {
 }
 
 li {
-	color: #b2b2b2 !important
+	color: #e8e8e8 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #b2b2b2 !important
+	color: #e8e8e8 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #b2b2b2 !important
+	color: #e8e8e8 !important
 }
 
 .textaire {
@@ -455,12 +455,12 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar {
 	width: 8px;
-	background-color: #b2b2b2;
+	background-color: #e8e8e8;
 
 }
 
 html::-webkit-scrollbar-thumb {
-	background-color: #b2b2b2;
+	background-color: #e8e8e8;
 	border-radius: 0.7vh !important;
 
 }
@@ -509,5 +509,5 @@ border-radius: 0.7vh;
    background-color: #1e1e1e  !important;
 }
 .navbar-brand{
-	color:#b2b2b2 !important
+	color:#e8e8e8 !important
  }
