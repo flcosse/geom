@@ -309,7 +309,7 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(150, 150, 150) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
 }
 
 ::-webkit-scrollbar-corner {
