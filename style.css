@@ -264,7 +264,7 @@ p {
 }
 
 .titre {
-	margin-top: 10vh;
+	margin-top: 4vh;
 }
 
 @media only screen and (max-width: 766px) {
@@ -503,6 +503,7 @@ border-radius: 0.7vh;
 
 .container-fluid{
 	background-color: #303030  !important;
+	height:2.2rem
 }
 .navbar.navbar-dark.bg-dark{
    background-color: #303030  !important;
