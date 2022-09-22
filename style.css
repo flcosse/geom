@@ -3,11 +3,11 @@
 }
 
 body {
-	background-color: #202124 !important;
+	background-color: #222327 !important;
 }
 
 html {
-	background-color: #202124;
+	background-color: #222327;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -16,7 +16,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #202124 !important;
+	background-color: #222327 !important;
 }
 
 .section-title h2 {
@@ -52,7 +52,7 @@ html {
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
 	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.5) !important;
-	background-color: #363740 !important;
+	background-color: #363740	 !important;
 }
 
 .card:hover .card-title {
@@ -65,16 +65,16 @@ html {
 }
 
 .col {
-	background-color: #202124 !important;
+	background-color: #222327 !important;
 }
 
 .article {
 
-	background-color: #202124;
+	background-color: #222327;
 }
 
 h1 {
-	background-color: #202124 !important;
+	background-color: #222327 !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
@@ -88,7 +88,7 @@ h1 {
 	margin-right: 1%;
 	font-size: 15px;
 	padding: 9px;
-	background-color: #1a73e8 !important;
+	background-color: #497bff !important;
 	color: aliceblue !important;
 	border-radius: 0.7vh;
 	margin-bottom: 0.5vh;
@@ -96,13 +96,13 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #1a73e8 !important;
-	--bs-btn-border-color: #1a73e8 !important;
-	--bs-btn-hover-bg: #1a73e8 !important;
-	--bs-btn-hover-border-color: #1a73e8 !important;
-	--bs-btn-active-bg: #1a73e8 !important;
-	--bs-btn-disabled-color: #1a73e8 !important;
-	--bs-btn-disabled-border-color: #1a73e8 !important;
+	--bs-btn-color: #497bff !important;
+	--bs-btn-border-color: #497bff !important;
+	--bs-btn-hover-bg: #497bff !important;
+	--bs-btn-hover-border-color: #497bff !important;
+	--bs-btn-active-bg: #497bff !important;
+	--bs-btn-disabled-color: #497bff !important;
+	--bs-btn-disabled-border-color: #497bff !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -111,7 +111,7 @@ h1 {
 }
 
 .badge.bg-secondary:hover {
-	background-color: #5f86f9 !important;
+	background-color: rgb(115, 150, 255) !important;
 	cursor: pointer
 }
 
@@ -156,7 +156,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #1a73e8 !important
+	color: #497bff !important
 }
 
 pre code {
@@ -190,7 +190,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #1a73e8;
+	background-color: #497bff;
 }
 
 
@@ -256,7 +256,7 @@ p {
 	}
 
 	html {
-		background-color: #202124;
+		background-color: #222327;
 
 	}
 
@@ -282,7 +282,7 @@ p {
 	  }
 	
 	html {
-		background-color: #202124;
+		background-color: #222327;
 		margin-left: 15%;
 		margin-right: 15%;
 	}
@@ -310,7 +310,7 @@ p {
 	}
 
 	html {
-		background-color: #202124;
+		background-color: #222327;
 		margin-left: 6%;
 		margin-right: 6%;
 	}
@@ -356,7 +356,7 @@ p {
 }
 
 a#link {
-	--bs-link-color: #1a73e8 !important;
+	--bs-link-color: #497bff !important;
 }
 
 .nav-link,
@@ -518,7 +518,7 @@ html::-webkit-scrollbar-thumb:hover {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 14px Segoe UI;
-background: #202124;
+background: #222327;
 line-height: 24px;
 color: rgb(46, 46, 51);
 border-radius: 0.7vh;
