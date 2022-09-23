@@ -3,11 +3,11 @@
 }
 
 body {
-	background-color: #22252a !important;
+	background-color: #eeeeee !important;
 }
 
 html {
-	background-color: #22252a;
+	background-color: #eeeeee;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -16,7 +16,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #22252a !important;
+	background-color: #eeeeee !important;
 }
 
 .section-title h2 {
@@ -36,9 +36,9 @@ html {
 
 .card {
 	border: 0px #eef2f7 !important;
-	background-color: #2e3238 !important;
+	background-color: #ffffff !important;
 	border-radius: 0.7vh !important;
-	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.3) !important;
+	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.05) !important;
 	transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
 }
 
@@ -51,34 +51,34 @@ html {
 .card:hover {
 	-webkit-transform: scale(.97, .97);
 	transform: scale(.97, .97);
-	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.5) !important;
-	background-color: #363e49	 !important;
+	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.1) !important;
+	background-color: #ffffff	 !important;
 }
 
 .card:hover .card-title {
-	color: #e4e6eb
+	color: #282828
 }
 
 
 .card:hover .card-text {
-	color: #b0b3b8
+	color: #404040
 }
 
 .col {
-	background-color: #22252a !important;
+	background-color: #eeeeee !important;
 }
 
 .article {
 
-	background-color: #22252a;
+	background-color: #eeeeee;
 }
 
 h1 {
-	background-color: #22252a !important;
+	background-color: #eeeeee !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #e4e6eb;
+	color: #282828;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -122,18 +122,18 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
-	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)
+	box-shadow: 0 2px 4px rgb(0 0 0 / 5%), 0 8px 16px rgb(0 0 0 / 5%)
 
 }
 
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
-	background-color: #2e3238 !important;
-	color: #e4e6eb
+	background-color: #ffffff !important;
+	color: #282828
 }
 
 .text {
-	color: #e4e6eb !important;
+	color: #282828 !important;
 	font-size: 200px !important
 }
 
@@ -200,17 +200,17 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #e4e6eb;
+	color: #282828;
 }
 
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #b0b3b8
+	color: #404040
 }
 
 .navbar.fixed-top {
-	background-color: #2e3238 !important;
+	background-color: #ffffff !important;
 }
 
 .python.hljs.language-python {
@@ -230,7 +230,7 @@ p {
 
 .dropdown-menu.show:active {
 	border: 0px;
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
 }
 
 .d-inline-block.align-text-top {
@@ -256,7 +256,7 @@ p {
 	}
 
 	html {
-		background-color: #22252a;
+		background-color: #eeeeee;
 
 	}
 
@@ -282,7 +282,7 @@ p {
 	  }
 	
 	html {
-		background-color: #22252a;
+		background-color: #eeeeee;
 		margin-left: 15%;
 		margin-right: 15%;
 	}
@@ -310,7 +310,7 @@ p {
 	}
 
 	html {
-		background-color: #22252a;
+		background-color: #eeeeee;
 		margin-left: 6%;
 		margin-right: 6%;
 	}
@@ -328,7 +328,7 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 90%) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
 }
 
 ::-webkit-scrollbar-corner {
@@ -337,7 +337,7 @@ p {
 }
 
 .nav-link.dropdown-toggle:hover {
-	color: white !important
+	color: black !important
 }
 
 .hljs-string {
@@ -346,13 +346,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #e4e6eb !important;
+	color: #282828 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #e4e6eb;
+	color: #282828;
 }
 
 a#link {
@@ -361,7 +361,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #e4e6eb !important;
+	color: #282828 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -369,9 +369,9 @@ a#link {
 .dropdown:hover .dropdown-menu {
 	display: block;
 	border: 1px solid rgba(120, 120, 120, 0.05);
-	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.3) !important;
+	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.1) !important;
 	pointer-events: all !important;
-	background-color: #2e3238;
+	background-color: #ffffff;
 	line-height: 25px;
 	padding: 1vh;
 	border-radius: 0.7vh;
@@ -379,14 +379,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #e4e6eb;
+	color: #282828;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #e4e6eb;
+	color: #282828;
 	font-weight: 700;
 
 }
@@ -418,7 +418,7 @@ a#link {
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top {
-	background-color: #2e3238 !important;
+	background-color: #ffffff !important;
 	height:10%
 }
 
@@ -433,21 +433,21 @@ a#link {
 }
 
 li {
-	color: #e4e6eb !important
+	color: #282828 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #e4e6eb !important
+	color: #282828 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #e4e6eb !important
+	color: #282828 !important
 }
 
 .textaire {
-	background-color: #2e3238;
+	background-color: #ffffff;
 	padding: 1rem;
 	border-radius: 0.7vh;
 	margin-bottom: 2vh
@@ -465,11 +465,11 @@ ul {
 }
 
 #resume {
-	color: #b0b3b8
+	color: #404040
 }
 
 html::-webkit-scrollbar-track {
-	background-color: #2e3238;
+	background-color: #ffffff;
 }
 
 html::-webkit-scrollbar {
@@ -510,7 +510,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   #test{
-	color:#e4e6eb !important
+	color:#282828 !important
 
   }
 
@@ -518,19 +518,19 @@ html::-webkit-scrollbar-thumb:hover {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 14px Segoe UI;
-background: #22252a;
+background: #eeeeee;
 line-height: 24px;
 color: rgb(46, 46, 51);
 border-radius: 0.7vh;
 }
 
 .container-fluid{
-	background-color: #2e3238  !important;
+	background-color: #ffffff  !important;
 	
 }
 .navbar.navbar-dark.bg-dark{
-   background-color: #2e3238  !important;
+   background-color: #ffffff  !important;
 }
 .navbar-brand{
-	color:#e4e6eb !important
+	color:#282828 !important
  }
