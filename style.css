@@ -1,5 +1,7 @@
 * {
-	font-family: "Poppins", system-ui !important
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,sans-serif !important;
+	font-weight: 400;
+	letter-spacing: .4;
 }
 
 body {
@@ -56,7 +58,7 @@ html {
 }
 
 .card:hover .card-title {
-	color: #202020
+	color: #40404c
 }
 
 
@@ -78,7 +80,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #202020;
+	color: #40404c;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -129,11 +131,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #ffffff !important;
-	color: #202020
+	color: #40404c
 }
 
 .text {
-	color: #202020 !important;
+	color: #40404c !important;
 	font-size: 200px !important
 }
 
@@ -200,13 +202,13 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #202020;
+	color: #40404c;
 }
 
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #343434
+	color: #40404c
 }
 
 .navbar.fixed-top {
@@ -346,13 +348,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #202020 !important;
+	color: #40404c !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #202020;
+	color: #40404c;
 }
 
 a#link {
@@ -361,7 +363,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #202020 !important;
+	color: #40404c !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -379,14 +381,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #202020;
+	color: #40404c;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #202020;
+	color: #40404c;
 	font-weight: 700;
 
 }
@@ -433,17 +435,17 @@ a#link {
 }
 
 li {
-	color: #202020 !important
+	color: #40404c !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #202020 !important
+	color: #40404c !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #202020 !important
+	color: #40404c !important
 }
 
 .textaire {
@@ -512,7 +514,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   #test{
-	color:#202020 !important
+	color:#40404c !important
 
   }
 
@@ -534,5 +536,5 @@ border-radius: 0.7vh;
    background-color: #ffffff  !important;
 }
 .navbar-brand{
-	color:#202020 !important
+	color:#40404c !important
  }
