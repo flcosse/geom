@@ -15,6 +15,22 @@
          margin-left: 10% !important
        }
      }
+     .zoom-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.zoom-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all .3s ease;
+}
+
+.card:hover .zoom-img img {
+  transform: scale(1.05);
+}
    </style>
    <link rel="stylesheet" href="style.css">
    <meta charset="utf-8">
@@ -39,8 +55,9 @@
        <div class="row row-cols-1 row-cols-md-3 g-4">
          <div class="col">
            <div class="card">
-             <img src="image/topo.jpg" class="card-img-top" alt="...">
-             <div class="card-body">
+            <div class="zoom-img">
+              <img src="image/topo.jpg" class="card-img-top" alt="...">
+             </div>             <div class="card-body">
                <h5 class="card-title">Profil topographique</h5>
                <p class="card-text">Import d'un MNT pour réaliser des profils topographiques intéractifs avec Leaflet et Dash.</p>
                <div class="tags">
@@ -55,7 +72,9 @@
    <a href="isochrone.html" style="text-decoration: none;">
      <div class="col">
        <div class="card">
+        <div class="zoom-img">
          <img src="image/travel.jpg" class="card-img-top" alt="...">
+        </div>
          <div class="card-body">
            <h5 class="card-title">Générateur d'isochrone</h5>
            <p class="card-text">Utilisation de l'API d'Openrouteserivce pour la cartographie d'isochrone avec Leaflet</p>
@@ -71,8 +90,9 @@
    <a href="eol.html" style="text-decoration: none;">
      <div class="col">
        <div class="card">
-         <img src="image/wind.jpg" class="card-img-top" alt="...">
-         <div class="card-body">
+        <div class="zoom-img">
+          <img src="image/wind.jpg" class="card-img-top" alt="...">
+         </div>         <div class="card-body">
            <h5 class="card-title">Potentiel éolien</h5>
            <p class="card-text">Analyse multicritère réalisée sur ArcGIS Pro dans le but d'identifier de nouveaux parcs éoliens.</p>
            <div class="tags">
@@ -87,8 +107,9 @@
    <a href="temp.html" style="text-decoration: none;">
      <div class="col">
        <div class="card">
-         <img src="image/temp.jpg" class="card-img-top" alt="...">
-         <div class="card-body">
+        <div class="zoom-img">
+          <img src="image/temp.jpg" class="card-img-top" alt="...">
+         </div>         <div class="card-body">
            <h5 class="card-title">Analyse  de température</h5>
            <p class="card-text">Analyses et visualisations interactives de données météos faites avec Pandas, Leaflet et Dash.</p>
            <div class="tags">
@@ -103,8 +124,9 @@
    <a href="qgis.html" style="text-decoration: none;">
     <div class="col">
       <div class="card">
-        <img src="image/SOLAR.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="zoom-img">
+          <img src="image/SOLAR.jpg" class="card-img-top" alt="...">
+         </div>        <div class="card-body">
           <h5 class="card-title">Potentiel solaire</h5>
           <p class="card-text">Analyse multicritère réalisée sur QGIS dans le but d'identifier les meilleurs emplacements de champs solaires.</p>
           <div class="tags">
