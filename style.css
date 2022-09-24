@@ -3,11 +3,11 @@
 }
 
 body {
-	background-color: #eeeeee !important;
+	background-color: #ffffff !important;
 }
 
 html {
-	background-color: #eeeeee;
+	background-color: #ffffff;
 	margin-left: 15%;
 	margin-right: 15%;
 }
@@ -16,7 +16,7 @@ html {
 .block {
 	margin-top: 7%;
 	margin-bottom: 1%;
-	background-color: #eeeeee !important;
+	background-color: #ffffff !important;
 }
 
 .section-title h2 {
@@ -65,16 +65,16 @@ html {
 }
 
 .col {
-	background-color: #eeeeee !important;
+	background-color: #ffffff !important;
 }
 
 .article {
 
-	background-color: #eeeeee;
+	background-color: #ffffff;
 }
 
 h1 {
-	background-color: #eeeeee !important;
+	background-color: #ffffff !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
@@ -256,7 +256,7 @@ p {
 	}
 
 	html {
-		background-color: #eeeeee;
+		background-color: #ffffff;
 
 	}
 
@@ -282,7 +282,7 @@ p {
 	  }
 	
 	html {
-		background-color: #eeeeee;
+		background-color: #ffffff;
 		margin-left: 15%;
 		margin-right: 15%;
 	}
@@ -310,7 +310,7 @@ p {
 	}
 
 	html {
-		background-color: #eeeeee;
+		background-color: #ffffff;
 		margin-left: 6%;
 		margin-right: 6%;
 	}
@@ -520,7 +520,7 @@ html::-webkit-scrollbar-thumb:hover {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 14px Segoe UI;
-background: #eeeeee;
+background: #ffffff;
 line-height: 24px;
 color: rgb(46, 46, 51);
 border-radius: 0.7vh;
