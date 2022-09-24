@@ -191,14 +191,16 @@ pre code::-webkit-scrollbar-thumb:hover {
 	background-color: #1241bb;
 }
 
-
+.card-body{
+	padding:3vh
+}
 p {
 	float: none !important
 }
 
 .card-title {
-	color: #1241bb;
-	padding:1vh;
+	color: #202020;
+	font-weight: 700;
 	padding-bottom: 0.2vh;
 }
 
@@ -206,8 +208,8 @@ p {
 	transition: color .3s;	
 	font-size: 15px;
 	color: #3c4043;
-	padding:1vh
 }
+
 
 .navbar.fixed-top {
 	background-color: #ffffff !important;
