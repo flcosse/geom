@@ -39,14 +39,14 @@ html {
 .card {
 	border: 0px #eef2f7 !important;
 	background-color: #ffffff !important;
-	border-radius: 0.7vh !important;
+	border-radius: 3vh !important;
 	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.05) !important;
 	transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
 }
 
 .card-img-top {
-	border-top-left-radius: .7vh !important;
-	border-top-right-radius: .7vh !important;
+	border-top-left-radius: 3vh !important;
+	border-top-right-radius: 3vh !important;
 	max-height: 30vh;
 }
 
@@ -202,12 +202,14 @@ p {
 .card-title {
 	font-weight: 700;
 	color: #40404c;
+	padding:1vh
 }
 
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #40404c
+	color: #40404c;
+	padding:1vh
 }
 
 .navbar.fixed-top {
