@@ -124,8 +124,7 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
-	box-shadow: 0 2px 4px rgb(0 0 0 / 5%), 0 8px 16px rgb(0 0 0 / 5%)
-
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px;
 }
 
 .javascript.hljs.language-javascript,
