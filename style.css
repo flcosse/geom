@@ -211,7 +211,7 @@ p {
 
 .navbar.fixed-top {
 	background-color: #ffffff !important;
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 10%) !important
 }
 
 .python.hljs.language-python {
@@ -329,7 +329,7 @@ p {
 }
 
 .navbar.navbar-expand-lg.fixed-top.active {
-	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 20%) !important
+	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 25%) !important
 }
 
 ::-webkit-scrollbar-corner {
