@@ -545,3 +545,14 @@ border-radius: 0.7vh;
 .navbar-brand{
 	color:#3c4043 !important
  }
+
+.code {
+    background-color: #f5f6f7;
+    border: .1rem solid #0000001a;
+    border-radius: 6px;
+    font-family: "office code pro",menlo,monospace;
+    font-size: 90%;
+    padding: 0.1rem;
+}
+
+	

@@ -26,15 +26,15 @@
         <h1>Profil topographique avec Rasterio et Shapely</h1>
 
     <div class="textaire">
-         <p >Une carte Leaflet permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique. Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil.</p> 
+         <p >Une carte <span class="code">Leaflet</span>  permet de récupérer les coordonnées de deux points à partir d'une ligne tracée. Cette ligne servira de base pour récupérer des relevés d'altitude depuis un raster dont les limites sont représentées en bleu. Ensuite ces données sont générées par un graphique. Cliquez sur le symbole de la ligne pour commencer à tracer le profil topographique. Double clic sur le second point pour créer le profil.</p> 
          <ul style="list-style: disc;">
             <li>Le script récupère les coordonnées de l'utilisateur lorsqu'il trace une ligne.</li>
             <li>Ces coordonnées servent à placer une série de points, avec Shapely, plus ou moins dense selon la longueur de la ligne.</li>
-            <li>Ces points serviront à prélever les valeurs raster du MNT avec Rasterio.</li>
-            <li>Ensuite avec Geopandas les données sont réorganisées dans un geodataframe avec un classement selon une distance croissante.</li>
-            <li>Les points sont intégrés à un graphique généré par Plotly.</li>
+            <li>Ces points serviront à prélever les valeurs raster du MNT avec <span class="code">Rasterio</span>.</li>
+            <li>Ensuite avec <span class="code">Geopandas</span> les données sont réorganisées dans un geodataframe avec un classement selon une distance croissante.</li>
+            <li>Les points sont intégrés à un graphique généré par <span class="code">Plotly</span>.</li>
             <li>Le framework Dash vient assurer la communication entre la carte Leaflet et le graphique.</li>	
-            <li>Pour finir, Dash crée l'application avec Dash-leaflet pour la carte, Plotly pour le graphique et un fichier GeoJSON pour délimiter l'emprise du MNT.</li>	
+            <li>Pour finir, Dash crée l'application avec <span class="code">Dash-leaflet</span> pour la carte, Plotly pour le graphique et un fichier <span class="code">GeoJSON</span> pour délimiter l'emprise du MNT.</li>	
             </ul>
         </div>
          <div class="fi" style="text-align: center">
