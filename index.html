@@ -19,7 +19,9 @@
       .zoom-img {
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        overflow: hidden;	border-top-left-radius: 3vh !important;
+	border-top-right-radius: 3vh !important;
+
       }
 
       .zoom-img img {
@@ -27,10 +29,16 @@
         height: 100%;
         object-fit: cover;
         transition: all .3s ease;
+        border-top-left-radius: 3vh !important;
+	border-top-right-radius: 3vh !important;
+
       }
 
       .card:hover .zoom-img img {
         transform: scale(1.05);
+        border-top-left-radius: 3vh !important;
+	border-top-right-radius: 3vh !important;
+
       }
     </style>
     <link rel="stylesheet" href="style.css">

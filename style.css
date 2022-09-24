@@ -55,6 +55,11 @@ html {
 	box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;
 }
 
+.card:hover .zoom-img{
+	border-top-left-radius: 3vh !important;
+	border-top-right-radius: 3vh !important;
+
+}
 
 
 .card:hover .card-text {
