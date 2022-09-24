@@ -56,12 +56,12 @@ html {
 }
 
 .card:hover .card-title {
-	color: #282828
+	color: #202020
 }
 
 
 .card:hover .card-text {
-	color: #404040
+	color: #343434
 }
 
 .col {
@@ -78,7 +78,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #282828;
+	color: #202020;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -88,7 +88,7 @@ h1 {
 	margin-right: 1%;
 	font-size: 15px;
 	padding: 9px;
-	background-color: #497bff !important;
+	background-color: #0D6EFD !important;
 	color: aliceblue !important;
 	border-radius: 0.7vh;
 	margin-bottom: 0.5vh;
@@ -96,13 +96,13 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #497bff !important;
-	--bs-btn-border-color: #497bff !important;
-	--bs-btn-hover-bg: #497bff !important;
-	--bs-btn-hover-border-color: #497bff !important;
-	--bs-btn-active-bg: #497bff !important;
-	--bs-btn-disabled-color: #497bff !important;
-	--bs-btn-disabled-border-color: #497bff !important;
+	--bs-btn-color: #0D6EFD !important;
+	--bs-btn-border-color: #0D6EFD !important;
+	--bs-btn-hover-bg: #0D6EFD !important;
+	--bs-btn-hover-border-color: #0D6EFD !important;
+	--bs-btn-active-bg: #0D6EFD !important;
+	--bs-btn-disabled-color: #0D6EFD !important;
+	--bs-btn-disabled-border-color: #0D6EFD !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -129,11 +129,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #ffffff !important;
-	color: #282828
+	color: #202020
 }
 
 .text {
-	color: #282828 !important;
+	color: #202020 !important;
 	font-size: 200px !important
 }
 
@@ -156,7 +156,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #497bff !important
+	color: #0D6EFD !important
 }
 
 pre code {
@@ -190,7 +190,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #497bff;
+	background-color: #0D6EFD;
 }
 
 
@@ -200,13 +200,13 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #282828;
+	color: #202020;
 }
 
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #404040
+	color: #343434
 }
 
 .navbar.fixed-top {
@@ -346,22 +346,22 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #282828 !important;
+	color: #202020 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #282828;
+	color: #202020;
 }
 
 a#link {
-	--bs-link-color: #497bff !important;
+	--bs-link-color: #0D6EFD !important;
 }
 
 .nav-link,
 .nav-link.active {
-	color: #282828 !important;
+	color: #202020 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -379,14 +379,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #282828;
+	color: #202020;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #282828;
+	color: #202020;
 	font-weight: 700;
 
 }
@@ -433,17 +433,17 @@ a#link {
 }
 
 li {
-	color: #282828 !important
+	color: #202020 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #282828 !important
+	color: #202020 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #282828 !important
+	color: #202020 !important
 }
 
 .textaire {
@@ -465,7 +465,7 @@ ul {
 }
 
 #resume {
-	color: #404040
+	color: #343434
 }
 
 html::-webkit-scrollbar-track {
@@ -510,7 +510,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   #test{
-	color:#282828 !important
+	color:#202020 !important
 
   }
 
@@ -532,5 +532,5 @@ border-radius: 0.7vh;
    background-color: #ffffff  !important;
 }
 .navbar-brand{
-	color:#282828 !important
+	color:#202020 !important
  }
