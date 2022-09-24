@@ -90,7 +90,7 @@ h1 {
 	font-size: 15px;
 	padding: 9px;
 	background-color: #ffffff !important;
-	border: 1px solid #1241bb;
+	border: 1px solid #1e59ec;
 	color: #5f6368 !important;
 	border-radius: 33px;
 	margin-bottom: 0.5vh;
@@ -99,13 +99,13 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #1241bb !important;
-	--bs-btn-border-color: #1241bb !important;
-	--bs-btn-hover-bg: #1241bb !important;
-	--bs-btn-hover-border-color: #1241bb !important;
-	--bs-btn-active-bg: #1241bb !important;
-	--bs-btn-disabled-color: #1241bb !important;
-	--bs-btn-disabled-border-color: #1241bb !important;
+	--bs-btn-color: #1e59ec !important;
+	--bs-btn-border-color: #1e59ec !important;
+	--bs-btn-hover-bg: #1e59ec !important;
+	--bs-btn-hover-border-color: #1e59ec !important;
+	--bs-btn-active-bg: #1e59ec !important;
+	--bs-btn-disabled-color: #1e59ec !important;
+	--bs-btn-disabled-border-color: #1e59ec !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -114,7 +114,7 @@ h1 {
 }
 
 .badge.bg-secondary:hover {
-	background-color: #1241bb !important;
+	background-color: #1e59ec !important;
 	color:white !important;
 	cursor: pointer
 }
@@ -159,7 +159,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #1241bb !important
+	color: #1e59ec !important
 }
 
 pre code {
@@ -193,7 +193,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #1241bb;
+	background-color: #1e59ec;
 }
 
 .card-body{
@@ -364,7 +364,7 @@ p {
 }
 
 a#link {
-	--bs-link-color: #1241bb !important;
+	--bs-link-color: #1e59ec !important;
 }
 
 .nav-link,
