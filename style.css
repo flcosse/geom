@@ -52,7 +52,7 @@ html {
 
 .card:hover {
 
-	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.1) !important;
+	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.2) !important;
 }
 
 
@@ -73,7 +73,6 @@ html {
 h1 {
 	background-color: #ffffff !important;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-	margin-bottom: 3% !important;
 	font-weight: 700 !important;
 	color: #3c4043;
 	margin-top: 7% !important;
@@ -198,7 +197,6 @@ p {
 }
 
 .card-title {
-	font-weight: 700;
 	color: #1e8e3e;
 	padding:1vh;
 	padding-bottom: 0.2vh;
