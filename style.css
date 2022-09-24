@@ -51,21 +51,14 @@ html {
 }
 
 .card:hover {
-	-webkit-transform: scale(.97, .97);
-	transform: scale(.97, .97);
+
 	box-shadow: 0 0.375rem 0.75rem rgba(0,0,0, 0.1) !important;
-	background-color: #fffffa	 !important;
 }
 
-
-
-.card:hover .card-title {
-	color: #40404c
-}
 
 
 .card:hover .card-text {
-	color: #343434
+	color: #3c4043
 }
 
 .col {
@@ -82,7 +75,7 @@ h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	margin-bottom: 3% !important;
 	font-weight: 700 !important;
-	color: #40404c;
+	color: #3c4043;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -92,21 +85,23 @@ h1 {
 	margin-right: 1%;
 	font-size: 15px;
 	padding: 9px;
-	background-color: #0D6EFD !important;
-	color: aliceblue !important;
-	border-radius: 0.7vh;
+	background-color: #ffffff !important;
+	border: 1px solid #1e8e3e;
+	color: #5f6368 !important;
+	border-radius: 33px;
 	margin-bottom: 0.5vh;
 	font-weight: 500 !important;
+	transition: all .2s;
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #0D6EFD !important;
-	--bs-btn-border-color: #0D6EFD !important;
-	--bs-btn-hover-bg: #0D6EFD !important;
-	--bs-btn-hover-border-color: #0D6EFD !important;
-	--bs-btn-active-bg: #0D6EFD !important;
-	--bs-btn-disabled-color: #0D6EFD !important;
-	--bs-btn-disabled-border-color: #0D6EFD !important;
+	--bs-btn-color: #1e8e3e !important;
+	--bs-btn-border-color: #1e8e3e !important;
+	--bs-btn-hover-bg: #1e8e3e !important;
+	--bs-btn-hover-border-color: #1e8e3e !important;
+	--bs-btn-active-bg: #1e8e3e !important;
+	--bs-btn-disabled-color: #1e8e3e !important;
+	--bs-btn-disabled-border-color: #1e8e3e !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -115,7 +110,8 @@ h1 {
 }
 
 .badge.bg-secondary:hover {
-	background-color: rgb(115, 150, 255) !important;
+	background-color: #1e8e3e !important;
+	color:white !important;
 	cursor: pointer
 }
 
@@ -132,11 +128,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #ffffff !important;
-	color: #40404c
+	color: #3c4043
 }
 
 .text {
-	color: #40404c !important;
+	color: #3c4043 !important;
 	font-size: 200px !important
 }
 
@@ -159,7 +155,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #0D6EFD !important
+	color: #1e8e3e !important
 }
 
 pre code {
@@ -193,7 +189,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #0D6EFD;
+	background-color: #1e8e3e;
 }
 
 
@@ -203,7 +199,7 @@ p {
 
 .card-title {
 	font-weight: 700;
-	color: #40404c;
+	color: #1e8e3e;
 	padding:1vh;
 	padding-bottom: 0.2vh;
 }
@@ -211,7 +207,7 @@ p {
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #40404c;
+	color: #3c4043;
 	padding:1vh
 }
 
@@ -353,22 +349,22 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #40404c !important;
+	color: #3c4043 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #40404c;
+	color: #3c4043;
 }
 
 a#link {
-	--bs-link-color: #0D6EFD !important;
+	--bs-link-color: #1e8e3e !important;
 }
 
 .nav-link,
 .nav-link.active {
-	color: #40404c !important;
+	color: #3c4043 !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -386,14 +382,14 @@ a#link {
 
 
 .dropdown-item {
-	color: #40404c;
+	color: #3c4043;
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #40404c;
+	color: #3c4043;
 	font-weight: 700;
 
 }
@@ -440,17 +436,17 @@ a#link {
 }
 
 li {
-	color: #40404c !important
+	color: #3c4043 !important
 }
 
 #spin {
 	margin-top: -30vh !important;
-	color: #40404c !important
+	color: #3c4043 !important
 }
 
 #spintext {
 	margin-top: -25vh !important;
-	color: #40404c !important
+	color: #3c4043 !important
 }
 
 .textaire {
@@ -471,6 +467,7 @@ ul {
 	margin-top: -1.5% !important;
 	margin-left: 5vh;
 	font-weight: 500;
+	color:#343434 !important
 }
 
 #resume {
@@ -519,7 +516,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   #test{
-	color:#40404c !important
+	color:#3c4043 !important
 
   }
 
@@ -541,5 +538,5 @@ border-radius: 0.7vh;
    background-color: #ffffff  !important;
 }
 .navbar-brand{
-	color:#40404c !important
+	color:#3c4043 !important
  }
