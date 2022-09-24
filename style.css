@@ -450,8 +450,10 @@ li {
 	background-color: #ffffff;
 	padding: 1rem;
 	border-radius: 0.7vh;
-	margin-bottom: 2vh
+	margin-bottom: 2vh;
+
 }
+
 
 ul {
 	margin-bottom: 0px !important;
