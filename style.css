@@ -85,7 +85,7 @@ h1 {
 	font-size: 15px;
 	padding: 9px;
 	background-color: #ffffff !important;
-	border: 1px solid #1e8e3e;
+	border: 1px solid #22449c;
 	color: #5f6368 !important;
 	border-radius: 33px;
 	margin-bottom: 0.5vh;
@@ -94,13 +94,13 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #1e8e3e !important;
-	--bs-btn-border-color: #1e8e3e !important;
-	--bs-btn-hover-bg: #1e8e3e !important;
-	--bs-btn-hover-border-color: #1e8e3e !important;
-	--bs-btn-active-bg: #1e8e3e !important;
-	--bs-btn-disabled-color: #1e8e3e !important;
-	--bs-btn-disabled-border-color: #1e8e3e !important;
+	--bs-btn-color: #22449c !important;
+	--bs-btn-border-color: #22449c !important;
+	--bs-btn-hover-bg: #22449c !important;
+	--bs-btn-hover-border-color: #22449c !important;
+	--bs-btn-active-bg: #22449c !important;
+	--bs-btn-disabled-color: #22449c !important;
+	--bs-btn-disabled-border-color: #22449c !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -109,7 +109,7 @@ h1 {
 }
 
 .badge.bg-secondary:hover {
-	background-color: #1e8e3e !important;
+	background-color: #22449c !important;
 	color:white !important;
 	cursor: pointer
 }
@@ -154,7 +154,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #1e8e3e !important
+	color: #22449c !important
 }
 
 pre code {
@@ -188,7 +188,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #1e8e3e;
+	background-color: #22449c;
 }
 
 
@@ -197,7 +197,7 @@ p {
 }
 
 .card-title {
-	color: #1e8e3e;
+	color: #22449c;
 	padding:1vh;
 	padding-bottom: 0.2vh;
 }
@@ -357,7 +357,7 @@ p {
 }
 
 a#link {
-	--bs-link-color: #1e8e3e !important;
+	--bs-link-color: #22449c !important;
 }
 
 .nav-link,
