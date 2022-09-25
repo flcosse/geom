@@ -213,7 +213,8 @@ p {
 
 
 .navbar.fixed-top {
-	background-color: #ffffff !important;
+	backdrop-filter: blur(12px);
+	background-color: hsla(0,0%,100%,.8);
 	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 10%) !important
 }
 
@@ -229,6 +230,12 @@ p {
 @media only screen and (max-width: 992px) {
 	.nav-item.dropdown:active {
 		pointer-events: all !important
+	}
+	.navbar.fixed-top {
+	background-color: #fff;
+	}
+	.container-fluid{
+		background-color: #fff;
 	}
 }
 
@@ -512,10 +519,7 @@ color: rgb(46, 46, 51);
 border-radius: 0.7vh;
 }
 
-.container-fluid{
-	background-color: #ffffff  !important;
-	
-}
+
 .navbar.navbar-dark.bg-dark{
    background-color: #ffffff  !important;
 }
