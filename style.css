@@ -40,7 +40,7 @@ html {
 	border: 0px #eef2f7 !important;
 	background-color: #ffffff !important;
 	border-radius: 3vh !important;
-	box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+	box-shadow: 0px 12px 34px rgb(32 52 89 / 15%);
 	transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
 }
 
