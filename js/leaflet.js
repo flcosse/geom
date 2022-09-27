@@ -136,7 +136,7 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style="background:#21908d"></i><span>30 minutes</span><br>';
     div.innerHTML += '<i style="background: #5dc963"></i><span>45 minutes</span><br>';
     div.innerHTML += '<i style="background: #fdd525"></i><span>60 minutes</span><br>';
-    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(#440154,#21908d,#5dc963,#fde725, #fdd525);"></i><span>Interv. 10 minutes</span><br>';
+    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(#440154,#21908d,#5dc963,#fde725, #fdd525);transform: rotate(270deg)"></i><span>Interv. 10 minutes</span><br>';
     return div;
 };
 
