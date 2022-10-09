@@ -84,13 +84,13 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-color: #f02e65 !important;
-	--bs-btn-border-color: #f02e65 !important;
-	--bs-btn-hover-bg: #f02e65 !important;
-	--bs-btn-hover-border-color: #f02e65 !important;
-	--bs-btn-active-bg: #f02e65 !important;
-	--bs-btn-disabled-color: #f02e65 !important;
-	--bs-btn-disabled-border-color: #f02e65 !important;
+	--bs-btn-color: #32a848 !important;
+	--bs-btn-border-color: #32a848 !important;
+	--bs-btn-hover-bg: #32a848 !important;
+	--bs-btn-hover-border-color: #32a848 !important;
+	--bs-btn-active-bg: #32a848 !important;
+	--bs-btn-disabled-color: #32a848 !important;
+	--bs-btn-disabled-border-color: #32a848 !important;
 	--bs-btn-focus-shadow-rgb: 0, 70, 255 !important
 }
 
@@ -99,7 +99,7 @@ h1 {
 }
 
 .badge.bg-secondary:hover {
-	background-color: #f02e65 !important;
+	background-color: #32a848 !important;
 	color:white !important;
 	cursor: pointer
 }
@@ -144,7 +144,7 @@ pre {
 }
 
 .hljs-keyword {
-	color: #f02e65 !important
+	color: #32a848 !important
 }
 
 pre code {
@@ -178,7 +178,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-	background-color: #f02e65;
+	background-color: #32a848;
 }
 
 .card-body{
@@ -351,7 +351,7 @@ p {
 }
 
 a#link {
-	--bs-link-color: #f02e65 !important;
+	--bs-link-color: #32a848 !important;
 }
 
 .nav-link,
