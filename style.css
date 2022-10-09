@@ -38,8 +38,7 @@ html {
 	border: 0px #eef2f7 !important;
 	background-color: #363636 !important;
 	border-radius: 10px !important;
-	box-shadow: 0px 12px 310px rgb(20 20 20 / 15%);
-	transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
+	transition: transform .3s, background-color .3s, color .3s;
 }
 
 .card-img-top {
