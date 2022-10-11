@@ -64,12 +64,12 @@ document.getElementById("gen").onclick = function() {
             }
 
             function getColor(d) {
-                return d >= 3600 ? '#bd0026' :
-                       d >= 3000  ? '#bd0026' :
-                       d >= 2400  ? '#f03b20' :
-                       d >= 1800  ? '#fd8d3c' :
-                       d >= 1200   ? '#fecc5c' :
-                       d >= 600   ? '#ffffb2' :
+                return d >= 3600 ? '#006837' :
+                       d >= 3000  ? '#006837' :
+                       d >= 2400  ? '#31a354' :
+                       d >= 1800  ? '#78c679' :
+                       d >= 1200   ? '#c2e699' :
+                       d >= 600   ? '#ffffcc' :
                        d > 0   ? '#FED976' :
                                   '#FFEDA0';
             }
@@ -132,11 +132,11 @@ var legend = L.control({position: "bottomleft"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
-    div.innerHTML += `<i style="background: #ffffb2"></i><span>15 minutes</span><br>`;
-    div.innerHTML += '<i style="background:#fd8d3c"></i><span>30 minutes</span><br>';
-    div.innerHTML += '<i style="background: #f03b20"></i><span>45 minutes</span><br>';
-    div.innerHTML += '<i style="background: #bd0026"></i><span>60 minutes</span><br>';
-    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to bottom, #ffffb2 0%, #ffffb2 20%, #f03b20 40%, #f03b20 60%,#bd0026 70%, #bd0026 80%)"></i><span>Interv. 10 minutes</span><br>';
+    div.innerHTML += `<i style="background: #ffffcc"></i><span>15 minutes</span><br>`;
+    div.innerHTML += '<i style="background:#78c679"></i><span>30 minutes</span><br>';
+    div.innerHTML += '<i style="background: #31a354"></i><span>45 minutes</span><br>';
+    div.innerHTML += '<i style="background: #006837"></i><span>60 minutes</span><br>';
+    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to bottom, #ffffcc 0%, #ffffcc 20%, #31a354 40%, #31a354 60%,#006837 70%, #006837 80%)"></i><span>Interv. 10 minutes</span><br>';
     return div;
 };
 
