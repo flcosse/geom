@@ -1,6 +1,6 @@
 var map = L.map('map', {dragging: !L.Browser.mobile}).setView([48.856614, 2.3522219], 8);
 
-var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
 	maxZoom: 22,
@@ -64,12 +64,12 @@ document.getElementById("gen").onclick = function() {
             }
 
             function getColor(d) {
-                return d >= 3600 ? '#fdd525' :
-                       d >= 3000  ? '#fde725' :
-                       d >= 2400  ? '#5dc963' :
-                       d >= 1800  ? '#21908d' :
-                       d >= 1200   ? '#3b528b' :
-                       d >= 600   ? '#440154' :
+                return d >= 3600 ? '#bd0026' :
+                       d >= 3000  ? '#bd0026' :
+                       d >= 2400  ? '#f03b20' :
+                       d >= 1800  ? '#fd8d3c' :
+                       d >= 1200   ? '#fecc5c' :
+                       d >= 600   ? '#ffffb2' :
                        d > 0   ? '#FED976' :
                                   '#FFEDA0';
             }
@@ -132,11 +132,11 @@ var legend = L.control({position: "bottomleft"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
-    div.innerHTML += `<i style="background: #440154"></i><span>15 minutes</span><br>`;
-    div.innerHTML += '<i style="background:#21908d"></i><span>30 minutes</span><br>';
-    div.innerHTML += '<i style="background: #5dc963"></i><span>45 minutes</span><br>';
-    div.innerHTML += '<i style="background: #fdd525"></i><span>60 minutes</span><br>';
-    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to right, #440154 20%, #21908d 40%, #5dc963 60%,#fde725 70%, #fdd525 80%)"></i><span>Interv. 10 minutes</span><br>';
+    div.innerHTML += `<i style="background: #ffffb2"></i><span>15 minutes</span><br>`;
+    div.innerHTML += '<i style="background:#fd8d3c"></i><span>30 minutes</span><br>';
+    div.innerHTML += '<i style="background: #f03b20"></i><span>45 minutes</span><br>';
+    div.innerHTML += '<i style="background: #bd0026"></i><span>60 minutes</span><br>';
+    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to bottom, #ffffb2 0%, #ffffb2 20%, #f03b20 40%, #f03b20 60%,#bd0026 70%, #bd0026 80%)"></i><span>Interv. 10 minutes</span><br>';
     return div;
 };
 
