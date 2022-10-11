@@ -84,7 +84,7 @@ h1 {
 }
 
 .btn-outline-secondary {
-	--bs-btn-font-weight: 600;
+	--bs-btn-font-weight: 500;
 	--bs-btn-color: #32a848;
 	--bs-btn-bg: rgba(0,0,0,0);
 	--bs-btn-border-color: #32a848;
