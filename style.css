@@ -480,8 +480,8 @@ ul {
 
 .navbar-toggler{
 	border-radius: 0.7vh;
-	max-width: 60px;
-	border:0.1px solid #606060;
+	max-width: 50px;
+	border:1px solid #606060;
 }
 
 
@@ -490,10 +490,13 @@ ul {
 	background-image: none;
   }
   .navbar-toggler-icon {
-	background-image: url('image/bars.png');
+	background-image: url('image/bleach.png');
+	width: 90%;
+  }
+  .navbar-toggler:hover{
+	background-color: #424242;
 
   }
-
   .navbar-toggler:focus{
 	box-shadow: none;
 	background-color: #424242;
