@@ -380,14 +380,14 @@ a#link {
 
 
 .dropdown-item {
-	color: rgb(235 235 235 / 60%);
+	color: rgb(235 235 235 / 80%);
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: rgb(235 235 235 / 60%);
+	color: rgb(235 235 235 / 100%);
 	font-weight: 700;
 
 }
