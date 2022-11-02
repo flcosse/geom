@@ -5,7 +5,7 @@
 }
 
 body {
-	background-color: #282828 !important;
+	background-color: #242424 !important;
 }
 
 html {
@@ -36,7 +36,7 @@ html {
 
 .card {
 	border: 0px #eef2f7 !important;
-	background-color: #363636 !important;
+	background-color: #2f2f2f !important;
 	border-radius: 12px !important;
 	transition: transform .3s, background-color .3s, color .3s;
 }
@@ -55,13 +55,13 @@ html {
 
 
 .card:hover .card-text {
-	color: #ebebeb
+	color: rgb(235 235 235 / 60%)
 }
 
 h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	font-weight: 700 !important;
-	color: #ebebeb;
+	color: rgb(255 255 255 / 0.87);
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -97,6 +97,9 @@ h1 {
 
 }
 
+
+
+
 .dropdown-item {
 	--bs-dropdown-link-active-bg: rgba(0, 0, 0, 0) !important
 }
@@ -120,11 +123,11 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #424242 !important;
-	color: #ebebeb
+	color: rgb(255 255 255 / 0.87)
 }
 
 .text {
-	color: #ebebeb !important;
+	color: rgb(235 235 235 / 60%) !important;
 	font-size: 200px !important
 }
 
@@ -143,6 +146,7 @@ pre {
 .hljs-literal {
 	font-family: Consolas !important;
 	font-size: 15px;
+
 }
 
 .hljs-keyword {
@@ -167,6 +171,7 @@ pre code::-webkit-scrollbar-thumb {
 	background-color: #fafafa;
 }
 
+
 pre code::-webkit-scrollbar-thumb {
 	background-color: #d6dee1;
 	border-radius: 20px;
@@ -190,7 +195,7 @@ p {
 }
 
 .card-title {
-	color: #ffffff;
+	color: rgb(255 255 255 / 0.87);
 	font-weight: 700;
 	padding-bottom: 0.2vh;
 }
@@ -198,9 +203,10 @@ p {
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #ebebeb;
+	color: rgb(235 235 235 / 60%);
 	padding-bottom: 1vh;
 }
+
 
 .navbar.fixed-top {
 	backdrop-filter: blur(12px);
@@ -212,6 +218,7 @@ p {
 	font-size: 15px;
 }
 
+
 .nav-item.dropdown:active {
 	pointer-events: none !important
 }
@@ -221,10 +228,10 @@ p {
 		pointer-events: all !important
 	}
 	.navbar.fixed-top {
-	background-color: #363636;
+	background-color: #2f2f2f;
 	}
 	.container-fluid{
-		background-color: #363636;
+		background-color: #2f2f2f;
 	}
 }
 
@@ -248,10 +255,15 @@ p {
 	position: absolute;
 }
 
+
+
 @media only screen and (max-width: 900px) {
 	h1 {
 		margin-top: 15% !important
 	}
+
+
+
 }
 
 .titre {
@@ -291,6 +303,7 @@ p {
 	  .navbar-toggler {
 		width:50px
 	  }
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -302,6 +315,8 @@ p {
 		margin-left: 6%;
 		margin-right: 6%;
 	}
+
+
 	.titre{
 		margin-bottom: 15% !important;
 	}
@@ -318,6 +333,7 @@ p {
 }
 
 ::-webkit-scrollbar-corner {
+
 	display: none
 }
 
@@ -331,13 +347,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #ebebeb !important;
+	color: rgb(255 255 255 / 0.87) !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #ebebeb;
+	color: rgb(255 255 255 / 0.87)
 }
 
 a#link {
@@ -346,7 +362,7 @@ a#link {
 
 .nav-link,
 .nav-link.active {
-	color: #ebebeb !important;
+	color: rgb(235 235 235 / 60%) !important;
 	font-weight: 600;
 	font-size: 16px;
 }
@@ -364,15 +380,16 @@ a#link {
 
 
 .dropdown-item {
-	color: #ebebeb;
+	color: rgb(235 235 235 / 60%);
 	border-radius: 0.5vh;
 	transition: font-weight .05s linear, color .05s linear;
 
 }
 
 .dropdown-item:hover {
-	color: #ebebeb;
+	color: rgb(235 235 235 / 60%);
 	font-weight: 700;
+
 }
 
 .nav-item.dropdown:hover>.nav-link.dropdown-toggle::after {
@@ -382,6 +399,7 @@ a#link {
 .nav-link.dropdown-toggle:after {
 	transition: 0.2s;
 }
+
 
 .dropdown-item {
 	letter-spacing: 0px !important;
@@ -401,7 +419,7 @@ a#link {
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top {
-	background-color: #ffffff !important;
+	background-color: rgb(255 255 255 / 0.87) !important;
 	height:10%
 }
 
@@ -416,17 +434,17 @@ a#link {
 }
 
 li {
-	color: #ebebeb !important
+	color: rgb(255 255 255 / 0.87) !important
 }
 
 #spin {
 	margin-top: -45vh !important;
-	color: #ebebeb !important
+	color: rgb(255 255 255 / 0.87) !important
 }
 
 #spintext {
 	margin-top: -40vh !important;
-	color: #ebebeb !important
+	color: rgb(255 255 255 / 0.87) !important
 }
 
 .textaire {
@@ -434,6 +452,7 @@ li {
 	padding: 1rem;
 	border-radius: 0.7vh;
 	margin-bottom: 2vh;
+
 }
 
 
@@ -446,12 +465,14 @@ ul {
 	margin-left: 5.5vh;
 	margin-top: .2vh;
 	font-weight: 500;
-	color:#ffffff !important
+	color:rgb(255 255 255 / 0.87) !important
 }
 
 #resume {
-	color: #ebebeb
+	color: rgb(235 235 235 / 60%)
 }
+
+
 
 .navbar-toggler{
 	border-radius: 0.7vh;
@@ -459,31 +480,34 @@ ul {
 	border:1.01px solid #606060;
 }
 
+
+
 .navbar-toggler-icon {
 	background-image: none;
   }
-.navbar-toggler-icon {
+  .navbar-toggler-icon {
 	background-image: url('image/bleach.png');
 	width: 90%;
   }
-.navbar-toggler:hover{
+  .navbar-toggler:hover{
 	background-color: #424242;
 
   }
-.navbar-toggler:focus{
+  .navbar-toggler:focus{
 	box-shadow: none;
 	background-color: #424242;
   }
 
-#test{
-	color:#ebebeb !important
+  #test{
+	color:rgb(235 235 235 / 60%) !important
+
   }
 
-.legend {
+  .legend {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 110px Segoe UI;
-background: #ffffff;
+background: rgb(255 255 255 / 0.87);
 line-height: 210px;
 color: rgb(46, 46, 51);
 border-radius: 0.7vh;
@@ -491,10 +515,10 @@ border-radius: 0.7vh;
 
 
 .navbar.navbar-dark.bg-dark{
-   background-color: #ffffff  !important;
+   background-color: rgb(255 255 255 / 0.87)  !important;
 }
 .navbar-brand{
-	color:#ebebeb !important
+	color:rgb(235 235 235 / 60%) !important
  }
 
 .code {
@@ -504,7 +528,7 @@ border-radius: 0.7vh;
     font-family: "office code pro",menlo,monospace;
     font-size: 90%;
     padding: 0.1rem;
-	color:#282828
+	color:#242424
 }
 
 	
