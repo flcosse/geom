@@ -58,10 +58,6 @@ html {
 	color: #ebebeb
 }
 
-
-
-
-
 h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	font-weight: 700 !important;
@@ -100,9 +96,6 @@ h1 {
 
 
 }
-
-
-
 
 .dropdown-item {
 	--bs-dropdown-link-active-bg: rgba(0, 0, 0, 0) !important
@@ -150,7 +143,6 @@ pre {
 .hljs-literal {
 	font-family: Consolas !important;
 	font-size: 15px;
-
 }
 
 .hljs-keyword {
@@ -174,7 +166,6 @@ pre code::-webkit-scrollbar-track {
 pre code::-webkit-scrollbar-thumb {
 	background-color: #fafafa;
 }
-
 
 pre code::-webkit-scrollbar-thumb {
 	background-color: #d6dee1;
@@ -211,7 +202,6 @@ p {
 	padding-bottom: 1vh;
 }
 
-
 .navbar.fixed-top {
 	backdrop-filter: blur(12px);
 	background-color: rgba(54, 54, 54, 0.6);
@@ -221,7 +211,6 @@ p {
 .python.hljs.language-python {
 	font-size: 15px;
 }
-
 
 .nav-item.dropdown:active {
 	pointer-events: none !important
@@ -259,15 +248,10 @@ p {
 	position: absolute;
 }
 
-
-
 @media only screen and (max-width: 900px) {
 	h1 {
 		margin-top: 15% !important
 	}
-
-
-
 }
 
 .titre {
@@ -307,7 +291,6 @@ p {
 	  .navbar-toggler {
 		width:50px
 	  }
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -319,8 +302,6 @@ p {
 		margin-left: 6%;
 		margin-right: 6%;
 	}
-
-
 	.titre{
 		margin-bottom: 15% !important;
 	}
@@ -337,7 +318,6 @@ p {
 }
 
 ::-webkit-scrollbar-corner {
-
 	display: none
 }
 
@@ -393,7 +373,6 @@ a#link {
 .dropdown-item:hover {
 	color: #ebebeb;
 	font-weight: 700;
-
 }
 
 .nav-item.dropdown:hover>.nav-link.dropdown-toggle::after {
@@ -403,7 +382,6 @@ a#link {
 .nav-link.dropdown-toggle:after {
 	transition: 0.2s;
 }
-
 
 .dropdown-item {
 	letter-spacing: 0px !important;
@@ -456,7 +434,6 @@ li {
 	padding: 1rem;
 	border-radius: 0.7vh;
 	margin-bottom: 2vh;
-
 }
 
 
@@ -476,38 +453,33 @@ ul {
 	color: #ebebeb
 }
 
-
-
 .navbar-toggler{
 	border-radius: 0.7vh;
 	max-width: 50px;
 	border:1.01px solid #606060;
 }
 
-
-
 .navbar-toggler-icon {
 	background-image: none;
   }
-  .navbar-toggler-icon {
+.navbar-toggler-icon {
 	background-image: url('image/bleach.png');
 	width: 90%;
   }
-  .navbar-toggler:hover{
+.navbar-toggler:hover{
 	background-color: #424242;
 
   }
-  .navbar-toggler:focus{
+.navbar-toggler:focus{
 	box-shadow: none;
 	background-color: #424242;
   }
 
-  #test{
+#test{
 	color:#ebebeb !important
-
   }
 
-  .legend {
+.legend {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 110px Segoe UI;
