@@ -23,7 +23,7 @@
     <div class="container-fluid" id="navbar"></div>
       <div class="block">
       <div class="article">
-        <h1>Analyse raster avec QGIS</h1>
+        <h1>Cartographie statique avec QGIS</h1>
 
     <div class="textaire">
     <p>
@@ -39,77 +39,31 @@
             </ul>
           </div>
           </p>
-         <div class="fi" style="text-align: center">
-            <iframe src="qleaflet.html"scrolling="no" style="position:relative;z-index:999" frameBorder="0" height="90%" width="100%" title=""></iframe>
-          </div>
+<img src="image/Carte.png" alt="" srcset="" style="max-width:100%;margin-bottom: 2%;border-radius: 12px;">
           <br>
-            <pre><code class="javascript">var map = L.map('map').setView([43.3269942, -0.8532809], 9);
-var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
-    attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    minZoom: 0,
-    maxZoom: 22,
-    subdomains: 'abcd',
-    accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
-});
-tile.addTo(map);
+            <pre><code class="python">import pandas as pd
 
-var polystyle = {
-    "color": "#363636",
-    "weight": 2,
-    "opacity": 1,
-    "fillOpacity": 0.1
-};
+#import des données dans le script
+df = pd.read_csv(r"C:\Users\Florian\Desktop\INFORMATIONS_SPATIALES\SOLAIRE_CSV.csv")
+df = df.rename(columns={"coordonnees": "lat", "1_f_code_insee_pdl": "lon","field_15":"code_insee","1_f_commune_pdl":"nom_com"})
 
-function getColor(d) {
-    return d > 1000 ? '#800026' :
-        d >= 5 ? '#fde725' :
-        d >= 4 ? '#5dc963' :
-        d >= 3 ? '#21908d' :
-        d >= 2 ? '#3b528b' :
-        d >= 1 ? '#440154' :
-        d > 0 ? '#FED976' :
-        '#FFEDA0';
-}
+#création de la fonction prenant la date comme paramètre et regroupant les données par départements et par années
+def dataframe(date):
+        return df.loc[df['date_des_donnees'] == date].groupby(['date_des_donnees','dep'])['count'].sum().reset_index()
+df5 = dataframe('2021-07')
+df5 = df5.drop(['date_des_donnees'], axis=1)
+releve = ["2017-12","2018-12","2019-12","2020-12"]
 
-function style(feature) {
-    return {
-        fillColor: getColor(feature.properties.DN),
-        weight: .5,
-        opacity: 1,
-        color: getColor(feature.properties.DN),
-        fillOpacity: 0.9
-    };
-}
+#boucle pour appeler la fonction selon les années choisies dans la liste au dessus
+for i in releve:
+    df5 = df5.merge(dataframe(i)[["count","dep"]], on="dep", how="left")
 
-
-var layerGroup = $.getJSON("file/FILE.geojson", function(data) {
-    L.geoJSON(data, {
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup('<p>' + feature.properties.DN + '/5</p>')},
-        style: style}).addTo(map)});
-
-var res = $.getJSON("file/RES.geojson", function(lay) {
-    L.geoJSON(lay, {
-        onEachFeature: function(feature, layer) {
-            layer.bindTooltip('<p>' + feature.properties.voltage / 1000 + ' kV</p>', {
-                sticky: true})},style: polystyle}).addTo(map)});
-
-
-var legend = L.control({position: "bottomleft"});
-
-legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<h4 style='margin-left:-0.5vh'>Note de l'analyse</h4>";
-    div.innerHTML += `<i style="background: #440154;"></i><span id="test">1</span><br>`;
-    div.innerHTML += '<i style="background:#3b528b  "></i><span id="test">2</span><br>';
-    div.innerHTML += '<i style="background: #21908d"></i><span id="test">3</span><br>';
-    div.innerHTML += '<i style="background: #5dc963"></i><span id="test">4</span><br>';
-    div.innerHTML += '<i style="background: #fde725"></i><span id="test">5</span><br>';
-    div.innerHTML += '<i style="background: #282828; height:3px;margin-top:.6rem"></i><span id="test">Réseau électrique</span><br>';
-    return div;
-};
-
-legend.addTo(map);
+df5.columns = ["dep","2021","2017","2018","2019","2020"]
+df5 = df5[["dep","2017","2018","2019","2020","2021"]]
+df5 = df5.fillna(0)
+df5[["2017","2018","2019","2020"]] = df5[["2017","2018","2019","2020"]].astype(int)
+#export du fichier .csv dans le répertoire
+df5.to_csv(r"C:\Users\Florian\Desktop\INFORMATIONS_SPATIALES\correction.csv")
               </code></pre>
 
   </div>
