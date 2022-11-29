@@ -40,28 +40,43 @@
           <br><br>
             <pre><code class="python">import pandas as pd
 
-#import des données dans le script
+# import des données dans le script
 df = pd.read_csv(r"C:\Users\Florian\Desktop\INFORMATIONS_SPATIALES\SOLAIRE_CSV.csv")
-df = df.rename(columns={"coordonnees": "lat", "1_f_code_insee_pdl": "lon","field_15":"code_insee","1_f_commune_pdl":"nom_com"})
+df = df.rename(
+    columns={
+        "coordonnees": "lat",
+        "1_f_code_insee_pdl": "lon",
+        "field_15": "code_insee",
+        "1_f_commune_pdl": "nom_com",
+    }
+)
 
-#création de la fonction prenant la date comme paramètre et regroupant les données par départements et par années
+# création de la fonction prenant la date comme paramètre et regroupant les données par départements et par années
 def dataframe(date):
-        return df.loc[df['date_des_donnees'] == date].groupby(['date_des_donnees','dep'])['count'].sum().reset_index()
-df5 = dataframe('2021-07')
-df5 = df5.drop(['date_des_donnees'], axis=1)
-releve = ["2017-12","2018-12","2019-12","2020-12"]
+    return (
+        df.loc[df["date_des_donnees"] == date]
+        .groupby(["date_des_donnees", "dep"])["count"]
+        .sum()
+        .reset_index()
+    )
 
-#boucle pour appeler la fonction selon les années choisies dans la liste au dessus
+
+df5 = dataframe("2021-07")
+df5 = df5.drop(["date_des_donnees"], axis=1)
+releve = ["2017-12", "2018-12", "2019-12", "2020-12"]
+
+# boucle pour appeler la fonction selon les années choisies dans la liste au dessus
 for i in releve:
-    df5 = df5.merge(dataframe(i)[["count","dep"]], on="dep", how="left")
+    df5 = df5.merge(dataframe(i)[["count", "dep"]], on="dep", how="left")
 
-df5.columns = ["dep","2021","2017","2018","2019","2020"]
-df5 = df5[["dep","2017","2018","2019","2020","2021"]]
+df5.columns = ["dep", "2021", "2017", "2018", "2019", "2020"]
+df5 = df5[["dep", "2017", "2018", "2019", "2020", "2021"]]
 df5 = df5.fillna(0)
-df5[["2017","2018","2019","2020"]] = df5[["2017","2018","2019","2020"]].astype(int)
-#export du fichier .csv dans le répertoire
-df5.to_csv(r"C:\Users\Florian\Desktop\INFORMATIONS_SPATIALES\correction.csv")
-              </code></pre>
+df5[["2017", "2018", "2019", "2020"]] = df5[["2017", "2018", "2019", "2020"]].astype(
+    int
+)
+# export du fichier .csv dans le répertoire
+df5.to_csv(r"C:\Users\Florian\Desktop\INFORMATIONS_SPATIALES\correction.csv")</code></pre>
 
   </div>
   
