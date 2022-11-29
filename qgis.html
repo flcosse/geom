@@ -28,19 +28,18 @@
     <div class="textaire">
     <p>
 
-        Cette carte interactive et les couches qu'elle contient ont été générées sur <span class="code">QGIS</span>. Les notes sont attribuées selon les critères suivants ;
+        Cette carte et les couches qu'elle contient ont été générées avec <span class="code">QGIS</span> et <span class="code">Python</span>. Les notes sont attribuées selon les critères suivants ;
         <ul style="list-style: disc;">
-            <li>Le terrain doit être orienté vers le Sud.</li>
-            <li>La pente doit être inférieur à 5°.</li>
-            <li>Le terrain se situe à moins de 10km d'une ligne de réseau électrique.</li>
-            <li>Les zones analysées doivent réposer sur des forêts, prairies ou potentiellement sur des champs.</li>
-            <li>Ces critères ont des ordres d'importance qui formeront une note finale.</li>
+            <li>Les données ont été formattées avec <span class="code">Pandas</span>.</li>
+            <li>La mise en page s'est faite sur QGIS.</li>
+
 
             </ul>
+            <p>La carte a été réalisée dans le cadre du cours Informations Spatiales et Géomatique du Master 1 Géographies Numériques.</p>
           </div>
-          </p>
-<img src="image/Carte.png" alt="" srcset="" style="max-width:100%;margin-bottom: 2%;border-radius: 12px;">
-          <br>
+          
+<img src="image/Carte.png" alt="" srcset="" style="max-width:100%;border-radius: 12px;">
+          <br><br>
             <pre><code class="python">import pandas as pd
 
 #import des données dans le script
