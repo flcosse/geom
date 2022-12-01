@@ -123,7 +123,7 @@ function getColor(d) {
            d > 28   ? '#cfe3ed' :
            d > 20.3 ? '#76b4d5' :
            d > 10   ? '#0571b0' :
-                      '#FFEDA0';
+                      'rgba(0,0,0,0)';
 }
 
 function depa(feature) {
@@ -168,7 +168,7 @@ function regi(feature) {
 	}
 L.geoJson(dep, {style:depa,
 	onEachFeature: function (feature, layer) {
-	layer.bindTooltip("test", {sticky:true});
+	layer.bindTooltip(feature.properties.NOM_DEP, {sticky:true});
 }}).addTo(map);
 
 
