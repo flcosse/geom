@@ -23,21 +23,22 @@
     <div class="container-fluid" id="navbar"></div>
       <div class="block">
       <div class="article">
-        <h1>Cartographie statique avec QGIS</h1>
+        <h1>Cartographie  avec Leaflet</h1>
 
     <div class="textaire">
     <p>
 
-        Cette carte et les couches qu'elle contient ont été générées avec <span class="code">QGIS</span> et <span class="code">Python</span>.La carte a été réalisée dans le cadre du cours Informations Spatiales et Géomatique du Master 1 Géographies Numériques.</p>
+        Cette carte et les couches qu'elle contient ont été générées avec <span class="code">Leaflet</span> et <span class="code">Python</span>.La carte a été réalisée dans le cadre du cours Informations Spatiales et Géomatique du Master 1 Géographies Numériques.</p>
 
         <ul style="list-style: disc;">
             <li>Les données ont été formattées avec <span class="code">Pandas</span>.</li>
-            <li>La mise en page s'est faite sur QGIS.</li>
+            <li>La mise en page s'est faite avec Leaflet.</li>
             </ul>
           </div>
           
-<img src="image/Carte.webp" alt="" srcset="" style="max-width:100%;border-radius: 6px;">
-          <br><br>
+          <div class="fi" style="text-align: center">
+            <iframe src="qleaflet.html"scrolling="no" style="position:relative;z-index:999;" frameBorder="0" height="80%" width="100%" title=""></iframe>
+          </div>  <br><br>
             <pre><code class="python">import pandas as pd
 
 # import des données dans le script
