@@ -160,12 +160,15 @@ var reg = {
 function regi(feature) {
 		return {
 			fillColor: "rgba(0,0,0,0)",
-			weight: 1,
+			weight: 0.7,
 			opacity: 1,
 			color: '#606060',
 			fillOpacity: 1
 		};
 	}
-L.geoJson(dep, {style: depa}).addTo(map);
-L.geoJson(reg, {style:regi}).addTo(map);
+L.geoJson(dep, {style:depa,
+	onEachFeature: function (feature, layer) {
+	layer.bindTooltip("test", {sticky:true});
+}}).addTo(map);
+
 
