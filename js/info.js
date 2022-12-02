@@ -1,7 +1,7 @@
 var map = L.map('map', {dragging: !L.Browser.mobile}).setView([46.856614, 2.3522219], 6);
 
 var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token=cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw', {
-	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="https://opendata.agenceore.fr/explore/dataset/installations-de-production-solaire-par-commune/information/">Données Agence ORE</a>',
 	minZoom: 0,
 	maxZoom: 22,
 	subdomains: 'abcd',
