@@ -168,7 +168,7 @@ function regi(feature) {
 	}
 L.geoJson(dep, {style:depa,
 	onEachFeature: function (feature, layer) {
-	layer.bindTooltip(feature.properties.NOM_DEP, {sticky:true});
+	layer.bindTooltip("<b>Département</b> " + feature.properties.NOM_DEP + "<br><b>Evolution</b> " + feature.properties.evol_sol.toString()	, {sticky:true});
 }}).addTo(map);
 
 
