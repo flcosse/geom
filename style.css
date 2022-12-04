@@ -210,8 +210,7 @@ p {
 
 
 .navbar.fixed-top {
-	backdrop-filter: blur(12px);
-	background-color: rgba(54, 54, 54, 0.6);
+	background-color: rgba(54, 54, 54, 1);
 	box-shadow: 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 10%) !important
 }
 
