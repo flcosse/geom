@@ -103,7 +103,7 @@ app.layout = html.Div([
                 )]
         ),
         html.Div([dcc.Graph(
-                    id="our_graph",
+                    id="graph",
                     style={"height": "40vh","position": "absolute","width": "98%","display": "none"},
                     config=config
                 )]
@@ -114,8 +114,8 @@ app.layout = html.Div([
 
 @app.callback(
     [Output("geojson", "data"),
-     Output("our_graph", "figure"),
-     Output("our_graph", "style")],
+     Output("graph", "figure"),
+     Output("graph", "style")],
     [Input("edit_control", "geojson")])
     def profil(x):
     coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])
