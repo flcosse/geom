@@ -181,13 +181,13 @@ var legend = L.control({position: "bottomleft"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style=''>Taux de croissance du<br>nombre d'installations<br>solaire </b>(en %)</h4>";
-    div.innerHTML += `<i style="background: #0571b0"></i><span>15 minutes</span><br>`;
-    div.innerHTML += '<i style="background:#76b4d5"></i><span>30 minutes</span><br>';
-    div.innerHTML += '<i style="background: #f6d6c8"></i><span>45 minutes</span><br>';
-    div.innerHTML += '<i style="background: #ec846e"></i><span>60 minutes</span><br>';
-	div.innerHTML += '<i style="background: #ca0020"></i><span>60 minutes</span><br>';
+    div.innerHTML += `<i style="background: #0571b0"></i><span>12 - 20</span><br>`;
+    div.innerHTML += '<i style="background:#76b4d5"></i><span>20 - 28</span><br>';
+    div.innerHTML += '<i style="background: #cfe3ed"></i><span>28 - 37</span><br>';
+    div.innerHTML += '<i style="background: #f6d6c8"></i><span>37 - 46</span><br>';
+	div.innerHTML += '<i style="background: #ec846e"></i><span>47 - 58</span><br>';
+	div.innerHTML += '<i style="background: #ca0020"></i><span>58 - 100</span><br>';
 
-	div.innerHTML += '<i style="background: #d6d6d6"></i><span>Données incomplètes</span><br>';
     return div;
 };
 
