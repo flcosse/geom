@@ -55,7 +55,7 @@ html {
 
 
 .card:hover .card-text {
-	color: #ebebeb99
+	color: #f3f3f399
 }
 
 h1 {
@@ -204,7 +204,7 @@ p {
 .card-text {
 	transition: color .3s;	
 	font-size: 15px;
-	color: #ebebeb99;
+	color: #f3f3f399;
 	padding-bottom: 1vh;
 }
 
@@ -324,9 +324,6 @@ p {
 .navbar.navbar-expand-lg.fixed-top {
 	border-radius: 2px !important;
 	transition: .3s linear;
-}
-
-.navbar.navbar-expand-lg.fixed-top.active {
 }
 
 ::-webkit-scrollbar-corner {
