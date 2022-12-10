@@ -482,15 +482,15 @@ ul {
   }
   .navbar-toggler-icon {
 	background-image: url('image/bars.png');
-	width: 90%;
+	width: 100%;
   }
   .navbar-toggler:hover{
-	background-color: #303030;
+	background-color: #515151;
 
   }
   .navbar-toggler:focus{
 	box-shadow: none;
-	background-color: #303030;
+	background-color: #515151;
   }
 
   #test{
