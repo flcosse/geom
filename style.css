@@ -61,7 +61,7 @@ html {
 h1 {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	font-weight: 700 !important;
-	color: #303030;
+	color: #363636;
 	margin-top: 7% !important;
 	letter-spacing: 1px;
 }
@@ -123,7 +123,7 @@ pre {
 .javascript.hljs.language-javascript,
 .python.hljs.language-python {
 	background-color: #ffffff !important;
-	color: #303030
+	color: #363636
 }
 
 .text {
@@ -196,7 +196,7 @@ p {
 }
 
 .card-title {
-	color: #303030;
+	color: #363636;
 	font-weight: 700;
 	padding-bottom: 0.2vh;
 }
@@ -345,13 +345,13 @@ p {
 }
 
 .pb-2.border-bottom {
-	color: #303030 !important;
+	color: #363636 !important;
 	font-weight: 700;
 	letter-spacing: 2px;
 }
 
 p {
-	color: #303030
+	color: #363636
 }
 
 a#link {
@@ -417,7 +417,7 @@ a#link {
 }
 
 .navbar.navbar-dark.navbar-expand-lg.fixed-top {
-	background-color: #303030 !important;
+	background-color: #363636 !important;
 	height:10%
 }
 
@@ -432,17 +432,17 @@ a#link {
 }
 
 li {
-	color: #303030 !important
+	color: #363636 !important
 }
 
 #spin {
 	margin-top: -45vh !important;
-	color: #303030 !important
+	color: #363636 !important
 }
 
 #spintext {
 	margin-top: -40vh !important;
-	color: #303030 !important
+	color: #363636 !important
 }
 
 .textaire {
@@ -464,7 +464,7 @@ ul {
 	margin-left: 5.5vh;
 	margin-top: .2vh;
 	font-weight: 500;
-	color:#303030 !important
+	color:#363636 !important
 }
 
 #resume {
@@ -506,7 +506,7 @@ ul {
 	box-shadow: rgba(0,0,0, 0.5) 1.95px 1.95px 2.6px;
 padding: 6px 8px;
 font: 110px Segoe UI;
-background: #303030;
+background: #363636;
 line-height: 210px;
 color: rgb(46, 46, 51);
 border-radius: 0.7vh;
@@ -514,7 +514,7 @@ border-radius: 0.7vh;
 
 
 .navbar.navbar-dark.bg-dark{
-   background-color: #303030  !important;
+   background-color: #363636  !important;
 }
 .navbar-brand{
 	color:#505050 !important
