@@ -485,7 +485,7 @@ ul {
 	background-image: none;
   }
   .navbar-toggler-icon {
-	background-image: url('image/bleach.png');
+	background-image: url('image/bars.png');
 	width: 90%;
   }
   .navbar-toggler:hover{
