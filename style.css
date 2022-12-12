@@ -121,7 +121,8 @@ pre {
 }
 
 .javascript.hljs.language-javascript,
-.python.hljs.language-python {
+.python.hljs.language-python,
+.sql.hljs.language-sql{
 	background-color: #303030 !important;
 	color: #ffffffde
 }
