@@ -27,8 +27,8 @@
       .zoom-img {
         width: 100%;
         height: 100%;
-        overflow: hidden;	border-top-left-radius: 12px !important;
-	border-top-right-radius: 12px !important;
+        overflow: hidden;	
+        border-radius: 12px;
 
       }
 
@@ -48,6 +48,7 @@
 	border-top-right-radius: 12px !important;
 
       }
+
     </style>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
@@ -77,74 +78,65 @@
       <div class="block">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card bg-dark text-white">
               <div class="zoom-img">
-                <img src="image/topo.jpg" class="card-img-top" alt="...">
-              </div>
-              <div class="card-body">
+              <img class="card-img" src="image/image.png" style="border-radius: 12px;" alt="Card image"></div>
+              <div class="card-img-overlay">
                 <h5 class="card-title">Profil topographique</h5>
                 <p class="card-text">Import d'un MNT pour réaliser des profils topographiques intéractifs avec Leaflet et Dash.</p>
-
-              </div>
+                </div>
             </div>
           </div>
     </a>
+    <a href="leaf.html" style="text-decoration: none;">
+      <div class="col">
+        <div class="card bg-dark text-white">
+          <div class="zoom-img">
+          <img class="card-img" src="image/na.png" style="border-radius: 12px;" alt="Card image"></div>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Cartographie Leaflet</h5>
+            <p class="card-text">Formattage de données avec Python puis adaptation en webmap d'une carte statique.</p>
+            </div>
+        </div>
+      </div>
+    </a>
     <a href="isochrone.html" style="text-decoration: none;">
       <div class="col">
-        <div class="card">
+        <div class="card bg-dark text-white">
           <div class="zoom-img">
-            <img src="image/travel.jpg" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Générateur d'isochrone</h5>
-            <p class="card-text">Utilisation de l'API d'Openrouteserivce pour la cartographie d'isochrone avec Leaflet</p>
-
-          </div>
+          <img class="card-img" src="image/iso.png" style="border-radius: 12px;" alt="Card image"></div>
+          <div class="card-img-overlay">
+            <h5 class="card-title" >Générateur d'isochrone</h5>
+            <p class="card-text" >Utilisation de l'API d'Openrouteserivce pour la cartographie d'isochrone avec Leaflet</p>
+            </div>
         </div>
       </div>
     </a>
     <a href="eol.html" style="text-decoration: none;">
       <div class="col">
-        <div class="card">
+        <div class="card bg-dark text-white">
           <div class="zoom-img">
-            <img src="image/wind.jpg" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
+          <img class="card-img" src="image/potentiel.png" style="border-radius: 12px;" alt="Card image"></div>
+          <div class="card-img-overlay">
             <h5 class="card-title">Potentiel éolien</h5>
             <p class="card-text">Analyse multicritère réalisée sur ArcGIS Pro dans le but d'identifier de nouveaux parcs éoliens.</p>
-
-          </div>
+            </div>
         </div>
       </div>
     </a>
     <a href="temp.html" style="text-decoration: none;">
       <div class="col">
-        <div class="card">
+        <div class="card bg-dark text-white">
           <div class="zoom-img">
-            <img src="image/temp.jpg" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
+          <img class="card-img" src="image/temp.png" style="border-radius: 12px;" alt="Card image"></div>
+          <div class="card-img-overlay">
             <h5 class="card-title">Analyse de température</h5>
             <p class="card-text">Analyses et visualisations interactives de données météos faites avec Pandas, Leaflet et Dash.</p>
-
-          </div>
+            </div>
         </div>
       </div>
     </a>
-    <a href="leaf.html" style="text-decoration: none;">
-      <div class="col">
-        <div class="card">
-          <div class="zoom-img">
-            <img src="image/SOLAR.jpg" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Cartographie Leaflet</h5>
-            <p class="card-text">Formattage de données avec Python puis adaptation en webmap d'une carte statique.</p>
 
-          </div>
-        </div>
-      </div>
-    </a>
     </div>
     </div>
     </a>
