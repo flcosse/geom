@@ -58,8 +58,8 @@ max-height: 50vh;
 }
 
 
-.card:hover .card-text {
-	color: #cdcdcd
+.card:hover .card-text, .card:hover .card-title{
+	opacity: 0.8 !important;
 }
 
 h1 {
