@@ -149,8 +149,6 @@ app.layout = html.Div(
      Output("our_graph", "style")],
     [Input("edit_control", "geojson")])
 def profil(x):
-    coord1 = (x["features"][-1]["geometry"]["coordinates"][0][0], x["features"][-1]["geometry"]["coordinates"][0][1])
-    coord2 = (x["features"][-1]["geometry"]["coordinates"][1][0], x["features"][-1]["geometry"]["coordinates"][1][1])
     src = rasterio.open(r'raster.tif')
     test = [tuple(x) for x in (x["features"][-1]["geometry"]["coordinates"])]
     line = LineString(test)
