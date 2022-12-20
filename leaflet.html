@@ -60,7 +60,7 @@ width: 3rem; height: 3rem
          .offcanvas-backdrop.show{
          opacity: 0 !important;
          }
-         #map { height: 92vh !important;margin-top:0vh; }
+         #map { height: 100% !important;margin-top:0vh; }
          label{
          color:#353535;
          margin-bottom: 0.2rem;
@@ -104,38 +104,54 @@ width: 3rem; height: 3rem
             min-height: 23px; 
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
          }
-         button#gen, button#pan, button#del{
+         button#gen, button#pan, button#del, button#test, button#hehe{
             background-color: white;
             border: 0px;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             max-height: 22px;
-            background-repeat: no-repeat
+            background-repeat: no-repeat;
+            border-radius: 2px;
+            color:rgba(0,0,0,0);
          }
 
          button#gen{
-            background-color: rgba(255, 255, 255, 1);
             background-image: url('image/crosshair.png');
             background-size: contain;
-            color:rgba(0,0,0,0)
 
          }
          button#gen:hover{
             background-color: #f9f9fa;
             background-image: url('image/crosshair.png');
          }
-         
+
+         button#hehe{
+            background-image: url('image/menu.png');
+            background-size: contain;
+
+         }
+         button#gen:hehe{
+            background-color: #f9f9fa;
+            background-image: url('image/menu.png');
+         }
+
+         button#test{
+            background-image: url('image/test.png');
+            background-size: contain;
+
+         }
+         button#test:hover{
+            background-color: #f9f9fa;
+            background-image: url('image/test.png');
+         }
          button#pan{
-            background-color: rgba(255, 255, 255, 1);
             background-image: url('image/pan.png');
             background-size: contain;
-            color:rgba(0,0,0,0);
-         }
+            }
          button#pan:hover{
             background-color: #f9f9fa;
             background-image: url('image/pan.png');
          }
          button#del{
-            background-color: white;
 
             background-image:  url('image/refresh.png') !important;
             background-size: contain;
@@ -184,12 +200,7 @@ width: 3rem; height: 3rem
   background-size: 18px;
   background-color: rgba(255, 255, 255, 1);
 }
-#test{
-   color:royalblue!important;
-}
-#test:hover{
-   color:white!important;
-}
+
 .container-fluid{
    background-color: #242424;
 }
@@ -215,17 +226,14 @@ width: 3rem; height: 3rem
       <title>Leaflet</title>
    </head>
    <body class="noselect">
-      <nav class="navbar navbar-dark" style="background-color: #242424;"> 
-         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#" style="position:absolute;margin-left:4rem !important">Carte interactive</a>
-            <div class="offcanvas offcanvas-start" style="padding:1rem" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-               <div class="offcanvas-header" >
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Paramètres</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-               </div>
+
+       
+       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+         <div class="offcanvas-header">
+           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Paramètres</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         </div>
+       
                <div class="offcanvas-body">
                   <label for="" style="margin-top:-2rem;z-index: 999;position: absolute;margin-bottom: 20% !important;">Cliquez sur la carte pour générer une requête et créer isochrone.</label>
                   <label for="" id="afflat" style="font-weight: 700;margin-top: 2rem;">Latitude : </label><label for="" id="llat"></label><br>
@@ -258,19 +266,21 @@ width: 3rem; height: 3rem
                      <option value="3600">60 minutes</option>
                      <option value="3600">Intervalle de 10 minutes</option>
                   </select>
-                  <label for="" style="font-weight: 700;margin-bottom: 2vh !important;" >Obtenir les isochrones générés</label><br><button class="btn btn-outline-primary" id="test" style="width:100%">Téléchargement</button>
 
                </div>
             </div>
          </div>
       </nav>
 
-      <div id="map" style="background-color:#fcfcfc"></div>          
-      <div class="opt" style="z-index:999;margin-left:5vh !important;margin-top:-92.8vh;padding:1rem;position:absolute">      
-      <button  type="button" data-toggle="tooltip" data-bs-html="true" title="Navigation" id="pan">N</button>
+      <div id="map" style="background-color:#fcfcfc"></div>      
+
+      <div class="opt" style="z-index:998;margin-left:4.4vh !important;margin-top:-100.8vh;padding:1rem;position:absolute">
+         <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="hehe" >G</button>
+         </a>      
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Génération"  id="gen" >G</button>
       <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Rafraîchir"  id="del" >G</button>
-         
+      <button type="button"  data-toggle="tooltip" data-bs-html="true" title="Télécharger"  id="test">     </button>
       </div><div class="d-flex justify-content-center">
          <div class="spinner-border text-primary" id="loading"role="status"></div></div>
          

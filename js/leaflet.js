@@ -7,14 +7,7 @@ var tile = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x
 
 tile.addTo(map);
 
-var pan = document.getElementById("pan");
-var gen = document.getElementById("gen");
 
-document.getElementById("gen").click();
-document.getElementById("pan").onclick = function() {
-    document.getElementById("map").style.cursor = "grab";
-    map.off('click')
-}
 
 document.getElementById("gen").onclick = function() {
     document.getElementById("map").style.cursor = "crosshair";
