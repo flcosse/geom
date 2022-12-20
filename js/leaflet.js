@@ -1,11 +1,8 @@
 var map = L.map('map', {dragging: !L.Browser.mobile}).setView([48.856614, 2.3522219], 8);
 
-var tile = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
-	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	minZoom: 0,
-	maxZoom: 22,
-	subdomains: 'abcd',
-	accessToken: 'cHwHz2jFd1k6blmFA6wnYur05s8mCVw6336l2GHmEEAWqvCNZ0dfQMazW83EJUHw'
+var tile = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 });
 
 tile.addTo(map);
@@ -64,16 +61,15 @@ document.getElementById("gen").onclick = function() {
             }
 
             function getColor(d) {
-                return d >= 3600 ? '#006837' :
-                       d >= 3000  ? '#006837' :
-                       d >= 2400  ? '#31a354' :
-                       d >= 1800  ? '#78c679' :
-                       d >= 1200   ? '#c2e699' :
-                       d >= 600   ? '#ffffcc' :
+                return d >= 3600 ? '#a8eb12' :
+                       d >= 3000  ? '#a8eb12' :
+                       d >= 2400  ? '#00e288' :
+                       d >= 1800  ? '#00cce4' :
+                       d >= 1200   ? '#00abff' :
+                       d >= 600   ? '#007afc' :
                        d > 0   ? '#FED976' :
                                   '#FFEDA0';
             }
-
             function style(feature) {
                 return {
                     fillColor: getColor(feature.properties.value),
@@ -132,11 +128,11 @@ var legend = L.control({position: "bottomleft"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='margin-left:-2vh !important'>Temps de trajet</h4>";
-    div.innerHTML += `<i style="background: #ffffcc"></i><span>15 minutes</span><br>`;
-    div.innerHTML += '<i style="background:#78c679"></i><span>30 minutes</span><br>';
-    div.innerHTML += '<i style="background: #31a354"></i><span>45 minutes</span><br>';
-    div.innerHTML += '<i style="background: #006837"></i><span>60 minutes</span><br>';
-    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to bottom, #ffffcc 0%, #ffffcc 20%, #31a354 40%, #31a354 60%,#006837 70%, #006837 80%)"></i><span>Interv. 10 minutes</span><br>';
+    div.innerHTML += `<i style="background: #007afc"></i><span>15 minutes</span><br>`;
+    div.innerHTML += '<i style="background:#00cce4"></i><span>30 minutes</span><br>';
+    div.innerHTML += '<i style="background: #00e288"></i><span>45 minutes</span><br>';
+    div.innerHTML += '<i style="background: #a8eb12"></i><span>60 minutes</span><br>';
+    div.innerHTML += '<i style="background-color: red;background-image:linear-gradient(to right, #007afc 0%, #007afc 35%, #00abff 35%, #00abff 70%,#a8eb12 70%, #a8eb12 100%)"></i><span>Interv. 10 minutes</span><br>';
     return div;
 };
 
