@@ -54,7 +54,7 @@ import numpy as np
 import pandas as pd
 import rasterio
 from pyproj import Geod
-from shapely.geometry import LineString
+from shapely.geometry import LineString, Point
 from shapely.ops import unary_union
 import plotly.graph_objects as go
 from statistics import mean
@@ -159,6 +159,17 @@ def profil(x):
     gdf = gdf.to_crs(2154)
     dist = []
     total = 0
+    total2 = 0
+    vl2 = []
+    vline = gpd.GeoDataFrame(crs="EPSG:4326", geometry=[Point(i) for i in test])
+    vline = vline.to_crs(2154)
+
+    for i in range(len(vline["geometry"])):
+        try:
+            total2 = total2 + vline["geometry"][i].distance(vline["geometry"][i + 1])
+            vl2.append(total2)
+        except:
+            vl2 = vl2[:-1]
 
     for i in range(len(gdf["geometry"])):
         try:
@@ -188,15 +199,16 @@ def profil(x):
             )
         ],
     )
+
+    for i in range(len(vl2)):
+        fig.add_vline(x=vl2[i]/1000, line_width=3,  line_color="#007afc", line_dash="dash",annotation_text=f"Arrêt {i+1}")
+
     moyenne = mean(y)
     moyenne = round(moyenne, 1)
     maxi = int(float(max(y)))
     pente = round(((y[-1] - y[0]) / max(leng)) * 100, 1)
     fig.update_yaxes(ticks="outside")
     fig.update_xaxes(ticks="outside")
-    fig.update(layout_yaxis_range=[0, maxi * 1.2])
-    fig.update(layout_xaxis_range=[0,dist[-1]*1.008])
-
     fig.update_xaxes(
         zeroline=True,
         zerolinewidth=2,
@@ -237,17 +249,7 @@ def profil(x):
             ),
         ),
     )
-    fig.add_trace(
-        go.Scatter(
-            x=[dist[-1]],
-            y=[y[-1]],
-            mode="markers",
-            line=go.scatter.Line(color="gray"),
-            showlegend=False,
-        marker_color="#32a848",
-        hoverinfo='skip')
-    )
-    fig.update_traces(marker_size=10)
+
     return x, fig, {"height": "33vh", "position": "absolute", "width": "99%", "display": "inline"}
 
 
