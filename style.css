@@ -121,7 +121,6 @@ pre {
 	margin-bottom: 1rem;
 	font-family: Consolas !important;
 	font-size: 15px !important;
-	border:1px solid #5454547a;
 }
 
 .javascript.hljs.language-javascript,
@@ -163,6 +162,7 @@ pre code {
 	font-family: monospace !important;
 	max-height: 80vh;
 	border-radius: 0.7vh !important;
+	border:1px solid #5454547a;
 }
 
 pre code::-webkit-scrollbar {
