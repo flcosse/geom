@@ -91,27 +91,22 @@ def profil(x):
     gdf = gpd.GeoDataFrame(index=[i for i in range(len(points))], crs='EPSG:4326', geometry=points)
     gdf['value'] = [x for x in src.sample([(x, y) for x, y in zip(gdf['geometry'].x, gdf['geometry'].y)])]
     gdf = gdf.to_crs(2154)
-    dist = []
-    total = 0
-    total2 = 0
-    vl2 = []
     vline = gpd.GeoDataFrame(crs="EPSG:4326", geometry=[Point(i) for i in test])
     vline = vline.to_crs(2154)
 
-    for i in range(len(vline["geometry"])):
-        try:
-            total2 = total2 + vline["geometry"][i].distance(vline["geometry"][i + 1])
-            vl2.append(total2)
-        except:
-            vl2 = vl2[:-1]
-
-    for i in range(len(gdf["geometry"])):
-        try:
-            total = total + gdf["geometry"][i].distance(gdf["geometry"][i + 1])
-            dist.append(total)
-        except:
-            dist.insert(0,0)
-
+    def distance(liste):
+        total = 0
+        result = []
+        for i in range(len(liste)):
+            try:
+                total = total + liste[i].distance(liste[i + 1])
+                result.append(total)
+            except:
+                pass
+        return result
+    
+    dist = distance(gdf["geometry"])
+    dist.insert(0,0)
     gdf["Distance"] = dist
     gdf = gdf.sort_values(by='Distance', ascending=True)
     gdf['value'] = gdf['value'].astype("float")
@@ -133,9 +128,8 @@ def profil(x):
             )
         ],
     )
-
-    for i in range(len(vl2)):
-        fig.add_vline(x=vl2[i]/1000, line_width=3,  line_color="#007afc", line_dash="dash",annotation_text=f"Arrêt {i+1}")
+    for i in range(len(distance(vline["geometry"][:-1]))):
+        fig.add_vline(x=distance(vline["geometry"])[i]/1000, line_width=3,  line_color="#007afc", line_dash="dash",annotation_text=f"Arrêt {i+1}")
 
     moyenne = mean(y)
     moyenne = round(moyenne, 1)
@@ -151,6 +145,9 @@ def profil(x):
         gridwidth=0.1,
         gridcolor="rgba(0,0,1,0)",
     )
+    fig.update_layout(yaxis_range=[min(y)*0.9,max(y)*1.1])
+    fig.add_hline(y=min(y)*0.9, line_color="#ebebeb", line_width=4)
+    fig.layout.yaxis.fixedrange = True
     fig.update_yaxes(
         zeroline=True,
         zerolinewidth=2,
