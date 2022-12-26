@@ -104,7 +104,7 @@ def profil(x):
             except:
                 pass
         return result
-    
+
     dist = distance(gdf["geometry"])
     dist.insert(0,0)
     gdf["Distance"] = dist
@@ -113,7 +113,6 @@ def profil(x):
     y = gdf["value"].to_list()
     dist = dist[:-1]
     y = y[:-1]
-    leng = dist
     dist = list(np.around(np.array(np.divide(dist, 1000)), 3))
     fig = go.Figure(
         data=[
@@ -124,17 +123,15 @@ def profil(x):
                 fill="tozeroy",
                 line_color="#32a848",
                 mode="lines",
-                showlegend=False
+                showlegend=False,
             )
         ],
     )
+
     for i in range(len(distance(vline["geometry"][:-1]))):
         fig.add_vline(x=distance(vline["geometry"])[i]/1000, line_width=3,  line_color="#007afc", line_dash="dash",annotation_text=f"Arrêt {i+1}")
-
-    moyenne = mean(y)
-    moyenne = round(moyenne, 1)
-    maxi = int(float(max(y)))
-    pente = round(((y[-1] - y[0]) / max(leng)) * 100, 1)
+        
+    moyenne = round(mean(y),1)
     fig.update_yaxes(ticks="outside")
     fig.update_xaxes(ticks="outside")
     fig.update_xaxes(
@@ -145,6 +142,7 @@ def profil(x):
         gridwidth=0.1,
         gridcolor="rgba(0,0,1,0)",
     )
+
     fig.update_layout(yaxis_range=[min(y)*0.9,max(y)*1.1])
     fig.add_hline(y=min(y)*0.9, line_color="#ebebeb", line_width=4)
     fig.layout.yaxis.fixedrange = True
@@ -156,6 +154,7 @@ def profil(x):
         gridwidth=0.1,
         gridcolor="rgba(0,0,0,0)",
     )
+
     fig.update_yaxes(title_text="Altitude (m)",)
     fig.update_layout(
         {
