@@ -110,9 +110,8 @@ def profil(x):
     gdf["Distance"] = dist
     gdf = gdf.sort_values(by='Distance', ascending=True)
     gdf['value'] = gdf['value'].astype("float")
-    y = gdf["value"].to_list()
+    y = gdf["value"].to_list()[:-1]
     dist = dist[:-1]
-    y = y[:-1]
     dist = list(np.around(np.array(np.divide(dist, 1000)), 3))
     fig = go.Figure(
         data=[
