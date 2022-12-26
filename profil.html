@@ -39,7 +39,7 @@
         </div>
 <br>
          <div class="fi" style="text-align: center">
-            <iframe src="https://dash-topo2.herokuapp.com/" scrolling="no" style="position:relative;z-index:999;" frameBorder="0" height="140%" width="100%" title=""></iframe>
+            <iframe src="http://127.0.0.1:8050/" scrolling="no" style="position:relative;z-index:999;" frameBorder="0" height="140%" width="100%" title=""></iframe>
             
             <div class="spinner-border text-primary" id="spin" role="status"></div>
                 <span class="visually-hidden" >Loading...</span>
@@ -84,14 +84,14 @@ app.layout = html.Div([])
     [Input("edit_control", "geojson")])
 def profil(x):
     src = rasterio.open(r'raster.tif')
-    test = [tuple(x) for x in (x["features"][-1]["geometry"]["coordinates"])]
-    line = LineString(test)
+    lines = [tuple(x) for x in (x["features"][-1]["geometry"]["coordinates"])]
+    line = LineString(lines)
     distances = np.arange(0, line.length, math.log2(Geod(ellps="WGS84").geometry_length(line)) / 100000)
     points = [line.interpolate(distance) for distance in distances] + [line.boundary[1]]
     gdf = gpd.GeoDataFrame(index=[i for i in range(len(points))], crs='EPSG:4326', geometry=points)
     gdf['value'] = [x for x in src.sample([(x, y) for x, y in zip(gdf['geometry'].x, gdf['geometry'].y)])]
     gdf = gdf.to_crs(2154)
-    vline = gpd.GeoDataFrame(crs="EPSG:4326", geometry=[Point(i) for i in test])
+    vline = gpd.GeoDataFrame(crs="EPSG:4326", geometry=[Point(i) for i in lines])
     vline = vline.to_crs(2154)
 
     def distance(liste):
