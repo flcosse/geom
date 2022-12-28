@@ -96,7 +96,7 @@ def profil(x):
 
     def distance(liste):
         total = 0
-        result = [0]*len(liste)
+        result = [None]*len(liste)
         for i in range(len(liste)):
             try:
                 total = total + liste[i].distance(liste[i + 1])
