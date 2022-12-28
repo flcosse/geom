@@ -1,7 +1,15 @@
-def oui():
-    return [1,2,3,4]
+from datetime import datetime
+startTime = datetime.now()
+oui = [i for i in range(10000000)]
+def distance(l):
+    total = 0
+    dist = [0]*len(i)
+    for i in range(len(l)):
+        try:
+            total = total + l[i] + l[i+1]
+            dist[i] = total 
+        except:
+            pass
+    return dist
 
-test = oui()[:-1]
-
-print(test)
-
+print(datetime.now() - startTime)
